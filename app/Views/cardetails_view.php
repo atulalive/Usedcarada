@@ -7,7 +7,7 @@
 
 	<br>
 
-
+	
 	
 	<section class="sptb detils-sptb">
 		<div id="main-content" class="container">
@@ -65,19 +65,42 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="panel-group1" id="accordion2">
+										<!-- PRoduct Overview -->
 										<div class="panel panel-default">
 											<div class="panel-heading1 ">
 												<h4 class="panel-title1">
-													<a class="accordion-toggle collapsed border" data-toggle="collapse" data-parent="#accordion2" href="#car-comapre-1" aria-expanded="false">Overview</a>
+													<a class="accordion-toggle collapsed border" data-toggle="collapse" data-parent="#accordion2" href="#car-overview-1" aria-expanded="false">Overview</a>
 												</h4>
 											</div>
-											<div id="car-comapre-1" class="accordion" role="tabpanel" aria-expanded="false">
+											<div id="car-overview-1" class="accordion" role="tabpanel" aria-expanded="false">
 												<div class="panel-body border border-top-0 bg-white">
-													<p>Killington odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atcorrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-													<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoraliz the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble thena bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.</p>
+													<div class="table-responsive">
+														<div class="container">										
+															<div class="row">
+																<div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+																	<div class="row">
+																		<?php 
+																			unset($product['overview']->id, $product['overview']->pro_id, $product['overview']->deleted);
+																			foreach($product['overview'] as $overviewKey => $overviewVal){ 																			
+																		?>
+																		<div class="col-xl-4 col-lg-4 col-sm-4 col-4">
+																			<dl class="card-text">
+																				<dt><?php echo str_replace('_',' ',ucwords($overviewKey)); ?></dt>
+																				<dd><?php echo ($overviewVal != '')?ucwords($overviewVal) : 'NA'; ?></dd>
+																			</dl>
+																		</div>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
+										<!-- PRoduct Overview -->
+
+										<!-- PRoduct Benifit -->
 										<div class="panel panel-default">
 											<div class="panel-heading1">
 												<h4 class="panel-title1">
@@ -156,6 +179,7 @@
 												</div>
 											</div>
 										</div>
+										<!-- PRoduct Benifit -->
 										<div class="panel panel-default">
 											<div class="panel-heading1">
 												<h4 class="panel-title1">

@@ -84,9 +84,10 @@
 	<?php
 
 	echo view('trustedUsedCar_view.php');
+	echo view('budget_view.php');
 	echo view('mostUsedCar_view.php');
 	echo view('popularbrands_view.php');
-	echo view('lestedcar_view.php');
+	// echo view('lestedcar_view.php');
 
 	echo view('usedcar_topcities_view.php');
 

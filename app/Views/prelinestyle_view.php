@@ -35,6 +35,14 @@
 		border-bottom: 1px solid rgb(0 0 0 / 10%) !important;
 	}
 	
+	.card-body .row .col-xl-12.col-lg-12.col-sm-12.col-12 .row .col-sm-4 {
+		border-bottom: 1px solid rgb(0 0 0 / 10%) !important;
+	}
+	
+	.card-body .row .col-xl-12.col-lg-12.col-sm-12.col-12 .row .col-sm-4 {
+		border-bottom: 1px solid rgb(0 0 0 / 10%) !important;
+	}
+	
 	/* cardetils div end   */
 
 	.modal-content {

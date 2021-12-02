@@ -241,5 +241,15 @@ $(document).ready(function () {
 
 		$()
 	}
+
+	var obj = {};
+	$('ul.items-blog-tab-menu li.budget-range').each(function(){
+		var text = $.trim($(this).text());
+		if(obj[text]){
+			$(this).remove();
+		} else {
+			obj[text] = true;
+		}
+	})
 });
 /* Sandesh: custome for Header end   */
