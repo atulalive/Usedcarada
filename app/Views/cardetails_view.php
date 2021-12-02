@@ -7,8 +7,8 @@
 
 	<br>
 
-	
-	
+
+
 	<section class="sptb detils-sptb">
 		<div id="main-content" class="container">
 			<div class="row">
@@ -28,7 +28,7 @@
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i> 5 hours ago</a></li>
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li>
 									</ul>
-									
+
 									<div class="rating-stars d-flex">
 										<div class="rating-stars-container mr-2">
 											<div class="rating-star sm">
@@ -42,12 +42,12 @@
 								<div id="carousel" class="carousel slide" data-ride="carousel">
 									<!-- <div class="arrow-ribbon2 bg-primary">₹ 5,00,000</div> -->
 									<div class="carousel-inner">
-										<?php 
-											echo '<div class="carousel-item active"> <img src="'.URL_IMAGES_MEDIA.strtolower($product[0]['product_category']).URL_SEPARATOR.strtolower($product['image'][0]['product_image']).'" alt="img"> </div>';
-											foreach($product['image'] as $k => $image){
-												if ($k <= 1) continue;
-												echo '<div class="carousel-item"> <img src="'.URL_IMAGES_MEDIA.strtolower($product[0]['product_category']).URL_SEPARATOR.strtolower($image['product_image']).'" alt="img"> </div>';
-											}
+										<?php
+										echo '<div class="carousel-item active"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . strtolower($product['image'][0]['product_image']) . '" alt="img"> </div>';
+										foreach ($product['image'] as $k => $image) {
+											if ($k <= 1) continue;
+											echo '<div class="carousel-item"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . strtolower($image['product_image']) . '" alt="img"> </div>';
+										}
 										?>
 									</div>
 									<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
@@ -75,20 +75,20 @@
 											<div id="car-overview-1" class="accordion" role="tabpanel" aria-expanded="false">
 												<div class="panel-body border border-top-0 bg-white">
 													<div class="table-responsive">
-														<div class="container">										
+														<div class="container">
 															<div class="row">
 																<div class="col-xl-12 col-lg-12 col-sm-12 col-12">
 																	<div class="row">
-																		<?php 
-																			unset($product['overview']->id, $product['overview']->pro_id, $product['overview']->deleted);
-																			foreach($product['overview'] as $overviewKey => $overviewVal){ 																			
+																		<?php
+																		unset($product['overview']->id, $product['overview']->pro_id, $product['overview']->deleted);
+																		foreach ($product['overview'] as $overviewKey => $overviewVal) {
 																		?>
-																		<div class="col-xl-4 col-lg-4 col-sm-4 col-4">
-																			<dl class="card-text">
-																				<dt><?php echo str_replace('_',' ',ucwords($overviewKey)); ?></dt>
-																				<dd><?php echo ($overviewVal != '')?ucwords($overviewVal) : 'NA'; ?></dd>
-																			</dl>
-																		</div>
+																			<div class="col-xl-4 col-lg-4 col-sm-4 col-4">
+																				<dl class="card-text">
+																					<dt><?php echo str_replace('_', ' ', ucwords($overviewKey)); ?></dt>
+																					<dd><?php echo ($overviewVal != '') ? ucwords($overviewVal) : 'NA'; ?></dd>
+																				</dl>
+																			</div>
 																		<?php } ?>
 																	</div>
 																</div>
@@ -263,43 +263,18 @@
 						<div class="card-header">
 							<h3 class="card-title">Car Specifications</h3>
 						</div>
-						<div class="card-body">
-							<div class="row">
-								<div class="col-xl-12 col-lg-12 col-sm-12 col-12">
-									<div class="row">
-										<div class="col-sm-4">
-											<dl class="card-text">
-												<dt>Make Year</dt>
-												<dd>2017</dd>
-											</dl>
-										</div>
-										<div class="col-sm-4">
-											<dl class="card-text">
-												<dt>Reg. year</dt>
-												<dd>2017</dd>
-											</dl>
-										</div>
-										<div class="col-sm-4">
-											<dl class="card-text">
-												<dt>Fuel</dt>
-												<dd>Petro</dd>
-											</dl>
-										</div>
-										<div class="col-sm-4">
-											<dl class="card-text">
-												<dt>KMs Driven</dt>
-												<dd>49,153 Kms</dd>
-											</dl>
-										</div>
-										<div class="col-sm-4">
-											<dl class="card-text">
-												<dt>Engine Displacement</dt>
-												<dd>1197 cc</dd>
-											</dl>
-										</div>
-									</div>
+						<div class="row" style="padding-left:20px; padding-top:20px;">
+							<?php
+							unset($product['specifications']->id, $product['specifications']->pro_id, $product['specifications']->deleted);
+							foreach ($product['specifications'] as $specificationsKey => $specificationsVal) {
+							?>
+								<div class="col-xl-4 col-lg-4 col-sm-4 col-4">
+									<dl class="card-text">
+										<dt><?php echo str_replace('_', ' ', ucwords($specificationsKey)); ?></dt>
+										<dd><?php echo ($specificationsVal != '') ? ucwords($specificationsVal) : 'NA'; ?></dd>
+									</dl>
 								</div>
-							</div>
+							<?php } ?>
 						</div>
 
 					</div>

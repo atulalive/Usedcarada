@@ -25,6 +25,7 @@ class Home extends BaseController
         $data['key'] = $key;
         $data['product'] = $pro_detail->product_detail($data);
         $data['product']['overview'] = $pro_detail->getProductOverview(['product_id' => $data['product'][0]['pro_id'],'single'=>true,'print'=>false]);
+        $data['product']['specifications'] = $pro_detail->getProductspecifications(['product_id' => $data['product'][0]['pro_id'],'single'=>true,'print'=>false]);
         
         if($data['product'][0]['product_alias_name'] == $id){
             $data['product']['image'] = $pro_detail->product_image(['pro_id' => $data['product'][0]['pro_id'], 'product_alias_name' => $data['product'][0]['product_alias_name']]);
