@@ -214,4 +214,31 @@ class Products extends Model
             return $query->getResultArray();
         }
     }
+    ###########################
+    ### PRoduct Specifications ######
+    ###########################
+
+    function getProductspecifications($data)
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+
+        if (!empty($data['product_id'])) {
+            $query = $this->db->query("SELECT `id`, `pro_id`, `mileage`, `engine`, `max_power`, `torque`, `wheel_size`, `seats`, `color`, `deleted` 
+                                    FROM `product_specifications` 
+                                    WHERE `deleted` = 0 AND `pro_id` = ".$data['product_id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT `id`, `pro_id`, `mileage`, `engine`, `max_power`, `torque`, `wheel_size`, `seats`, `color`, `deleted`
+                                    FROM `product_specifications` 
+                                    WHERE `deleted` = 0");
+        }
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
 }
