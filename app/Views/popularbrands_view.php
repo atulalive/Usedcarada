@@ -1,10 +1,4 @@
-<?php
 
-use App\Models\Products;
-
-$pro_detail = new Products();
-
-$product_brand = $pro_detail->getProductbrand($data);?>
 <section class="sptb">
 	<div class="container ">
 		<div class="card">
