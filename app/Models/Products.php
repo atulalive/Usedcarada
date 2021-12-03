@@ -247,6 +247,7 @@ class Products extends Model
     ###########################
 
     function get_product_brands($data=null)
+
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -293,10 +294,12 @@ class Products extends Model
                                     WHERE `deleted` = 0");
         }
 
+
         if ($data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
         }
     }
+
 }

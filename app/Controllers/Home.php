@@ -11,8 +11,11 @@ class Home extends BaseController
     
     public function index()
     {
+       
         return view('index_view');
     }
+
+
 
     public function about()
     {
@@ -32,6 +35,15 @@ class Home extends BaseController
         }
         return view('cardetails_view',$data);
     }
+    public function popularbrands($key, $id)
+    {
+        $pro_detail = new Products();
+        $data['id'] = $id;
+        $data['key'] = $key;
+        $data['product']['brand'] = $pro_detail->getProductbrand(['product_id' => $data['product'][0]['id'],'single'=>true,'print'=>false]);
+    }
+    
+    
     public function usedcar()
     {
         return view('usedcar_view');
