@@ -242,7 +242,6 @@ class Products extends Model
         }
     }
 
-
     ###########################
     ### Popular Brands ########
     ###########################
@@ -255,7 +254,6 @@ class Products extends Model
             print_r( $this->db->lastQuery); die;
             echo "</pre>";
         }
-
 
         if (!empty($data['brand_id'])) {
             $query = $this->db->query("SELECT `id`, `brand_name`, `brand_thumbnail_image`, `deleted` 
@@ -297,7 +295,7 @@ class Products extends Model
         }
 
 
-       if ($data['single']) {
+        if ($data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
