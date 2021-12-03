@@ -24,7 +24,7 @@
 								<div class=" d-flex">
 									<ul class="d-flex mb-0">
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
-										<li class="mr-5"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i> USA</a></li>
+										<li class="mr-5"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i> India</a></li>
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i> 5 hours ago</a></li>
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li>
 									</ul>
@@ -263,7 +263,11 @@
 						<div class="card-header">
 							<h3 class="card-title">Car Specifications</h3>
 						</div>
-						<div class="row" style="padding-left:20px; padding-top:20px;">
+						
+						<div class="card-body" style="padding-left:20px; padding-top:20px;">
+						<div class="row">
+						<div class="col-xl-12 col-lg-12 col-sm-12 col-12">
+							<div class="row">
 							<?php
 							unset($product['specifications']->id, $product['specifications']->pro_id, $product['specifications']->deleted);
 							foreach ($product['specifications'] as $specificationsKey => $specificationsVal) {
@@ -275,9 +279,9 @@
 									</dl>
 								</div>
 							<?php } ?>
-						</div>
+						</div></div></div>
 
-					</div>
+					</div></div>
 					<!--/Specification-->
 
 					<!--Comments-->

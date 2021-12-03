@@ -241,4 +241,32 @@ class Products extends Model
             return $query->getResultArray();
         }
     }
+    ###########################
+    ### PRoduct brand ######
+    ###########################
+
+    function getProductbrand($data)
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+
+        if (!empty($data['product_id'])) {
+            $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`,`year`,  `deleted` 
+                                    FROM `product_brand` 
+                                    WHERE `deleted` = 0 AND `pro_id` = ".$data['product_id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `machine_name`, `brand_name`,`brand_thumbnail_image`, `year`,  `deleted` 
+                                    FROM `product_brand` 
+                                    WHERE `deleted` = 0");
+        }
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+    
 }
