@@ -20,7 +20,7 @@ class Products extends Model
     ### PRoduct Info ##########
     ###########################
 
-    function product_detail($data)
+    function product_detail($data=null)
     {   
         if ($data['print']) {
             echo "<pre></br>";
@@ -62,7 +62,7 @@ class Products extends Model
     ### PRoduct Image #########
     ###########################
 
-    function product_image($data)
+    function product_image($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -83,7 +83,7 @@ class Products extends Model
     ### PRoduct Category ######
     ###########################
 
-    function get_product_category($data)
+    function get_product_category($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -108,7 +108,7 @@ class Products extends Model
     ## PRoduct Category / SUB #
     ###########################
 
-    function get_product_sub_category($data)
+    function get_product_sub_category($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -137,7 +137,7 @@ class Products extends Model
     ### PRoduct SUB Category ##
     ###########################
 
-    function get_sub_category_product_list($data)
+    function get_sub_category_product_list($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -166,7 +166,7 @@ class Products extends Model
     ### PRoduct Price Range ###
     ###########################
 
-    function getBudegetPriceRange($data)
+    function getBudegetPriceRange($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -191,7 +191,7 @@ class Products extends Model
     ### PRoduct Overview ######
     ###########################
 
-    function getProductOverview($data)
+    function getProductOverview($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -215,10 +215,10 @@ class Products extends Model
         }
     }
     ###########################
-    ### PRoduct Specifications ######
+    ## PRoduct Specifications #
     ###########################
 
-    function getProductspecifications($data)
+    function getProductspecifications($data=null)
     {
         if ($data['print']) {
             echo "<pre></br>";
@@ -235,6 +235,64 @@ class Products extends Model
                                     FROM `product_specifications` 
                                     WHERE `deleted` = 0");
         }
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+
+    ###########################
+    ### Popular Brands ########
+    ###########################
+
+    function get_product_brands($data=null)
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+
+        if (!empty($data['brand_id'])) {
+            $query = $this->db->query("SELECT `id`, `brand_name`, `brand_thumbnail_image`, `deleted` 
+                                    FROM `product_brand` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['brand_id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT `id`, `brand_name`, `brand_thumbnail_image`, `deleted` 
+                                    FROM `product_brand` 
+                                    WHERE `deleted` = 0");
+        }
+
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }    
+
+    ###########################
+    ### Product Model #########
+    ###########################
+
+    function get_product_model($data=null)
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+
+        if (!empty($data['brand_id'])) {
+            $query = $this->db->query("SELECT `id`, `brand_name`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
+                                    FROM `product_model` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['brand_id']);
+        } else {
+            $query = $this->db->query("SELECT `id`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
+                                    FROM `product_model` 
+                                    WHERE `deleted` = 0");
+        }
+
         if ($data['single']) {
             return $query->getFirstRow();
         }else {
