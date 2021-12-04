@@ -1,3 +1,14 @@
+<?php
+
+use App\Models\Products;
+
+$pro_detail = new Products();
+$budget_best_price_range = $pro_detail->getBudegetPriceRange();
+$sub_category = $pro_detail->get_product_sub_category(['category' => 'cars']);
+$brand = $pro_detail->get_product_brands(['is_brand' => true]);
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 <?php echo view('header.php'); ?>
@@ -20,44 +31,59 @@
 									<div class="row">
 										<div class="form-group col-6">
 											<label class="custom-control custom-radio mr-4">
-												<input type="radio" class="custom-control-input" name="example-radios3" value="option1" checked>
+												<input type="radio" class="custom-control-input" name="by-Budget-Model" value="budget" checked onchange="filterByBudgetByModel(this)">
 												<span class="custom-control-label">By Budget</span>
 											</label>
 										</div>
 										<div class="form-group col-6">
 											<label class="custom-control custom-radio">
-												<input type="radio" class="custom-control-input" name="example-radios3" value="option2">
+												<input type="radio" class="custom-control-input" name="by-Budget-Model" value="model" onchange="filterByBudgetByModel(this)">
 												<span class="custom-control-label">By Model</span>
 											</label>
 										</div>
 									</div>
-									<div class="row">
+									<div id="for-budget" class="row">
 										<div class="col-md-12">
 											<div class="form-group search-cars1">
-												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" data-placeholder="Select">
-													<option>Select Budget</option>
-													<option value="1">1 - 5 Lac</option>
-													<option value="2">6 - 10 Lac</option>
-													<option value="3">11 - 15 Lac</option>
-													<option value="4">16 - 20 Lac</option>
+												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" name="budget-select" data-placeholder="Select">
+													<option value="null">Select Budget</option>
+													<?php foreach ($budget_best_price_range as $k => $value) {
+														echo '<option value="' . $value['id'] . '">' . ucwords($value['display_price_range']) . '</option>';
+													} ?>
 												</select>
 											</div>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group search-cars1">
-												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" data-placeholder="Select">
-													<option>All Vechicle Type</option>
-													<option value="1">Hatchbak</option>
-													<option value="2">Sedan</option>
-													<option value="3">SUV</option>
-													<option value="4">MUV</option>
-													<option value="5">Luxury</option>
-													<option value="6">LXI</option>
+												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" name="vechicle-select" data-placeholder="Select">
+													<option value="null">All Vechicle Type</option>
+													<?php foreach ($sub_category as $k => $value) {
+														echo '<option value="' . $value['sub_category_alias_name'] . '">' . ucwords($value['sub_category_name']) . '</option>';
+													} ?>
 												</select>
 											</div>
 										</div>
 									</div>
-									<a class="btn btn-primary btn-lg btn-block" href="#">Get Quote</a>
+									<div id="for-model" class="row">
+										<div class="col-md-12">
+											<div class="form-group search-cars1">
+												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" name="brand-select" data-placeholder="Select" onchange="loadModelList(this)">
+													<option value="null">Select Brand</option>
+													<?php foreach ($brand as $k => $value) {
+														echo '<option value="' . $value['machine_name'] . '">' . ucwords($value['brand_name']) . '</option>';
+													} ?>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group search-cars1">
+												<select class="form-control select2-show-search border-bottom-0 w-100 br-3" name="model-select" data-placeholder="Select Model">
+													<option value="null">Select Model</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<button type="button" id="btn-search" name="btn-search" class="btn btn-primary btn-lg btn-block" onclick="getSearch(this)">Search</button>
 								</div>
 							</div>
 						</div>

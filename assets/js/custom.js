@@ -238,8 +238,6 @@ $(document).ready(function () {
 	if ($(window).width() <= 767) {
 		$('div#horizontal-main-header').html('');
 		$('div#horizontal-main-header').html(responsive_header);
-
-		$()
 	}
 
 	var obj = {};
@@ -251,5 +249,77 @@ $(document).ready(function () {
 			obj[text] = true;
 		}
 	})
+
+	filterByBudgetByModel();
 });
+
+function filterByBudgetByModel(scope){
+	
+	$('#for-model').hide();
+	if($(scope).val() == 'budget'){
+		$('#for-budget').show();
+		$('#for-model').hide();
+		$('select[name="brand-select"] option[value="null"]').attr('selected','selected');
+		$('select[name="model-select"] option[value="null"]').attr('selected','selected');
+
+	}else if($(scope).val() == 'model'){
+		$('#for-budget').hide();
+		$('#for-model').show();
+		// $('select[name="budget-select"], select[name="vechicle-select"], select[name="brand-select"], select[name="model-select"]').attr('selectedIndex',0);
+		$('select[name="budget-select"] option[value="null"]').attr('selected','selected');
+		$('select[name="vechicle-select"] option[value="null"]').attr('selected','selected');
+	}
+}
+
+function loadModelList(scope){
+	var brandVal = $(scope).val();
+	var base_url = window.location.origin;
+	$('select[name="model-select"]').html('');
+	
+	// alert(brandVal);
+	if((brandVal != 'undefined') && (brandVal.length != 0)){
+
+		var request = $.ajax({
+			url: base_url+"/for-model",
+			dataType: "json",
+			async: true,
+            method: 'post',
+			data: {id : brandVal},
+			success: function (response) {
+				// console.log(response);
+				if (response.ticket) {
+                    if (response.succeed) {
+                        $('select[name="model-select"]').append('<option value="null">Select Model</option>');
+						$.each(response.data, function (i, value) {
+							$('select[name="model-select"]').append($('<option>').text(value.name).attr('value', value.machine_name));
+                        });
+					}
+				}
+			}  
+		});
+	}
+}
+
+function getSearch(scope){
+	// alert($('select[name="budget-select"]').val());
+	var base_url = window.location.origin;
+	var budget = $('select[name="budget-select"]').val(),
+		vechicle = $('select[name="vechicle-select"]').val(),
+		brand = $('select[name="brand-select"]').val(),
+		model = $('select[name="model-select"]').val();
+
+	if(budget != 'null' && vechicle != 'null'){
+		$(location).attr('href',base_url+'/budget/'+budget+'/'+vechicle);
+	}else if(brand != 'null' && model != 'null'){
+		$(location).attr('href',base_url+'/model/'+brand+'/'+model);
+	}else{
+		Swal.fire({
+			icon: 'warning',
+			title: 'Oops...',
+			text: 'Please Re-select option',
+			footer: '<a href="'+base_url+'">Please refresh for better response.</a>'
+		})
+	}	
+}
+
 /* Sandesh: custome for Header end   */
