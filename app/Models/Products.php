@@ -188,7 +188,11 @@ class Products extends Model
                                 FROM `products_price_range` 
                                 WHERE `deleted` = 0 ");
         }
-        return $query->getResultArray();
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
     }
 
     ###########################
@@ -330,18 +334,19 @@ class Products extends Model
         // print_r($data);
         if (!empty($data['type'])) {
             if ($data['type'] == 'budget') {
-                $getBudegetPriceRange = $this->getBudegetPriceRange(['price_id'=>$data['first'], 'select'=>true]);
+                $getBudegetPriceRange = $this->getBudegetPriceRange(['price_id'=>$data['first'], 'single'=>true]);
+                // print_r($getBudegetPriceRange);die;
                 $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
-                                    product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year
+                                    product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`
                                     FROM products 
                                     INNER JOIN product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                    INNER JOIN products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0
                                     INNER JOIN product_brand_model_mapping ON product_brand_model_mapping.products_id = products.pro_id AND product_brand_model_mapping.deleted = 0
                                     INNER JOIN product_brand ON product_brand.id = product_brand_model_mapping.brand_id AND product_brand.deleted = 0 #AND product_brand.machine_name = 'maruti'
                                     INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id AND product_model.deleted = 0 #AND product_model.machine_name = 'celerio'
                                     INNER JOIN products_category_mapping ON products_category_mapping.pro_id = products.pro_id AND products_category_mapping.deleted = 0
                                     INNER JOIN products_sub_category ON products_sub_category.id = products_category_mapping.sub_cat_id AND products_sub_category.deleted = 0 AND products_sub_category.sub_category_alias_name = '".$data['second']."'
-                                    INNER JOIN products_price_range ON products_price_range.product_price BETWEEN 0 AND ".$getBudegetPriceRange['max_price']."
-                                    WHERE products.deleted = 0 
+                                    WHERE products.deleted = 0 AND products_price.product_sell_price BETWEEN ".$getBudegetPriceRange->min_price." AND ".$getBudegetPriceRange->max_price." 
                                     ORDER BY products.pro_id DESC");
             }else if ($data['type'] == 'model') {
             $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
