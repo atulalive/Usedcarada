@@ -115,7 +115,9 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 	echo view('popularbrands_view.php');
 	// echo view('lestedcar_view.php');
 
+
 	// echo view('usedcar_topcities_view.php');
+
 
 
 	echo view('footer.php');
