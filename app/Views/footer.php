@@ -157,7 +157,8 @@
 		<!-- Swipe Js-->
 		<script src="<?php echo base_url(); ?>/assets/js/swipe.js"></script>
 
-
+		<!-- Sweet Alert Js-->
+		<script src="<?php echo base_url(); ?>/assets/plugins/sweet-alert/sweetalert.min.js"></script>
 
 		<!-- Custom Js-->
 		<script src="<?php echo base_url(); ?>/assets/js/custom.js"></script>

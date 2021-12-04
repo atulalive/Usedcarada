@@ -179,6 +179,10 @@ class Products extends Model
                                 FROM `products_price_range` 
                                 WHERE `deleted` = 0 
                                 AND product_price BETWEEN 0 AND ".$data['product_max_price']." ORDER BY display_price_range");
+        }else if (!empty($data['price_id'])) {
+            $query = $this->db->query("SELECT `id`, `display_price_range`, `product_price`, CONVERT(SUBSTRING_INDEX(product_price,'-',1),UNSIGNED INTEGER) AS min_price, CONVERT(SUBSTRING_INDEX(product_price,'-',-1),UNSIGNED INTEGER) AS max_price, `deleted` 
+                                FROM `products_price_range` 
+                                WHERE `deleted` = 0 AND `id`=".$data['price_id']);
         }else{
             $query = $this->db->query("SELECT `id`, `display_price_range`, `product_price`, CONVERT(SUBSTRING_INDEX(product_price,'-',1),UNSIGNED INTEGER) AS min_price, CONVERT(SUBSTRING_INDEX(product_price,'-',-1),UNSIGNED INTEGER) AS max_price, `deleted` 
                                 FROM `products_price_range` 
@@ -255,11 +259,21 @@ class Products extends Model
         }
 
         if (!empty($data['brand_id'])) {
-            $query = $this->db->query("SELECT `id`, `brand_name`, `brand_thumbnail_image`, `deleted` 
+            $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
                                     FROM `product_brand` 
                                     WHERE `deleted` = 0 AND `id` = ".$data['brand_id']." LIMIT 1");
+        } else if (!empty($data['brand_machine_name'])) {
+            $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
+                                    FROM `product_brand` 
+                                    WHERE `deleted` = 0 AND `machine_name` = '".$data['brand_machine_name']."' LIMIT 1");
+        } else if ($data['is_brand']) {
+            $query = $this->db->query("SELECT DISTINCT product_brand.`id`, product_brand.`machine_name`, product_brand.`brand_name`, product_brand.`brand_thumbnail_image`, product_brand.`deleted` 
+                                    FROM product_brand 
+                                    INNER JOIN `product_model` ON `product_model`.`brand_id` = product_brand.id AND product_brand.deleted = 0 
+                                    WHERE product_brand.deleted = 0 
+                                    ORDER BY product_brand.id ASC ");
         } else {
-            $query = $this->db->query("SELECT `id`, `brand_name`, `brand_thumbnail_image`, `deleted` 
+            $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
                                     FROM `product_brand` 
                                     WHERE `deleted` = 0");
         }
@@ -284,13 +298,61 @@ class Products extends Model
         }
 
         if (!empty($data['brand_id'])) {
-            $query = $this->db->query("SELECT `id`, `brand_name`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
+            $query = $this->db->query("SELECT `id`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
                                     FROM `product_model` 
-                                    WHERE `deleted` = 0 AND `id` = ".$data['brand_id']);
+                                    WHERE `deleted` = 0 AND `brand_id` = ".$data['brand_id']);
         } else {
             $query = $this->db->query("SELECT `id`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
                                     FROM `product_model` 
                                     WHERE `deleted` = 0");
+        }
+
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+
+    ###########################
+    ### Search by Budget ######
+    ###########################
+
+    function get_search_budget_model($data=null)
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+        // print_r($data);
+        if (!empty($data['type'])) {
+            if ($data['type'] == 'budget') {
+                $getBudegetPriceRange = $this->getBudegetPriceRange(['price_id'=>$data['first'], 'select'=>true]);
+                $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
+                                    product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year
+                                    FROM products 
+                                    INNER JOIN product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                    INNER JOIN product_brand_model_mapping ON product_brand_model_mapping.products_id = products.pro_id AND product_brand_model_mapping.deleted = 0
+                                    INNER JOIN product_brand ON product_brand.id = product_brand_model_mapping.brand_id AND product_brand.deleted = 0 #AND product_brand.machine_name = 'maruti'
+                                    INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id AND product_model.deleted = 0 #AND product_model.machine_name = 'celerio'
+                                    INNER JOIN products_category_mapping ON products_category_mapping.pro_id = products.pro_id AND products_category_mapping.deleted = 0
+                                    INNER JOIN products_sub_category ON products_sub_category.id = products_category_mapping.sub_cat_id AND products_sub_category.deleted = 0 AND products_sub_category.sub_category_alias_name = '".$data['second']."'
+                                    INNER JOIN products_price_range ON products_price_range.product_price BETWEEN 0 AND ".$getBudegetPriceRange['max_price']."
+                                    WHERE products.deleted = 0 
+                                    ORDER BY products.pro_id DESC");
+            }else if ($data['type'] == 'model') {
+            $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
+                                    product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`
+                                    FROM products 
+                                    INNER JOIN product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                    INNER JOIN products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0
+                                    INNER JOIN product_brand_model_mapping ON product_brand_model_mapping.products_id = products.pro_id AND product_brand_model_mapping.deleted = 0
+                                    INNER JOIN product_brand ON product_brand.id = product_brand_model_mapping.brand_id AND product_brand.deleted = 0 AND product_brand.machine_name = '".$data['first']."'
+                                    INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id AND product_model.deleted = 0 AND product_model.machine_name = '".$data['second']."'
+                                    WHERE products.deleted = 0 
+                                    ORDER BY products.pro_id DESC");
+            }
         }
 
         if ($data['single']) {

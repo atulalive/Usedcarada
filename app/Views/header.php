@@ -33,9 +33,13 @@
 	<link href="<?php echo base_url(); ?>/assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
 
 	<!-- Custom scroll bar css-->
-	<link href="<?php echo base_url(); ?>/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<link href="<?php echo base_url(); ?>/assets/plugins/sweet-alert/sweetalert.css" rel="stylesheet" />
 
 	<!-- Color-Skins -->
 	<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>/assets/color-skins/color13.css" />
+	
+	<!-- Custom scroll bar css-->
+	<link href="<?php echo base_url(); ?>/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
 	<?php echo view('prelinestyle_view.php'); ?>
 </head>
