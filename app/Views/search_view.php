@@ -6,6 +6,7 @@ $pro_detail = new Products();
 print_r($data);
 $segment = ['type'=>$type, 'first'=>$first, 'second'=>$second];
 $get_search_budget_model = $pro_detail->get_search_budget_model($segment);
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -63,7 +64,7 @@ $get_search_budget_model = $pro_detail->get_search_budget_model($segment);
                                                         <div class="card overflow-hidden">
                                                             <div class="item-card9-img">
                                                                 <div class="item-card9-imgs">
-                                                                    <a class="link" href="cars.html"></a>
+                                                                <a class="link" href="'. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' "></a>
                                                                     <img src="' . URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']) . '" alt="product-img" class="cover-image">
                                                                 </div>
                                                             </div>
