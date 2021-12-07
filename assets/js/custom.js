@@ -197,7 +197,7 @@ $(document).ready(function () {
 		+ '			<div class="header-search-logo d-lg-block">'
 		+ '				<!-- <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a> -->'
 		+ '				<a class="header-logo" href="index.html">'
-		+ '					<img src="'+base_url+'/assets/images/media/logos/Usedcaradda.com-logo-Final2.png" class="header-brand-img" alt="used car adda logo ">'
+		+ '					<img src="'+base_url+'/assets/images/media/logos/logo.png" class="header-brand-img" alt="used car adda logo ">'
 		+ '				</a>'
 		+ '			</div>'
 		+ '		</div>'

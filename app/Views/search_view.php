@@ -71,26 +71,26 @@ $get_search_budget_model = $pro_detail->get_search_budget_model($segment);
                                                             <div class="card border-0 mb-0">
                                                                 <div class="card-body ">
                                                                     <div class="item-card9">
-                                                                        <div class="item-card9-desc mb-2">
-                                                                            <a href="#" class="text-dark">
+                                                                        <div class="item-card9-desc mb-2">           
+                                                                            <a href="'. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="text-dark">
                                                                                 <h4 class="font-weight-semibold mt-1"> '.$value['product_name'].'</h4>
                                                                             </a>
-                                                                            <a href="#" class="text-dark">
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="text-dark">
                                                                                 <h4 class="font-weight-semibold mt-1"> '.number_to_currency($value['product_sell_price'], 'INR', $locale = 1).'</h4>
                                                                             </a>
                                                                         </div>
                                                                         <div class="item-card9-desc mb-2">
-                                                                            <a href="#" class="mr-4"><span class=""><i class="ti-car text-muted mr-1 fs-18"></i> '.ucwords($value['product_category']).'</span></a>
-                                                                            <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i> '.ucwords($value['registraion_year']).'</span></a>
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="mr-4"><span class=""><i class="ti-car text-muted mr-1 fs-18"></i> '.ucwords($value['product_category']).'</span></a>
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i> '.ucwords($value['registraion_year']).'</span></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer pt-4 pb-4 pr-4 pl-4">
                                                                     <div class="item-card9-footer d-sm-flex">
                                                                         <div class="ml-auto">
-                                                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i> '.ucwords($value['transmission']).'</a>
-                                                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="Kilometrs"><i class="fa fa-road text-muted mr-1 "></i> '.ucwords($value['kms_driven']).'</a>
-                                                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="FuealType"><i class="fa fa-tachometer text-muted mr-1"></i>'.ucwords($value['fuel']).'</a>
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i> '.ucwords($value['transmission']).'</a>
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="w-50 mt-1 mb-1 float-left" title="Kilometrs"><i class="fa fa-road text-muted mr-1 "></i> '.ucwords($value['kms_driven']).'</a>
+                                                                            <a href='. base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/'.$value['product_alias_name'].' " class="w-50 mt-1 mb-1 float-left" title="FuealType"><i class="fa fa-tachometer text-muted mr-1"></i>'.ucwords($value['fuel']).'</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
