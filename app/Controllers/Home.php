@@ -82,7 +82,8 @@ class Home extends BaseController
                 break;
         }
 
-        ##################################
+        ##################################          
+        
         # For Ajax calling method  #######
         ##################################
         if ($this->request->isAJAX()) {
