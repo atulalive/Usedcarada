@@ -78,6 +78,8 @@ class Home extends BaseController
                 return view('search_view',$data);
             case "model":
                 return view('search_view',$data);
+            case "brand":
+                return view('search_view',$data);
             default:
                 break;
         }
