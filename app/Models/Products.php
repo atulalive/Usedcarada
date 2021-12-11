@@ -335,7 +335,7 @@ class Products extends Model
         if (!empty($data['type'])) {
             if ($data['type'] == 'budget') {
                 $getBudegetPriceRange = $this->getBudegetPriceRange(['price_id'=>$data['first'], 'single'=>true]);
-                // print_r($getBudegetPriceRange);die;
+                 print_r($getBudegetPriceRange);die;
                 $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
                                     product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`, '".$getBudegetPriceRange->display_price_range."' AS display_price_range
                                     FROM products 
@@ -372,7 +372,24 @@ class Products extends Model
                                     WHERE products.deleted = 0 
                                     ORDER BY products.pro_id DESC");
             }
+            }else if ($data['type'] == 'top_cities') {
+            $getbrandID = $this->get_product_top_cities(['top_cities_city_state'=>$data['third']]);
+        
+            $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
+                               top_cities_city_state AS top_cities_city_state, `name` AS city_name, top_cities.city_state AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`
+                                FROM products 
+                                INNER JOIN product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                INNER JOIN products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0
+                                INNER JOIN product_cities_mapping ON product_cities_mapping.products_id = products.pro_id AND product_cities_mapping.deleted = 0
+                                INNER JOIN top_cities ON top_cities_city_id = product_cities_mapping.city_id AND top_cities.deleted = 0 AND top_cities.city_state = '".$data['first']."'
+                                INNER JOIN top_cities ON top_cities_product.id = product_cities_mapping.product_id AND top_cities.deleted = 0 
+                                WHERE top_cities.deleted = 0 
+                                ORDER BY products.pro_id DESC");
+                                
         }
+        
+            
+        
 
         if ($data['single']) {
             return $query->getFirstRow();
@@ -380,5 +397,44 @@ class Products extends Model
             return $query->getResultArray();
         }
     }
+  ###########################
+    ### Top city ########
+    ###########################
+
+    function get_top_cities($data=null)
+
+    {
+        if ($data['print']) {
+            echo "<pre></br>";
+            print_r( $this->db->lastQuery); die;
+            echo "</pre>";
+        }
+
+        if (!empty($data['top_cities_id'])) {
+            $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`, `deleted` 
+                                    FROM `top_cities` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else if (!empty($data['top_cities_city_country'])) {
+            $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`, `deleted`  
+                                    FROM `top_cities` 
+                                    WHERE `deleted` = 0 AND `city_country` = '".$data['top_cities_city_country']."' LIMIT 1");
+       } else if ($data['is_top_cities']) {
+        $query = $this->db->query("SELECT DISTINCT top_cities.`id`, top_cities.`city_country`, top_cities.`city_state`, top_cities.`city_name`,top_cities.`car_name`top_cities.`city_image_thumbnail`  top_cities.`deleted` 
+                                FROM top_cities
+                                INNER JOIN `product_cities_mapping` ON `product_cities_mapping`.`city_id` = product_id AND top_cities.deleted = 0 
+                                WHERE top_cities.deleted = 0 
+                                ORDER BY top_cities.id ASC ");
+    } else {
+        $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`,`deleted` 
+                                FROM `top_cities` 
+                                WHERE `deleted` = 0");
+    }
+
+        if ($data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray(); 
+        }
+    }    
 
 }

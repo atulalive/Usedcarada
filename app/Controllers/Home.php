@@ -48,6 +48,13 @@ class Home extends BaseController
         $data['key'] = $key;
         $data['product']['brand'] = $pro_detail->getProductbrand(['product_id' => $data['product'][0]['id'],'single'=>true,'print'=>false]);
     }
+    public function topcities($key, $id)
+    {
+        $pro_detail = new Products();
+        $data['id'] = $id;
+        $data['key'] = $key;
+        $data['top']['cities'] = $pro_detail->gettopcities(['city_id' => $data['city'][0]['id'],'single'=>true,'print'=>false]);
+    }
     
     
     public function usedcar()
@@ -62,7 +69,7 @@ class Home extends BaseController
 
     /*   AJAX Call function */
 
-    public function search($seg, $seg1 = false, $seg2 = false)
+    public function search($seg, $seg1 = false, $seg2 = false, $seg3 = false)
     {
         $pro_detail = new Products();
         ##################################
@@ -72,7 +79,7 @@ class Home extends BaseController
         // echo 'first = '.$seg; // Will be 123 in all examples
         // echo 'second = '.$seg1; // false in first, 456 in second and third example
         // echo $seg2; // false in first and second, 789 in third
-        $data = ['type'=>$seg, 'first'=>$seg1, 'second'=>$seg2];
+        $data = ['type'=>$seg, 'first'=>$seg1, 'second'=>$seg2,'third'=>$seg3];
         switch ($seg) {
             case "budget":
                 return view('search_view',$data);
@@ -80,6 +87,8 @@ class Home extends BaseController
                 return view('search_view',$data);
             case "brand":
                 return view('search_view',$data);
+                case "top_cities":
+                    return view('search_view',$data);
             default:
                 break;
         }

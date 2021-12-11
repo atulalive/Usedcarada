@@ -11,6 +11,13 @@ if (in_array($segment['type'], array('budget', 'model'))) {
     $get_search_data = $pro_detail->get_search_budget_model($segment);
 } else if (in_array($segment['type'], array('brand'))) {
     $get_search_data = $pro_detail->get_search_budget_model($segment);
+    
+}
+else if(in_array($segment['type'], array('top_cities'))) {
+
+    $get_search_data = $pro_detail->get_search_budget_model($segment);
+    print_r( $get_search_data); 
+
 }
 switch ($segment['type']) {
     case 'budget':
@@ -23,6 +30,9 @@ switch ($segment['type']) {
     
     case 'brand':
         $serach_heading = '<h3 class=""><span class="font-weight-bold">'. number_format(count($get_search_data)) .'&nbsp;</span>'. ucwords($segment['first']).' '. ucwords($segment['second']).' Cars Available </h3>';
+        break;
+    case 'top_cities':
+        $serach_heading = '<h3 class=""><span class="font-weight-bold">'. number_format(count($get_search_data)) .'&nbsp;</span>'. ucwords($segment['first']).' '. ucwords($segment['third']).' Cars Available </h3>';
         break;
     
     default:
