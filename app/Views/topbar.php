@@ -68,17 +68,17 @@
 						<ul class="horizontalMenu-list">
 							<li aria-haspopup="true"><a href="<?php echo base_url(); ?>" class="active">Home</a></li>
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/category'; ?>">USED Car </a></li>
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">SELL Cars </a></li>
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">COMPARE</a></li>
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">News</a></li>
+							<!-- <li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">SELL Cars </a></li>
+							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">COMPARE</a></li> 
+							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">News</a></li> -->
 							<li aria-haspopup="true"><a href="contact.html"> Contact Us <span class="horizontalarrow"></span></a></li>
 							<li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0">
-								<span><a class="btn btn-orange" href="ad-posts.html"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
+								<span><a class="btn btn-orange" href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
 							</li>
 						</ul>
 						<ul class="mb-0">
 							<li aria-haspopup="true" class="mt-5 d-none d-lg-block ">
-								<span><a class="btn btn-green ad-post " href="ad-posts.html"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
+								<span><a class="btn btn-green ad-post " href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
 							</li>
 						</ul>
 					</nav>
@@ -94,7 +94,7 @@
 						<div class="page-header">
 							<h4 class="page-title">Cars</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="<?= $baseURL; ?>">Home</a></li>
+								<li class="breadcrumb-item"><a href="<?php base_url(); ?>">Home</a></li>
 								<li class="breadcrumb-item"><a href="#">Categories</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Cars</li>
 							</ol>

@@ -14,16 +14,26 @@
 
         <!--App-Content-->
         <?php 
-        /*switch ($page_name) {
+        $segment = explode('/', trim(PHP_SELF));
+        unset($segment[0]);
+        switch ($segment[3]) {
             case 'master':
                 $page = 'dashboard';
+                break;
+            
+            case 'carlist':
+                $page = 'product_list';
+                break;
+            
+            case 'newcar':
+                $page = 'product_new';
                 break;
             
             default:
                 $page = 'dashboard';
                 break;
-        }*/
-        echo view('admin/dashboard.php'); ?>
+        }
+        echo view('cms/'.$page.'.php'); ?>
         <!--App-Content-->
     </div>
 
