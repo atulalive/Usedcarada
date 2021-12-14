@@ -1,7 +1,7 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar doc-sidebar">
-    <div class="app-sidebar__user clearfix">
+    <!-- <div class="app-sidebar__user clearfix">
         <div class="dropdown user-pro-body">
             <div>
                 <img src="../assets/images/users/male/25.jpg" alt="user-img" class="avatar avatar-lg brround">
@@ -14,16 +14,16 @@
                 <span>Web Designer</span>
             </div>
         </div>
-    </div>
+    </div> -->
     <ul class="side-menu">
         <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon ti-home"></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
-            <ul class="slide-menu">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon ti-home"></i><span class="side-menu__label">Dashboard</span></a>
+            <!-- <ul class="slide-menu">
                 <li><a class="slide-item" href="index.html">Dashboard 1</a></li>
                 <li><a class="slide-item" href="index2.html">Dashboard 2</a></li>
                 <li><a class="slide-item" href="index3.html">Dashboard 3</a></li>
                 <li><a class="slide-item" href="index4.html">Dashboard 4</a></li>
-            </ul>
+            </ul> -->
         </li>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon ti-panel"></i><span class="side-menu__label">Admin settings</span><i class="angle fa fa-angle-right"></i></a>

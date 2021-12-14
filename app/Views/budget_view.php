@@ -7,7 +7,6 @@ $data = ['category' => 'cars', 'sort' => 'DESC', 'sorting_column' => 'products_p
 $product_detail = $pro_detail->product_detail($data);
 $product_sub_category = $pro_detail->get_product_sub_category($data);
 $all_product_list = $pro_detail->get_sub_category_product_list($data);
-$name=$pro_detail->getProductOverview($data);
 $lastkey = array_pop(array_keys($product_detail));
 $budegetPriceRange = $pro_detail->getBudegetPriceRange(['product_max_price' => $product_detail[0]['product_sell_price']]);
 // print_r($budegetPriceRange);
@@ -39,12 +38,11 @@ $bud_countt = 1;
                                 <div class="tab-pane active" id="tab-bud1">
                                     <div id="myCarousel" class="owl-carousel owl-carousel-icons2">
                                         <?php foreach ($all_product_list as $k => $value) { ?>
-                                            
                                             <div class="item">
                                                 <div class="card mb-0">
                                                     <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
                                                     <div class="item-card2-img">
-                                                        <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"> <?php echo ucwords($overviewval['fule']); ?> </a> 
+                                                        <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
                                                         <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
                                                         <div class="item-tag-overlaytext">
                                                         </div>
@@ -62,7 +60,7 @@ $bud_countt = 1;
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a class=" " style="margin-left:25px;" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"><?php echo $product[0]['product_name']; ?></a>
+                                                    <a class=" " style="margin-left:25px;" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>">90,280km . Diesel . Noida</a>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -100,7 +98,8 @@ $bud_countt = 1;
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <a class=" " style="margin-left:25px;" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($single_product_value['product_category']) . URL_SEPARATOR . strtolower($single_product_value['product_alias_name']); ?>">/a>
+                                                        <a class=" " style="margin-left:25px;" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($single_product_value['product_category']) . URL_SEPARATOR . strtolower($single_product_value['product_alias_name']); ?>">90,280km . Diesel . Noida</a>
+                                                    
                                                     </div>
                                                 </div>
                                             <?php } ?>

@@ -94,7 +94,7 @@
 					<div class="container">
 						<div class="row d-flex">
 							<div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-								Copyright © 2019 <a href="#" class="fs-14 text-primary">Autolist</a>. Designed by <a href="#" class="fs-14 text-primary">Spruko</a> All rights reserved.
+							© 2021 – Made with <a  class="fs-14 text-primary">❤ </a>by Alive Inc.- All rights reserved.
 							</div>
 						</div>
 					</div>
