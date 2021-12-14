@@ -41,6 +41,16 @@ $routes->add('/usedcar_topcities', 'Home::usedcar_topcities');
 $routes->add('/(:any)', 'Home::search/$1');
 
 
+/* Admin Routes Start */
+$routes->get('admin/register', 'Admin/UserController::register');
+$routes->post('admin/register', 'Admin/UserController::create');
+$routes->get('admin/login', 'Admin/UserController::login');
+$routes->post('admin/login', 'Admin/UserController::loginValidate');
+$routes->get('admin/(:any)', "Admin/UserController::master", ['filter' => 'auth']);
+$routes->get('logout', 'Admin/UserController::logout');
+
+/* Admin Routes End ***/
+
 // $routes->get("my-route/(:num)", "Home::myRoute/$1");
 
 /*
