@@ -40,6 +40,14 @@ $routes->add('/usedcar_topcities', 'Home::usedcar_topcities');
 // AJAX Call page
 $routes->add('/(:any)', 'Home::search/$1');
 
+/* Vendor Routes Start */
+$routes->get('vendor/register', 'Admin/UserController::register');
+$routes->post('vendor/register', 'Admin/UserController::create');
+$routes->get('vendor/login', 'Admin/UserController::login');
+$routes->post('vendor/login', 'Admin/UserController::loginValidate');
+$routes->get('vendor/(:any)', "Admin/UserController::master", ['filter' => 'auth']);
+$routes->get('logout', 'Admin/UserController::logout');
+
 
 /* Admin Routes Start */
 $routes->get('admin/register', 'Admin/UserController::register');

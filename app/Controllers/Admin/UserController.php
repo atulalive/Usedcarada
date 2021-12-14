@@ -61,7 +61,7 @@ class UserController extends BaseController
 	{
 		print_r(session()->get('loggedIn'));
 		if(!empty(session()->get('loggedIn'))){
-			return redirect()->to('admin/dashboard'); 
+			return redirect()->to('admin/master'); 
 		}
 		return view('admin/login');
 	}
@@ -105,11 +105,11 @@ class UserController extends BaseController
 			}
 
 			session()->setFlashdata('failed', 'Failed! incorrect password');
-			return redirect()->to(site_url('/login'));
+			return redirect()->to(site_url('vendor/login'));
 		}
 
 		session()->setFlashdata('failed', 'Failed! incorrect email');
-		return redirect()->to(site_url('/login'));
+		return redirect()->to(site_url('vendor/login'));
 	}
 
 	/**
