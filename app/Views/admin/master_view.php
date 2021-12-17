@@ -28,6 +28,22 @@
             case 'newcar':
                 $page = 'product_new';
                 break;
+
+            case 'brand':
+                $page = 'brand';
+                break;
+                
+             case 'addbrand':
+                $page = 'brands_add';
+                break;
+
+             case 'model':
+                 $page = 'model';
+                 break;
+                    
+            case 'addmodel':
+                $page = 'add_model';
+                break;
             
             default:
                 $page = 'dashboard';
