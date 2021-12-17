@@ -42,6 +42,6 @@
 
 		<!--Loader-->
 		<div id="global-loader">
-			<img src="../assets/images/loader.svg" class="loader-img " alt="">
+			<!-- <img src="../assets/images/loader.svg" class="loader-img " alt=""> -->
 		</div>
 		<!--/Loader-->

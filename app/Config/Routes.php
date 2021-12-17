@@ -40,6 +40,11 @@ $routes->add('/usedcar_topcities', 'Home::usedcar_topcities');
 // AJAX Call page
 $routes->add('/(:any)', 'Home::search/$1');
 
+//Product
+$routes->get('(:any)/carlist', 'Cms/ProductController::productlist');
+$routes->get('(:any)/caradd', 'Cms/ProductController::productnew');
+
+
 /* Vendor Routes Start */
 $routes->get('vendor/register', 'Admin/UserController::register');
 $routes->post('vendor/register', 'Admin/UserController::create');
