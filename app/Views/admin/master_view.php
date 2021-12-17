@@ -1,5 +1,5 @@
 <?php echo view('admin/head.php'); ?>
-<?php $session = \Config\Services::session(); ?>
+<?php $session = \Config\Services::session();  ?>
 <!--Page-->
 <div class="page">
     <div class="page-main">
@@ -21,30 +21,7 @@
                 $page = 'dashboard';
                 break;
             
-            case 'carlist':
-                $page = 'product_list';
-                break;
-            
-            case 'newcar':
-                $page = 'product_new';
-                break;
 
-            case 'brand':
-                $page = 'brand';
-                break;
-                
-             case 'addbrand':
-                $page = 'brands_add';
-                break;
-
-             case 'model':
-                 $page = 'model';
-                 break;
-                    
-            case 'addmodel':
-                $page = 'add_model';
-                break;
-            
             default:
                 $page = 'dashboard';
                 break;

@@ -25,10 +25,10 @@
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-car"></i><span class="side-menu__label">Car</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li>
-                    <a href="<?php echo base_url('admin/carlist')?>" class="slide-item">List</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name')."/carlist")?>" class="slide-item">List</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/newcar')?>" class="slide-item">New</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name')."/caradd")?>" class="slide-item">New</a>
                 </li>
             </ul>
         </li>
