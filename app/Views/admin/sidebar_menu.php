@@ -32,6 +32,36 @@
                 </li>
             </ul>
         </li>
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Brand</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+
+            
+                 <li>
+                    <a href="<?php echo base_url('admin/addbrand')?>" class="slide-item">Add Brand</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('admin/brand')?>" class="slide-item">Brand List</a>
+                </li>
+
+            </ul>
+        </li> 
+
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Model</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+
+            
+                 <li>
+                    <a href="<?php echo base_url('admin/addmodel')?>" class="slide-item">Add Model</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('admin/model')?>" class="slide-item">Model List</a>
+                </li>
+
+            </ul>
+        </li> 
+
     </ul>
 </aside>
 <!-- /Sidebar menu-->
