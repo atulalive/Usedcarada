@@ -14,7 +14,7 @@ class ProductController extends BaseController
 	 */
 	public function __construct()
 	{
-		helper(['form', 'url', 'session']);
+		helper(['form', 'url', 'session','number']);
         $this->session = \Config\Services::session();
         
 		$this->product = new Product();
@@ -26,7 +26,11 @@ class ProductController extends BaseController
 	 */
     public function productlist()
 	{
-		return view('cms/product_list');
+		$data['sorting_column'] = 'pro_id';
+		$data['sort'] = 'DESC';
+		 ## Fetch all records
+		$data['products']  = $this->product->product_list($data);
+		return view('cms/product_list',$data);
 	}
 
     /**

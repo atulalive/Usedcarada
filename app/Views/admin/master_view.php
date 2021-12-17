@@ -1,5 +1,5 @@
 <?php echo view('admin/head.php'); ?>
-<?php $session = \Config\Services::session(); ?>
+<?php $session = \Config\Services::session();  ?>
 <!--Page-->
 <div class="page">
     <div class="page-main">
@@ -19,14 +19,6 @@
         switch ($segment[3]) {
             case 'master':
                 $page = 'dashboard';
-                break;
-            
-            case 'carlist':
-                $page = 'product_list';
-                break;
-            
-            case 'newcar':
-                $page = 'product_new';
                 break;
             
             default:

@@ -30,13 +30,19 @@
 							</div>
 						</div>
 						<div id="header3" class="col-xl-3 col-lg-3 col-sm-3 col-3">
+							
 							<div class="top-bar-right">
 								<ul class="custom">
 									<li>
 										<a href="#location" data-toggle="modal" class="text-dark"><i class="fa fa-map-marker mr-1"></i> <span>Location</span></a>
 									</li>
 									<li>
-										<a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a>
+										<?php if(session()->get('loggedIn') == true){ ?>
+											<a href="<?php echo base_url('admin/myinfo'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span>Hello <?php print_r(session()->get('name')); ?></span></a>
+										<?php }else {?>
+											<a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a>
+										<?php }?>
+
 									</li>
 								</ul>
 							</div>
@@ -78,7 +84,11 @@
 						</ul>
 						<ul class="mb-0">
 							<li aria-haspopup="true" class="mt-5 d-none d-lg-block ">
-								<span><a class="btn btn-green ad-post " href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
+								<?php if(session()->get('loggedIn') == true){ ?>
+									<span><a class="btn btn-green ad-post " href="<?php echo base_url('vendor/master');?>"><i class="side-menu__icon1 ti-package text-white mr-1"></i> Dashboard</a></span>
+								<?php } else {?>	
+									<span><a class="btn btn-green ad-post " href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
+								<?php } ?>
 							</li>
 						</ul>
 					</nav>

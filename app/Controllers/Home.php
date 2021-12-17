@@ -7,13 +7,22 @@ use CodeIgniter\Config\Config;
 use CodeIgniter\Controller;
 use App\Libraries\Utilities;
 
-helper('number');
 class Home extends BaseController
-{
+{   
+    private $session;
+	/**
+	 * constructor
+	 */
+	public function __construct()
+	{
+		helper(['form', 'url', 'session', 'number']);
+        $this->session = \Config\Services::session();
+        
+		$this->session = session();
+	}
 
     public function index()
     {
-       
         return view('index_view');
     }
 
