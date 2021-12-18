@@ -1,20 +1,20 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar doc-sidebar">
-    <!-- <div class="app-sidebar__user clearfix">
+    <div class="app-sidebar__user clearfix">
         <div class="dropdown user-pro-body">
             <div>
                 <img src="../assets/images/users/male/25.jpg" alt="user-img" class="avatar avatar-lg brround">
-                <a href="editprofile.html" class="profile-img">
+                <!-- <a href="editprofile.html" class="profile-img">
                     <span class="fa fa-pencil" aria-hidden="true"></span>
-                </a>
+                </a> -->
             </div>
             <div class="user-info">
-                <h2>Rubin Carmody</h2>
-                <span>Web Designer</span>
+                <h2><?php echo ucwords(session()->get('name')); ?></h2>
+                <span><?php echo ucwords(session()->get('user_type_name')); ?></span>
             </div>
         </div>
-    </div> -->
+    </div>
     <ul class="side-menu">
         <li class="slide">
             <a class="side-menu__item" href="widgets.html">

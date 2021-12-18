@@ -36,6 +36,14 @@
 		<!-- Color-Skins -->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url().URL_SEPARATOR; ?>assets/color-skins/color13.css" />
 
+		<!-- Date Picker Plugin -->
+		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/date-picker/spectrum.css" rel="stylesheet" />
+
+		<!-- P-scroll bar css-->
+		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet" />
+
+		<!-- file Uploads -->
+        <link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css" />
 	</head>
 	<?php $session = \Config\Services::session(); ?>
 	<body class="<?php ($session->get('loggedIn')=="")?"construction-image":""; ?>">
