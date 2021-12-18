@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class Brand extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'brands';
+    protected $table            = 'product_brand';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['created_datetime','updated_datetime','machine_name','brand_name','brand_thumbnail_image','year'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,4 +39,12 @@ class Brand extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    function brand_list($data){
+
+        $brandquery = $this->db->query("SELECT * FROM product_brand WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
+         return $brandquery->getResultArray();
+
+   }
 }

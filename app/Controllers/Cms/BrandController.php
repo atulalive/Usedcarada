@@ -23,13 +23,17 @@ class BrandController extends BaseController
 		$this->session = session();
 	}
 
-    public function brand()
+    public function brandlist()
 	 {
-		return view('cms/brand');
+		$data['sorting_column'] = 'id';
+		$data['sort'] = 'DESC';
+		$data['brandList']  = $this->brand->brand_list($data);
+		return view('cms/brand_list',$data);
+		
  	 }
 
-      public function addbrand()
+      public function brandadd()
 	 {
-		return view('cms/brands_add');
+		return view('cms/brand_add');
  	 }
 }

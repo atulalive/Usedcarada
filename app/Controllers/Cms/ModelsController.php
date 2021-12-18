@@ -4,12 +4,12 @@ namespace App\Controllers\Cms;
 
 use App\Controllers\BaseController;
 
-use App\Models\Cms\Model;
+use App\Models\Cms\Models;
 
-class BrandController extends BaseController
+class ModelsController extends BaseController
 {
 
-    private $model;
+    private $models;
 	private $session;
     /**
 	 * constructor
@@ -19,16 +19,19 @@ class BrandController extends BaseController
 		helper(['form', 'url', 'session']);
         $this->session = \Config\Services::session();
         
-		$this->brand = new Brand();
+		$this->models = new Models();
 		$this->session = session();
 	}
 
-    public function model()
+    public function modelslist()
 	 {
-		return view('cms/model');
+		$data['sorting_column'] = 'id';
+		$data['sort'] = 'DESC';
+		$data['modelList']  = $this->models->model_list($data);
+		return view('cms/model_list',$data);
  	 }
 
-      public function addmodel()
+      public function addmodels()
 	 {
 		return view('cms/add_model');
  	 }
