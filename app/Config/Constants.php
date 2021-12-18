@@ -133,6 +133,7 @@ define("URL_IMAGES_MEDIA", URL_IMAGES . "media" . URL_SEPARATOR);
 
 define("URL_REL_CSS", URL_REL_BASE . "assets" . URL_SEPARATOR . "css" . URL_SEPARATOR);
 define("URL_REL_JS", URL_REL_BASE . "assets" . URL_SEPARATOR . "js" . URL_SEPARATOR);
+define("URL_REL_CMS_JS", URL_JS . "cms" . URL_SEPARATOR);
 
 
 //if "myfile.php" is included in "PARENTFILE.php" , and you visit  "PARENTFILE.PHP?abc":
