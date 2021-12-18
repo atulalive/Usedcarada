@@ -44,6 +44,14 @@ $routes->add('/(:any)', 'Home::search/$1');
 $routes->get('(:any)/carlist', 'Cms/ProductController::productlist');
 $routes->get('(:any)/caradd', 'Cms/ProductController::productnew');
 
+//Brand
+$routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
+$routes->get('(:any)/brandadd', 'Cms/BrandController::brandadd');
+
+//Brand
+$routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
+$routes->get('(:any)/addmodels', 'Cms/ModelsController::addmodels');
+
 
 /* Vendor Routes Start */
 $routes->get('vendor/register', 'Admin/UserController::register');

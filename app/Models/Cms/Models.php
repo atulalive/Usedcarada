@@ -4,17 +4,17 @@ namespace App\Models\Cms;
 
 use CodeIgniter\Model;
 
-class Model extends Model
+class Models extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'models';
+    protected $table            = 'product_model';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['created_datetime','updated_datetime','brand_id','name','year','machine_name','thumbnail','deleted'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,4 +39,13 @@ class Model extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+
+    function model_list($data){
+
+        $modelquery = $this->db->query("SELECT * FROM product_model WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
+         return $modelquery->getResultArray();
+
+   }
 }

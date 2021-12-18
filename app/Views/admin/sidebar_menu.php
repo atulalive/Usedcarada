@@ -33,15 +33,15 @@
             </ul>
         </li>
         <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Brand</span><i class="angle fa fa-angle-right"></i></a>
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-flag"></i><span class="side-menu__label">Brand</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
 
             
-                 <li>
-                    <a href="<?php echo base_url('admin/addbrand')?>" class="slide-item">Add Brand</a>
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/brandadd') ?>" class="slide-item">Brand Add</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/brand')?>" class="slide-item">Brand List</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/brandlist') ?>" class="slide-item">Brand List</a>
                 </li>
 
             </ul>
@@ -52,11 +52,11 @@
             <ul class="slide-menu">
 
             
-                 <li>
-                    <a href="<?php echo base_url('admin/addmodel')?>" class="slide-item">Add Model</a>
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelslist') ?>" class="slide-item">Model List</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/model')?>" class="slide-item">Model List</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/addmodels') ?>" class="slide-item">Model Add </a>
                 </li>
 
             </ul>
