@@ -28,29 +28,55 @@
 									<div class="card-header">
 										<h3 class="card-title">Model Basic Info</h3>
 									</div>
+									<?php $validation =  \Config\Services::validation(); ?>
+								<form action="<?php echo base_url(',models/addmodels'); ?>" method="post" enctype="multipart/form-data">
+										<?php echo csrf_field() ?>
 									<div class="card-body">
 									
 												<div class="row">
 													<div class="col-md-6">
 													<label class="form-label">Select Brand Name<span style="color:red">*</span></label>
-														<select class="form-control"  name="[models][basic_info]['brand_id']">
+														<select class="form-control"  name="brand_id">
 															<option selected>Select</option>
-															<option>Hyderabad</option>
-															<option>Vizag</option>
-															<option>Guntur</option>
-															<option>Vijayawada</option>
-															<option>Rajahmundry</option>
+															<option>Suzuki</option>
+															<option>Tata motor</option>
+															<option>Honda</option>
+															<option>BMW</option>
+														</select>
+													</div>
+													<div class="col-md-6">
+													<label class="form-label">Select Year<span style="color:red">*</span></label>
+														<select class="form-control"  name="model_year">
+															<option value="" selected>Select</option>
+															<option value="1">January</option>
+															<option value="2">February</option>
+															<option value="3" >March</option>
+															<option value="4" >April</option>
+															<option value="5" >May</option>
+															<option value="6" >June</option>
+															<option value="7" >July</option>
+															<option value="8" >August</option>
+															<option value="9" >September</option>
+															<option value="10" >October</option>
+															<option value="11" >November</option>
+															<option value="12" >December</option>
 														</select>
 													</div>
 													<div class="col-md-6 col-lg-6">
 											<div class="form-group">
 											<label class="form-label">Image Upload<span style="color:red">*</span></label>
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="example-file-input-custom">
+												<input type="file" class="custom-file-input" name="model_image">
 												<label class="custom-file-label">Choose file</label>
 											</div>
+											<?php if ($validation->getError('model_image')) : ?>
+                                        	<div class="invalid-feedback">
+                                           		 <?= $validation->getError('model_image') ?>
+                                        	</div>
+                                    		<?php endif; ?>
 										</div>
 									</div>
+								</form>
 												</div>
 											
 											<br>
@@ -58,14 +84,24 @@
 											<div class="col-md-6 col-lg-6">
 												<div class="form-group">
 													<label class="form-label">Model Name</label>
-													<input type="text" class="form-control" id="model_name" name="[models][basic_info]['model_name']" placeholder="Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+													<input type="text" class="form-control <?php if($validation->getError('model_name')) : ?> is-invalid<?php endif ?>" id="model_name" name="model_name" placeholder="Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+														<?php if ($validation->getError('model_name')) : ?>
+														<div class="invalid-feedback">
+															<?= $validation->getError('model_name') ?>
+														</div>
+                                    					<?php endif; ?>	
 												</div>
 											</div>
 											<div class="col-md-6 col-lg-6">
 												<div class="form-group">
 													<label class="form-label" id="product_alias_name_label">Model URL Alias</label>
                                                     <span id="product_alias_name_span"></span>
-													<input type="text" class="form-control is-valid state-valid" id="product_alias_name_hidden" name="[models][basic_info]['model_alias_name']" disabled="disabled">
+													<input type="text" class="form-control is-valid state-valid" id="product_alias_name_hidden" name="model_alias_name" disabled="disabled">
+													<?php if ($validation->getError('model_alias_name')) : ?>
+													<div class="invalid-feedback">
+														<?= $validation->getError('model_alias_name') ?>
+													</div>
+                                    				<?php endif; ?>		
 												</div>
 											</div>
                                             
