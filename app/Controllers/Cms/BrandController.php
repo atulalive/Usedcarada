@@ -44,27 +44,23 @@ class BrandController extends BaseController
 		if ($this->validate([
 			'brand_name' => 'required',
 			'brand_alias_name' => 'required',
+			'brand_year' => 'required',
+			'brand_image' => [
+				'uploaded[brand_image]',
+				'mime_in[brand_image,image/jpg,image/jpeg,image/png]',
+				'max_size[brand_image,4096]',
+			],
 			])){
 					
 					$brnadimg = $this->request->getFile('brand_image');
 					$imgbrand = $brnadimg->getRandomName();
-					$brnadimg->move(DIR_MEDIA . 'cars',$imgbrand);
-					echo "<pre>";
-					print_r($this->request->getPost('brand_name'));
-					echo "<pre>";
-					print_r($this->request->getPost('brand_alias_name'));
-					echo "<pre>";
-					print_r($imgbrand);
-					echo "<pre>";
-					print_r(date('Y-m-d H:i:s'));
-					echo "<pre>";
-					print_r($this->session['id']);
-					echo "<pre>";
-
-					exit;
-					$this->user->save([
+					$brnadimg->move(DIR_MEDIA . 'brands',$imgbrand);
+					
+					$this->brand->save([
 						'brand_name' => $this->request->getPost('brand_name'),
-						'user_id' => $this->session['id'],
+						'year' => $this->request->getPost('brand_year'),
+						'added_by' => session()->get('id'),
+						'action_by' => session()->get('user_type_name'),
 						'machine_name'  => $this->request->getPost('brand_alias_name'),
 						'brand_thumbnail_image'  => $imgbrand,
 						'created_datetime' => date('Y-m-d H:i:s'),
@@ -74,9 +70,6 @@ class BrandController extends BaseController
 					session()->setFlashdata('success', 'Success! Brand Added Successfully.');
 					return redirect()->to(site_url('cms/brandlist'));	
 				}else{
-					echo "<pre>";
-					print_r(4);
-					exit;
 					return view('cms/brand_add', ['validation' => $this->validator]);
 				}
 
