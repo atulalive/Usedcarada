@@ -283,7 +283,7 @@ function loadModelList(scope){
 			url: base_url+"/for-model",
 			dataType: "json",
 			async: true,
-            method: 'post',
+            method: 'get',
 			data: {id : brandVal},
 			success: function (response) {
 				// console.log(response);

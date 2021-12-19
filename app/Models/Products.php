@@ -301,7 +301,6 @@ class Products extends Model
             print_r( $this->db->lastQuery); die;
             echo "</pre>";
         }
-
         if (!empty($data['brand_id'])) {
             $query = $this->db->query("SELECT `id`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
                                     FROM `product_model` 
@@ -335,7 +334,6 @@ class Products extends Model
         if (!empty($data['type'])) {
             if ($data['type'] == 'budget') {
                 $getBudegetPriceRange = $this->getBudegetPriceRange(['price_id'=>$data['first'], 'single'=>true]);
-                 print_r($getBudegetPriceRange);die;
                 $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
                                     product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`, '".$getBudegetPriceRange->display_price_range."' AS display_price_range
                                     FROM products 
