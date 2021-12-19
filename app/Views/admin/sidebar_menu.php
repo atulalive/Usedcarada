@@ -38,7 +38,7 @@
 
             
             <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name').'/brandadd') ?>" class="slide-item">Brand Add</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/brandform') ?>" class="slide-item">Brand Add</a>
                 </li>
                 <li>
                     <a href="<?php echo base_url(session()->get('user_type_name').'/brandlist') ?>" class="slide-item">Brand List</a>

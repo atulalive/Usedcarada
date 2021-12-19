@@ -44,7 +44,8 @@ $routes->post('(:any)/productstore', 'Cms/ProductController::productstore');
 
 //Brand
 $routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
-$routes->get('(:any)/brandadd', 'Cms/BrandController::brandadd');
+$routes->get('(:any)/brandform', 'Cms/BrandController::brandform');
+$routes->post('(:any)/brandadd', 'Cms/BrandController::brandadd');
 
 //Brand
 $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');

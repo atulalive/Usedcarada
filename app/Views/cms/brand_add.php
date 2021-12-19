@@ -28,20 +28,35 @@
 							<div class="card-header">
 								<h3 class="card-title">Brand Basic Info</h3>
 							</div>
+							<?php $validation =  \Config\Services::validation(); ?>
+
+                        <form action="<?php echo base_url('brand/brandadd'); ?>" method="post" enctype="multipart/form-data">
+                            <?php echo csrf_field() ?>
+							
 							<div class="card-body">
 
 								<div class="row">
 									<div class="col-md-6 col-lg-6">
 										<div class="form-group">
 											<label class="form-label">Brand Name<span style="color:red">*</span></label>
-											<input type="text" class="form-control" id="brand_name" name="[brand][basic_info]['brand_name']" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+											<input type="text" class="form-control <?php if($validation->getError('Brand Name')) : ?> is-invalid<?php endif ?>" id="brand_name" name="brand_name" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+												<?php if ($validation->getError('Brand Name')) : ?>
+                                        	<div class="invalid-feedback">
+                                           		 <?= $validation->getError('Brand Name') ?>
+                                        	</div>
+                                    		<?php endif; ?>
 										</div>
 									</div>
 									<div class="col-md-6 col-lg-6">
 										<div class="form-group">
 											<label class="form-label" id="product_alias_name_label">Brand URL Alias</label>
 											<span id="product_alias_name_span"></span>
-											<input type="type" class="form-control is-valid state-valid" id="product_alias_name_hidden" name="[brand][basic_info]['brand_alias_name']" disabled="disabled">
+											<input type="type" class="form-control is-valid state-valid" id="product_alias_name_hidden" name="brand_alias_name">
+											<?php if ($validation->getError('Brand Alias Name')) : ?>
+                                        	<div class="invalid-feedback">
+                                           		 <?= $validation->getError('Brand Alias Name') ?>
+                                        	</div>
+                                    		<?php endif; ?>		
 										</div>
 									</div>
 
@@ -50,9 +65,14 @@
 									<div class="col-md-6 col-lg-6">
 										<div class="form-group">
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="example-file-input-custom">
+												<input type="file" class="custom-file-input" name="brand_image">
 												<label class="custom-file-label">Choose file</label>
 											</div>
+											<?php if ($validation->getError('Brand Image')) : ?>
+                                        	<div class="invalid-feedback">
+                                           		 <?= $validation->getError('Brand Image') ?>
+                                        	</div>
+                                    		<?php endif; ?>
 										</div>
 									</div>
 								</div>
@@ -64,6 +84,7 @@
 									<button type="submit" class="btn btn-info ml-auto">Submit</button>
 								</div>
 							</div>
+						</form>	
 						</div>
 
 					</div>
