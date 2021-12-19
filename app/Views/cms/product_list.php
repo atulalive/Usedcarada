@@ -27,12 +27,27 @@
                             <div>
                                 <div class="user-tabs mb-4">
                                     <!-- Tabs 
-                            <ul class="nav panel-tabs">
-                                <li class=""><a href="#tab1" class="active" data-toggle="tab">All (12)</a></li>
-                                <li><a href="#tab2" data-toggle="tab">Mine (12)</a></li>
-                                <li><a href="#tab3" data-toggle="tab">Published (5)</a></li>
-                                <li><a href="#tab5" data-toggle="tab">Trash (7)</a></li>
-                            </ul>-->
+                                    <ul class="nav panel-tabs">
+                                        <li class=""><a href="#tab1" class="active" data-toggle="tab">All (12)</a></li>
+                                        <li><a href="#tab2" data-toggle="tab">Mine (12)</a></li>
+                                        <li><a href="#tab3" data-toggle="tab">Published (5)</a></li>
+                                        <li><a href="#tab5" data-toggle="tab">Trash (7)</a></li>
+                                    </ul>-->
+                                    <?php if (session()->getFlashdata('success')) : ?>
+                                        <div class="nav panel-tabs">
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
+                                                <?php echo session()->getFlashdata('success') ?>
+                                            </div>
+                                        </div>
+                                    <?php elseif (session()->getFlashdata('failed')) : ?>
+                                        <div class="nav panel-tabs">
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
+                                                <?php echo session()->getFlashdata('failed') ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -73,16 +88,16 @@
                                                                 <td><a href="#" class="btn-link"><?php echo ucwords($product['product_name']); ?></a></td>
                                                                 <td><?php echo ucwords($product['brand_name']); ?></td>
                                                                 <td><?php echo ucwords($product['model_name']); ?></td>
-                                                                <td><?php echo number_to_currency($product['product_sell_price'],'INR', $locale = 1); ?></td>
-                                                                <td><?php echo date_format(date_create($product['created_datetime']),"M d,Y"); ?></td>
+                                                                <td><?php echo number_to_currency($product['product_sell_price'], 'INR', $locale = 1); ?></td>
+                                                                <td><?php echo date_format(date_create($product['created_datetime']), "M d,Y"); ?></td>
 
                                                             </tr>
-                                                        <?php
+                                                    <?php
                                                             $count++;
                                                         }
-                                                    } else { ?>
-                                                        <h4 class="mb-4 font-weight-bold">No Car list found, Please add</h4>
-                                                    <?php } ?>
+                                                    } else {
+                                                        echo '<tr><h4 class="mb-4 font-weight-bold">No Car list found</h4></tr>';
+                                                    } ?>
                                                 </tbody>
                                             </table>
 

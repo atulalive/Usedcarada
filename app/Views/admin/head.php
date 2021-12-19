@@ -28,7 +28,10 @@
 		<link href="<?php echo URL_CSS.'admin-custom.css'; ?>" rel="stylesheet" />
 
 		<!-- c3.js Charts Plugin -->
-		<link href="<?php echo base_url().URL_SEPARATOR; ?>/assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+
+		<!-- select2 Plugin -->
+		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/select2/select2.min.css" rel="stylesheet" />
 
 		<!---Font icons-->
 		<link href="<?php echo URL_CSS.'icons.css'; ?>" rel="stylesheet"/>
@@ -44,6 +47,12 @@
 
 		<!-- file Uploads -->
         <link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css" />
+
+		<!-- Color-Skins -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url().URL_SEPARATOR; ?>assets/color-skins/color13.css" />
+		
+		<!-- Common css -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url().URL_SEPARATOR; ?>assets/css/cms/common.css" />
 	</head>
 	<?php $session = \Config\Services::session(); ?>
 	<body class="<?php ($session->get('loggedIn')=="")?"construction-image":""; ?>">
