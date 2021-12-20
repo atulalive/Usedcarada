@@ -14,7 +14,7 @@ class Models extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['created_datetime','updated_datetime','brand_id','name','year','machine_name','thumbnail','deleted'];
+    protected $allowedFields    = ['created_datetime','updated_datetime','brand_id','name','year','machine_name','thumbnail','deleted','user_id'];
 
     // Dates
     protected $useTimestamps = false;

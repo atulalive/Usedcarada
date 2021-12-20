@@ -53,10 +53,10 @@
 
             
             <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelslist') ?>" class="slide-item">Model List</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelform') ?>" class="slide-item">Model Add </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name').'/addmodels') ?>" class="slide-item">Model Add </a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelslist') ?>" class="slide-item">Model List </a>
                 </li>
 
             </ul>
