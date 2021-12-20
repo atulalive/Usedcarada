@@ -7,13 +7,22 @@ use CodeIgniter\Config\Config;
 use CodeIgniter\Controller;
 use App\Libraries\Utilities;
 
-helper('number');
 class Home extends BaseController
-{
+{   
+    private $session;
+	/**
+	 * constructor
+	 */
+	public function __construct()
+	{
+		helper(['form', 'url', 'session', 'number']);
+        $this->session = \Config\Services::session();
+        
+		$this->session = session();
+	}
 
     public function index()
     {
-       
         return view('index_view');
     }
 
@@ -100,10 +109,14 @@ class Home extends BaseController
         if ($this->request->isAJAX()) {
             switch ($seg) {
                 case "for-model":
-                    $query = service('request')->getPost('id');
-                    // var_dump($this->request->getPost('id'));
-                    $get_brand_machine_name = $pro_detail->get_product_brands(['brand_machine_name' => $query, 'single' => true]);
-                    $model = $pro_detail->get_product_model(['brand_id' => $get_brand_machine_name->id]);
+                    $query = service('request')->getVar('id');
+                    $source = $this->request->getVar('source');
+                    if($source == 'cms'){
+                        $model = $pro_detail->get_product_model(['brand_id' => $query]);    
+                    } else {
+                        $get_brand_machine_name = $pro_detail->get_product_brands(['brand_machine_name' => $query, 'single' => true]);
+                        $model = $pro_detail->get_product_model(['brand_id' => $get_brand_machine_name->id]);    
+                    }
                     return json_encode(["ticket" => 1, "succeed" => intval($model), 'data' => $model, 'message' => !empty($model)?"Successfully load model":"Faild to load model"]);
                 default:
                     break;

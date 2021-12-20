@@ -32,13 +32,33 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->add('/about', 'Home::about');
-$routes->add('/category', 'Home::category');
-$routes->add("/cardetails/(:any)/(:any)", "Home::cardetails/$1/$2");
-$routes->add('/usedcar_topcities', 'Home::usedcar_topcities');
+$routes->get('/about', 'Home::about');
+$routes->get('/category', 'Home::category');
+$routes->get("/cardetails/(:any)/(:any)", "Home::cardetails/$1/$2");
+$routes->get('/usedcar_topcities', 'Home::usedcar_topcities');
 
-// AJAX Call page
-$routes->add('/(:any)', 'Home::search/$1');
+//Product
+$routes->get('(:any)/carlist', 'Cms/ProductController::productlist');
+$routes->get('(:any)/caradd', 'Cms/ProductController::productnew');
+$routes->post('(:any)/productstore', 'Cms/ProductController::productstore');
+
+//Brand
+$routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
+$routes->get('(:any)/brandform', 'Cms/BrandController::brandform');
+$routes->post('(:any)/brandadd', 'Cms/BrandController::brandadd');
+
+//Brand
+$routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
+$routes->get('(:any)/addmodels', 'Cms/ModelsController::addmodels');
+
+
+/* Vendor Routes Start */
+$routes->get('vendor/register', 'Admin/UserController::register');
+$routes->post('vendor/register', 'Admin/UserController::create');
+$routes->get('vendor/login', 'Admin/UserController::login');
+$routes->post('vendor/login', 'Admin/UserController::loginValidate');
+$routes->get('vendor/(:any)', "Admin/UserController::master", ['filter' => 'auth']);
+$routes->get('logout', 'Admin/UserController::logout');
 
 
 /* Admin Routes Start */
@@ -50,6 +70,10 @@ $routes->get('admin/(:any)', "Admin/UserController::master", ['filter' => 'auth'
 $routes->get('logout', 'Admin/UserController::logout');
 
 /* Admin Routes End ***/
+
+
+// AJAX Call page
+$routes->get('/(:any)', 'Home::search/$1');
 
 // $routes->get("my-route/(:num)", "Home::myRoute/$1");
 

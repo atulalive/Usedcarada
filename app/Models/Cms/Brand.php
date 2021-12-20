@@ -14,7 +14,7 @@ class Brand extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['created_datetime','updated_datetime','machine_name','brand_name','brand_thumbnail_image','year'];
+    protected $allowedFields    = ['created_datetime','updated_datetime','machine_name','brand_name','brand_thumbnail_image','year','added_by','action_by'];
 
     // Dates
     protected $useTimestamps = false;

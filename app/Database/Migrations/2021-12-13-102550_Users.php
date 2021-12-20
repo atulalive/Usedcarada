@@ -25,6 +25,10 @@ class Users extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => '255'
 			],
+            'user_type' => [
+				'type' => 'tinyint',
+				'constraint' => '10'
+			],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp'
         ]);

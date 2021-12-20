@@ -24,12 +24,32 @@
 		<!-- Fullside-menu Js-->
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/sidemenu/sidemenu.js"></script>
 
+		<!--Select2 js -->
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/select2/select2.full.min.js"></script>
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/js/select2.js"></script>
+
+		<!-- Timepicker js -->
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/time-picker/jquery.timepicker.js"></script>
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/time-picker/toggles.min.js"></script>
+
+		<!-- Datepicker js -->
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/date-picker/spectrum.js"></script>
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/date-picker/jquery-ui.js"></script>
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/input-mask/jquery.maskedinput.js"></script>
+
+		<!-- Inline js -->
+		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/js/formelements.js"></script>
+
+		<!-- file uploads js -->
+        <script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/fileuploads/js/fileupload.js"></script>
+		
 		<!--Counters -->
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/counters/counterup.min.js"></script>
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/counters/waypoints.min.js"></script>
 
-		<!-- Custom Js-->
+		<!-- Custom, Common Js-->
 		<script src="<?php echo URL_JS.URL_SEPARATOR.'admin-custom.js'; ?>"></script>
+		<script src="<?php echo URL_REL_CMS_JS.'common.js'; ?>"></script>
 
 	</body>
 </html>

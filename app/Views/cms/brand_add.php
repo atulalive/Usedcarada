@@ -28,42 +28,78 @@
 							<div class="card-header">
 								<h3 class="card-title">Brand Basic Info</h3>
 							</div>
-							<div class="card-body">
+							<?php $validation =  \Config\Services::validation(); ?>
 
-								<div class="row">
-									<div class="col-md-6 col-lg-6">
-										<div class="form-group">
-											<label class="form-label">Brand Name<span style="color:red">*</span></label>
-											<input type="text" class="form-control" id="brand_name" name="[brand][basic_info]['brand_name']" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
-										</div>
-									</div>
-									<div class="col-md-6 col-lg-6">
-										<div class="form-group">
-											<label class="form-label" id="product_alias_name_label">Brand URL Alias</label>
-											<span id="product_alias_name_span"></span>
-											<input type="type" class="form-control is-valid state-valid" id="product_alias_name_hidden" name="[brand][basic_info]['brand_alias_name']" disabled="disabled">
-										</div>
-									</div>
+							<form action="<?php echo base_url(session()->get('user_type_name') . '/brandadd'); ?>" method="post" enctype="multipart/form-data">
+								<?php echo csrf_field() ?>
 
-								</div>
-								<div class="row">
-									<div class="col-md-6 col-lg-6">
-										<div class="form-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="example-file-input-custom">
-												<label class="custom-file-label">Choose file</label>
+								<div class="card-body">
+
+									<div class="row">
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<label class="form-label">Brand Name<span style="color:red">*</span></label>
+												<input type="text" class="form-control <?php if ($validation->getError('brand_name')) : ?> is-invalid<?php endif ?>" id="brand_name" name="brand_name" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+												<?php if ($validation->getError('brand_name')) : ?>
+													<div class="invalid-feedback">
+														<?= $validation->getError('brand_name') ?>
+													</div>
+												<?php endif; ?>
 											</div>
 										</div>
-									</div>
-								</div>
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<label class="form-label" id="product_alias_name_label">Brand URL Alias</label>
+												<input type="text" class="form-control <?php echo ($validation->getError('brand_alias_name')) ? "is-invalid" : ""; ?> " id="product_alias_name_hidden" name="product_alias_name_hidden" value="<?php echo set_value('brand_alias_name'); ?>" disabled>
+												<input type="hidden" id="product_alias_name_span" name="brand_alias_name" value="<?php echo set_value('brand_alias_name'); ?>">
+											</div>
+										</div>
+										</div>	
+										<div class="row">
+										<div class="col-md-6 col-lg-6">
+												<label class="form-label">Select Year<span style="color:red">*</span></label>
+												<?php if ($validation->getError('brand_year')) : ?>
+													<div class="invalid-feedback">
+														<?= $validation->getError('brand_year') ?>
+													</div>
+												<?php endif; ?>
+												<select class="form-control" name="brand_year">
+													<option value="" selected>Select</option>
+													<option value="2001">2010</option>
+													<option value="2011">2011</option>
+													<option value="2012">2012</option>
+													<option value="2013">2013</option>
+													<option value="2014">2014</option>
+													<option value="2015">2015</option>
+													<option value="2016">2016</option>
+													<option value="2017">2017</option>
+													<option value="2018">2018</option>
+													<option value="2019">2019</option>
+													<option value="2020">2020</option>
+													<option value="2021">2021</option>
+												</select>
+											</div>
+											<div class="col-md-6 col-lg-6">
+												<div class="form-group">
+													<label class="form-label">Brnad Image</label>
+													<input type="file" class="dropify <?php echo ($validation->getError('brand_image')) ? "is-invalid" : ""; ?>" data-height="120" id="brand_image" name="brand_image" value="<?php echo set_value('brand_image'); ?>" />
+													<?php if ($validation->getError('brand_image')) : ?>
+														<div class="invalid-feedback1" style="color: crimson;">
+															<?= $validation->getError('brand_image') ?>
+														</div>
+													<?php endif; ?>
+												</div>
+											</div>
+										</div>
 
-							</div>
-							<div class="card-footer text-right">
-								<div class="d-flex">
-									<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-									<button type="submit" class="btn btn-info ml-auto">Submit</button>
-								</div>
-							</div>
+									</div>
+									<div class="card-footer text-right">
+										<div class="d-flex">
+											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
+											<button type="submit" class="btn btn-info ml-auto">Submit</button>
+										</div>
+									</div>
+							</form>
 						</div>
 
 					</div>

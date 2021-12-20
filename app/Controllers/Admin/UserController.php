@@ -13,7 +13,7 @@ class UserController extends BaseController
 	 */
 	public function __construct()
 	{
-		helper(['form', 'url', 'session']);
+		helper(['form', 'url', 'session','number']);
         $this->session = \Config\Services::session();
         
 		$this->user = new User();
@@ -59,9 +59,8 @@ class UserController extends BaseController
 	 */
 	public function login()
 	{
-		print_r(session()->get('loggedIn'));
 		if(!empty(session()->get('loggedIn'))){
-			return redirect()->to('admin/dashboard'); 
+			return redirect()->to('admin/master'); 
 		}
 		return view('admin/login');
 	}
@@ -93,10 +92,29 @@ class UserController extends BaseController
 			$authPassword = password_verify($password, $pass);
 
 			if ($authPassword) {
+				switch ($user['user_type']) {
+					case '1':
+						$user_type_name = 'admin';
+						break;
+					
+					case '2':
+						$user_type_name = 'staff';
+						break;
+					
+					case '3':
+						$user_type_name = 'vendor';
+						break;
+					
+					default:
+						# code...
+						break;
+				}
 				$sessionData = [
 					'id' => $user['id'],
 					'name' => $user['name'],
 					'email' => $user['email'],
+					'user_type' => $user['user_type'],
+					'user_type_name' => $user_type_name,
 					'loggedIn' => true,
 				];
 
@@ -105,11 +123,11 @@ class UserController extends BaseController
 			}
 
 			session()->setFlashdata('failed', 'Failed! incorrect password');
-			return redirect()->to(site_url('/login'));
+			return redirect()->to(site_url('vendor/login'));
 		}
 
 		session()->setFlashdata('failed', 'Failed! incorrect email');
-		return redirect()->to(site_url('/login'));
+		return redirect()->to(site_url('vendor/login'));
 	}
 
 	/**
