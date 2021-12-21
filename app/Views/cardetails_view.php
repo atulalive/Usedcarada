@@ -354,7 +354,7 @@
 									</a>
 									<h6 class="text-muted font-weight-normal">Seller Name</h6>
 									<!-- <span class="text-muted" style="font-size: 10px;">EMI starts from ₹ 10,125</span> -->
-									<h3 class="text-muted font-weight-bold"><?php echo number_to_currency($product[0]['product_sell_price'], 'INR', $locale = 1); ?></h3>
+									<h3 class="text-muted font-weight-bold"><?php echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']); ?></h3>
 									<!-- <h6 class="mt-2 mb-0"><a href="personal-blog.html" class="btn btn-primary btn-sm">See All Ads</a></h6> -->
 
 									<div class="row" style="margin-top: 50px;">
