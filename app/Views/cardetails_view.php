@@ -26,16 +26,16 @@
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i> India</a></li>
 										<li class="mr-5"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i> 5 hours ago</a></li>
-										<li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li>
+										<!--li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li-->
 									</ul>
 
-									<div class="rating-stars d-flex">
+									<!--div class="rating-stars d-flex">
 										<div class="rating-stars-container mr-2">
 											<div class="rating-star sm">
 												<i class="fa fa-heart"></i>
 											</div>
-										</div> 135
-									</div>
+										</div> 
+									</div-->
 								</div>
 							</div>
 							<div class="product-slider">
@@ -285,7 +285,7 @@
 					<!--/Specification-->
 
 					<!--Comments-->
-					<div class="card">
+					<!--div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Rating And Reviews</h3>
 						</div>
@@ -336,7 +336,7 @@
 							</div>
 						</div>
 
-					</div>
+					</div-->
 					<!--/Comments-->
 
 				</div>
