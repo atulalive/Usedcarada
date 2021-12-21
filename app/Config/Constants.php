@@ -156,3 +156,17 @@ parse_url(REQUEST_URI, PHP_URL_PATH); //🡺  /subFolder/myfile.php
 // define('DOMAIN',$hostBrk[1]);    //🡺  http://usedcardeko.com/
 
 // ==================================================================//
+
+
+
+/* * ================================================================
+ *  MODEs of working
+ * ================================================================== */
+define("MODE_DEVELOPMENT", 1);
+define("MODE_TEST", 2);
+define("MODE_LIVE", 3);
+define("MODE_MAINTENANCE", 4);
+define("MODE_DEMONSTRATION", 5);
+
+//define("ACTIVE_MODE", MODE_LIVE); // TEST, LIVE, DEVELOPMENT, MAINTENANCE
+define("ACTIVE_MODE", MODE_DEVELOPMENT); // TEST, LIVE, DEVELOPMENT, MAINTENANCE, DEMONSTRATION
