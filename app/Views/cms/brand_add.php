@@ -39,10 +39,10 @@
 										<div class="col-md-6 col-lg-6">
 											<div class="form-group">
 												<label class="form-label">Brand Name<span style="color:red">*</span></label>
-												<input type="text" class="form-control <?php if ($validation->getError('brand_name')) : ?> is-invalid<?php endif ?>" id="brand_name" name="brand_name" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
-												<?php if ($validation->getError('brand_name')) : ?>
+												<input type="text" class="form-control <?php if ($validation->getError('brand')) : ?> is-invalid<?php endif ?>" id="brand" name="brand" placeholder="Brand Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+												<?php if ($validation->getError('brand')) : ?>
 													<div class="invalid-feedback">
-														<?= $validation->getError('brand_name') ?>
+														<?= $validation->getError('brand') ?>
 													</div>
 												<?php endif; ?>
 											</div>
@@ -54,16 +54,13 @@
 												<input type="hidden" id="product_alias_name_span" name="brand_alias_name" value="<?php echo set_value('brand_alias_name'); ?>">
 											</div>
 										</div>
-										</div>	
-										<div class="row">
+									</div>
+									<div class="row">
 										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
 												<label class="form-label">Select Year<span style="color:red">*</span></label>
-												<?php if ($validation->getError('brand_year')) : ?>
-													<div class="invalid-feedback">
-														<?= $validation->getError('brand_year') ?>
-													</div>
-												<?php endif; ?>
-												<select class="form-control" name="brand_year">
+
+												<select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('year')) ? "is-invalid" : ""; ?>" id="year" name="year" placeholder="">
 													<option value="" selected>Select</option>
 													<option value="2001">2010</option>
 													<option value="2011">2011</option>
@@ -78,27 +75,34 @@
 													<option value="2020">2020</option>
 													<option value="2021">2021</option>
 												</select>
-											</div>
-											<div class="col-md-6 col-lg-6">
-												<div class="form-group">
-													<label class="form-label">Brnad Image</label>
-													<input type="file" class="dropify <?php echo ($validation->getError('brand_image')) ? "is-invalid" : ""; ?>" data-height="120" id="brand_image" name="brand_image" value="<?php echo set_value('brand_image'); ?>" />
-													<?php if ($validation->getError('brand_image')) : ?>
-														<div class="invalid-feedback1" style="color: crimson;">
-															<?= $validation->getError('brand_image') ?>
-														</div>
-													<?php endif; ?>
-												</div>
-											</div>
-										</div>
 
-									</div>
-									<div class="card-footer text-right">
-										<div class="d-flex">
-											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-											<button type="submit" class="btn btn-info ml-auto">Submit</button>
+												<?php if ($validation->getError('Year')) : ?>
+													<div class="invalid-feedback">
+														<?= $validation->getError('Year') ?>
+													</div>
+												<?php endif; ?>
+											</div>
+										</div>
+										<div class="col-md-6 col-lg-6">
+											<div class="form-group">
+												<label class="form-label">Brnad Image</label>
+												<input type="file" class="dropify <?php echo ($validation->getError('image')) ? "is-invalid" : ""; ?>" data-height="120" id="image" name="image" value="<?php echo set_value('image'); ?>" />
+												<?php if ($validation->getError('image')) : ?>
+													<div class="invalid-feedback1" style="color: crimson;">
+														<?= $validation->getError('image') ?>
+													</div>
+												<?php endif; ?>
+											</div>
 										</div>
 									</div>
+
+								</div>
+								<div class="card-footer text-right">
+									<div class="d-flex">
+										<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
+										<button type="submit" class="btn btn-info ml-auto">Submit</button>
+									</div>
+								</div>
 							</form>
 						</div>
 
