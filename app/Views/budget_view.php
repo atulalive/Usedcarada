@@ -22,7 +22,7 @@ $bud_countt = 1;
                     <div class="items-gallery">
                         <div class="items-blog-tab text-left">
                             <div class="items-blog-tab-heading  center-block text-left">
-                                <h2>Trusted used cars by Budget</h2><br>
+                                <h4>Trusted used cars by Budget</h4><br>
                                 <div class="col-12">
                                     <ul class="nav items-blog-tab-menu">
                                         <li class=""><a href="#tab-bud1" class="active show" data-toggle="tab">Used Cars</a></li>

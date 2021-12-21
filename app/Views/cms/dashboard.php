@@ -2,10 +2,10 @@
 <div class="app-content  my-3 my-md-5">
     <div class="side-app">
         <div class="page-header">
-            <h4 class="page-title">Dashboard 03</h4>
+            <h4 class="page-title">Dashboard</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard 03</li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
             </ol>
         </div>
         <div class="row">
@@ -16,8 +16,8 @@
                             <div class="counter-icon bg-primary text-primary">
                                 <i class="icon icon-people text-white"></i>
                             </div>
-                            <h5>Clients</h5>
-                            <h2 class="counter mb-0">1554</h2>
+                            <h5>Vendor</h5>
+                            <h2 class="counter mb-0">10</h2>
                         </div>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                             <div class="counter-icon bg-info text-info">
                                 <i class="icon icon-rocket text-white"></i>
                             </div>
-                            <h5>Total Sales</h5>
-                            <h2 class="counter mb-0">1068</h2>
+                            <h5>Total Cars</h5>
+                            <h2 class="counter mb-0">100</h2>
                         </div>
                     </div>
                 </div>
@@ -42,13 +42,13 @@
                             <div class="counter-icon bg-success text-success">
                                 <i class="icon icon-docs text-white"></i>
                             </div>
-                            <h5>Total Cars</h5>
-                            <h2 class="counter mb-0">5426</h2>
+                            <h5>Total Brands</h5>
+                            <h2 class="counter mb-0">102</h2>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-12">
+            <!--div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="card ">
                     <div class="card-body text-center">
                         <div class="counter-status dash3-counter">
@@ -60,10 +60,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
 
-        <div class="row">
+        <!--div class="row">
             <div class="col-xl-4 col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -296,7 +296,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div-->
     </div>
 </div>
 <!--App-Content-->

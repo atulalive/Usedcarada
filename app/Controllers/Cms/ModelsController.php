@@ -3,7 +3,7 @@
 namespace App\Controllers\Cms;
 
 use App\Controllers\BaseController;
-
+use App\Models\Products;
 use App\Models\Cms\Models;
 
 class ModelsController extends BaseController
@@ -11,6 +11,7 @@ class ModelsController extends BaseController
 
     private $models;
 	private $session;
+	private $products;
     /**
 	 * constructor
 	 */
@@ -20,12 +21,14 @@ class ModelsController extends BaseController
         $this->session = \Config\Services::session();
         
 		$this->models = new Models();
+		$this->products = new Products();
 		$this->session = session();
 	}
 
 	public function modelform()
 	{
-		return view('cms/add_model');
+		$data['brand'] = $this->products->get_product_brands(['is_brand' => true]);
+		return view('cms/add_model',$data);
 	}
 	
 

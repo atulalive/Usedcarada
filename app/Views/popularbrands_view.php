@@ -13,7 +13,7 @@ $product_brands = $pro_detail->get_product_brands(['is_brand'=>true]);
 					<div class="items-gallery">
 						<div class="items-blog-tab text-left">
 							<div class="items-blog-tab-heading  center-block text-left">
-								<h2>Popular Brands</h2>
+								<h4>Popular Brands</h4>
 								<hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="padding-top:20px">
 							</div>
 
