@@ -24,6 +24,8 @@ class ProductController extends BaseController
 		$this->product = new Product();
 		$this->products = new Products();
 		$this->session = session();
+
+		setlocale(LC_MONETARY, 'en_IN.UTF-8');
 	}
 
     /**
@@ -150,7 +152,7 @@ class ProductController extends BaseController
 				'action_by'  => session()->get('user_type_name')
 			]);
 			$product_id = $this->product->insertID();
-			echo $product_id;
+			
 		}else{
 			session()->setFlashdata('failed', 'Please check all field.');
 			return redirect()->to(site_url('/'.session()->get('user_type_name').'/caradd'));
