@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Cities extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'cities';
+    protected $table            = 'top_cities';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
