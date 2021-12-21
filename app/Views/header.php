@@ -9,13 +9,13 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="Duplex VehiclesOptimized" content="320">
-	<meta name="description" content="Car Listing,Dealer,Rental Auto Classifieds Bootstrap Modern Responsive Clean HTML Template">
+	<meta name="description" content="Usedcaradda Sale & Buy Our Dram Car here">
 	<meta name="keywords" content="autotrader,autotrader dealer portal,car classifieds,autoportal,auto classifieds,car dealer template,Autolist,vehicle sale template,car dealer website,car sale template,automotive websites,auto websites,template for selling car,automotive template,car dealer website template,automotive classifieds,car for sale template,car dealer html template,automotive template,car dealer template,car dealer website template,car service template,html template,bootstrap templates,css templates,responsive template,premium html templates,template premium">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 	<!-- Title -->
-	<title>Car Listing,Dealer,Rental Auto Classifieds Bootstrap Modern Responsive Clean HTML Template</title>
+	<title>Usedcaradda Sale & Buy Our Dram Car here</title>
 
 	<!-- Bootstrap Css -->
 	<link href="<?php echo base_url(); ?>/assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" />

@@ -20,7 +20,7 @@ class Home extends BaseController
         $this->session = \Config\Services::session();
         
 		$this->session = session();
-        $this->currency = setlocale(LC_MONETARY, 'en_IN.UTF-8');
+        setlocale(LC_MONETARY, 'en_IN.UTF-8');
 	}
 
     public function index()

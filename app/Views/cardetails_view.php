@@ -43,10 +43,10 @@
 									<!-- <div class="arrow-ribbon2 bg-primary">₹ 5,00,000</div> -->
 									<div class="carousel-inner">
 										<?php
-										echo '<div class="carousel-item active"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . strtolower($product['image'][0]['product_image']) . '" alt="img"> </div>';
+										echo '<div class="carousel-item active"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . $product['image'][0]['product_image'] . '" alt="img"> </div>';
 										foreach ($product['image'] as $k => $image) {
-											if ($k <= 1) continue;
-											echo '<div class="carousel-item"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . strtolower($image['product_image']) . '" alt="img"> </div>';
+											if ($k < 1) continue;
+											echo '<div class="carousel-item"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . $image['product_image'] . '" alt="img"> </div>';
 										}
 										?>
 									</div>
@@ -354,7 +354,15 @@
 									</a>
 									<h6 class="text-muted font-weight-normal">Seller Name</h6>
 									<!-- <span class="text-muted" style="font-size: 10px;">EMI starts from ₹ 10,125</span> -->
-									<h3 class="text-muted font-weight-bold"><?php echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']); ?></h3>
+									<h3 class="text-muted font-weight-bold">
+										<?php 
+											if(ACTIVE_MODE == MODE_DEVELOPMENT){
+												echo number_to_currency($product[0]['product_sell_price'], 'INR', $locale = 1);
+											} else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+												echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
+											}
+										?>
+									</h3>
 									<!-- <h6 class="mt-2 mb-0"><a href="personal-blog.html" class="btn btn-primary btn-sm">See All Ads</a></h6> -->
 
 									<div class="row" style="margin-top: 50px;">

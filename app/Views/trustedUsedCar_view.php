@@ -54,7 +54,15 @@ $countt = 1;
                                                                         <h4 class="mb-0"><?php echo $value['product_name']; ?></h4>
                                                                     </a>
                                                                 </div>
-                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i><?php echo money_format('&#x20b9;%!n',$value['product_sell_price']); ?></p>
+                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i>
+                                                                    <?php
+                                                                        if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
+                                                                        } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo money_format('&#x20b9;%!n',$value['product_sell_price']);
+                                                                        }
+                                                                    ?>
+                                                                </p>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -92,8 +100,15 @@ $countt = 1;
                                                                         <h4 class="mb-0"><?php echo $sub_value['product_name']; ?></h4>
                                                                     </a>
                                                                 </div>
-                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i><?php echo money_format('&#x20b9;%!n',$sub_value['product_sell_price']); ?></p>
-                                                                </a>
+                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i>
+                                                                    <?php 
+                                                                        if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo number_to_currency($sub_value['product_sell_price'], 'INR', $locale = 1);
+                                                                        } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo money_format('&#x20b9;%!n',$sub_value['product_sell_price']);
+                                                                        }
+                                                                    ?>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
