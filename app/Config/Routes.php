@@ -52,7 +52,7 @@ $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
 $routes->get('(:any)/modelform', 'Cms/ModelsController::modelform');
 $routes->post('(:any)/addmodels', 'Cms/ModelsController::addmodels');
 
-//Model
+//Cties
 $routes->get('(:any)/citieslist', 'Cms/CitiesController::citieslist');
 $routes->get('(:any)/citiesform', 'Cms/CitiesController::citiesform');
 $routes->post('(:any)/addcities', 'Cms/CitiesController::addcities');

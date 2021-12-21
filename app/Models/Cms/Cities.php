@@ -44,8 +44,8 @@ class Cities extends Model
 
     function cities_list($data){
 
-        $query = $this->db->query("SELECT * FROM top_cities WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
-         return $query->getResultArray();
+        $citiesquery = $this->db->query("SELECT * FROM top_cities WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
+         return $citiesquery->getResultArray();
 
    }
 }
