@@ -34,13 +34,13 @@
 							<div class="top-bar-right">
 								<ul class="custom">
 									<li>
-										<a href="#location" data-toggle="modal" class="text-dark"><i class="fa fa-map-marker mr-1"></i> <span>Location</span></a>
+										<a href="#" data-toggle="modal" class="text-dark"><i class="fa fa-map-marker mr-1"></i> <span>Location</span></a>
 									</li>
 									<li>
 										<?php if(session()->get('loggedIn') == true){ ?>
 											<a href="<?php echo base_url('admin/myinfo'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span>Hello <?php print_r(session()->get('name')); ?></span></a>
 										<?php }else {?>
-											<a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a>
+											<!--a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a-->
 										<?php }?>
 
 									</li>
@@ -77,7 +77,7 @@
 							<!-- <li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">SELL Cars </a></li>
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">COMPARE</a></li> 
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">News</a></li> -->
-							<li aria-haspopup="true"><a href="contact.html"> Contact Us <span class="horizontalarrow"></span></a></li>
+							<li aria-haspopup="true"><a href="#"> Contact Us <span class="horizontalarrow"></span></a></li>
 							<li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0">
 								<span><a class="btn btn-orange" href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
 							</li>

@@ -36,21 +36,22 @@
 									<div class="row">
 										<div class="col-md-6">
 										<div class="form-group">
-											<label class="form-label">Select Brand Name<span style="color:red">*</span></label>
-											<select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('brand_id')) ? "is-invalid" : ""; ?>" id="brand_id" name="brand_id" placeholder="">
-
-												<option selected>Select</option>
-												<option value="1">Suzuki</option>
-												<option value="2">Tata motor</option>
-												<option value="3">Honda</option>
-												<option value="4">BMW</option>
-											</select>
-											<?php if ($validation->getError('brand_id')) : ?>
-													<div class="invalid-feedback">
-														<?= $validation->getError('brand_id') ?>
-													</div>
-												<?php endif; ?>
-										</div></div>
+                                                <label class="form-label">Please Select Brand</label>
+                                                <select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('brand_id')) ? "is-invalid" : ""; ?>" id="brand_id" name="brand_id" placeholder="">
+                                                    <option selected>Select Brand </option>
+                                                    <?php
+                                                    foreach ($brand as $brand_val) {
+                                                        echo '<option value="' . $brand_val['id'] . '">' . ucwords($brand_val['brand_name']) . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <?php if ($validation->getError('brand_id')) : ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('brand_id') ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+										</div>
 										<div class="col-md-6 col-lg-6">
 											<div class="form-group">
 												<label class="form-label">Select Year<span style="color:red">*</span></label>

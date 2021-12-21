@@ -48,7 +48,7 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
                             <div style="padding-top:16%;" class="col-4" style="font-size:10px ">
                             <div class="text-right">
 
-<h2 style="font-size:18px;">I am looking to buy a second hand car </h2><br><br>
+<!--h2 style="font-size:18px;">I am looking to buy a second hand car </h2><br><br>
 
 <a href="#location" data-toggle="modal" class="text-dark"> </a>
 
@@ -58,7 +58,7 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
     <option value="Mumbai">Mumbai</option>
     <option value="India">India</option>
     <option value="England">England</option>
-</select>
+</select-->
 </div>
 
 </div>
