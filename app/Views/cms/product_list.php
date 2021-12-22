@@ -88,7 +88,15 @@
                                                                 <td><a href="#" class="btn-link"><?php echo ucwords($product['product_name']); ?></a></td>
                                                                 <td><?php echo ucwords($product['brand_name']); ?></td>
                                                                 <td><?php echo ucwords($product['model_name']); ?></td>
-                                                                <td><?php echo number_to_currency($product['product_sell_price'], 'INR', $locale = 1); ?></td>
+                                                                <td>
+                                                                    <?php
+                                                                        if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo number_to_currency($product['product_sell_price'], 'INR', $locale = 1);
+                                                                        } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo money_format('&#x20b9;%!n',$product['product_sell_price']);
+                                                                        }
+                                                                    ?>
+                                                                </td>
                                                                 <td><?php echo date_format(date_create($product['created_datetime']), "M d,Y"); ?></td>
 
                                                             </tr>

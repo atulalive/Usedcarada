@@ -9,12 +9,12 @@
 								<h6>Resources</h6>
 								 <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
 								<ul class="list-unstyled mb-0">
-									<li><a href="javascript:;">Our Team</a></li>
-									<li><a href="javascript:;">Contact US</a></li>
-									<li><a href="javascript:;">About</a></li>
-									<li><a href="javascript:;">Harlequini Dawn</a></li>
+									<li><a href="#">Our Team</a></li>
+									<li><a href="#">Contact US</a></li>
+									<li><a href="#">About</a></li>
+									<!--li><a href="javascript:;">Harlequini Dawn</a></li>
 									<li><a href="javascript:;">Blog</a></li>
-									<li><a href="javascript:;">Terms and Conditions</a></li>
+									<li><a href="javascript:;">Terms and Conditions</a></li-->
 								</ul>
 							</div>
 							<div class="col-lg-3 col-md-12">
@@ -22,20 +22,20 @@
 								<hr class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
 								<ul class="list-unstyled mb-0">
 									<li>
-										<a href="#"><i class="fa fa-car mr-3 text-primary"></i> Mumbai, NY 10012, </a>
+										<a href="#"><i class="fa fa-car mr-3 text-primary"></i> Navi Mumbai,4000601 </a>
 									</li>
 									<li>
-										<a href="#"><i class="fa fa-envelope mr-3 text-primary"></i> info12323@example.com</a></li>
-									<li>
+										<a href="#"><i class="fa fa-envelope mr-3 text-primary"></i>aliveinc@alive.com</a></li>
+									<!--li>
 										<a href="#"><i class="fa fa-phone mr-3 text-primary"></i> + 01 234 567 88</a>
 									</li>
 									 <li>
 										<a href="#"><i class="fa fa-print mr-3 text-primary"></i> + 01 234 567 89</a>
-									</li>
+									</li-->
 								</ul>
 							</div>
 							<div class="col-lg-4 col-md-12">
-								<h6>Download App</h6>
+								<!--h6>Download App</h6>
 								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
 								<div class="">
 									<a class="btn bg-store fs-16" href=""><i class="fa fa-apple mr-2"></i> App Store</a>
@@ -50,18 +50,9 @@
 									<li><a href="javascript:;"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a></li>
 									<li><a href="javascript:;"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a></li>
 									<li><a href="javascript:;"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a></li>
-								</ul>
+								</ul-->
 							</div>
 							<div class="col-lg-3 col-md-12">
-								<h6>Subscribe</h6>
-								<hr class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<div class="clearfix"></div>
-								<div class="input-group w-100">
-									<input type="text" class="form-control br-tl-3  br-bl-3 " placeholder="Email">
-									<div class="input-group-append ">
-										<button type="button" class="btn btn-primary br-tr-3  br-br-3"> Subscribe </button>
-									</div>
-								</div>
 								<h6 class="mt-5 mb-3">Follow Us</h6>
 								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
 								<ul class="list-unstyled list-inline">
@@ -94,7 +85,7 @@
 					<div class="container">
 						<div class="row d-flex">
 							<div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-							© 2021 – Made with <a  class="fs-14 text-primary">❤ </a>by Alive Inc.- All rights reserved.
+							Copyright © <?php echo date("Y"); ?> <a href="#">Alive Co.</a>. Designed by <a href="#">Alive Co.</a> All rights reserved.
 							</div>
 						</div>
 					</div>

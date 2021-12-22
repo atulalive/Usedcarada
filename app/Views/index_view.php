@@ -111,7 +111,7 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 
 	echo view('trustedUsedCar_view.php');
 	echo view('budget_view.php');
-	echo view('mostUsedCar_view.php');
+	//echo view('mostUsedCar_view.php');
 	echo view('popularbrands_view.php');
 	// echo view('lestedcar_view.php');
 

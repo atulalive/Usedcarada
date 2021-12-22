@@ -53,10 +53,25 @@
 
             
             <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelslist') ?>" class="slide-item">Model List</a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelform') ?>" class="slide-item">Model Add </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name').'/addmodels') ?>" class="slide-item">Model Add </a>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/modelslist') ?>" class="slide-item">Model List </a>
+                </li>
+
+            </ul>
+        </li> 
+
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Cities</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+
+            
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Cities Add </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Cities List </a>
                 </li>
 
             </ul>

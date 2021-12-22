@@ -65,7 +65,16 @@ class Product extends Model
                                     INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id 
                                     WHERE products.deleted = 0 AND products.added_by = ". session()->get('id') ."
                                     ORDER BY ".$data['sorting_column']." ".$data['sort']." ");  
-        }    
+        }else {
+            $query = $this->db->query("SELECT products.pro_id, products.created_datetime, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price, product_brand.brand_name, product_model.name as model_name 
+                                    FROM products AS products 
+                                    INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
+                                    INNER JOIN product_brand_model_mapping ON product_brand_model_mapping.products_id = products.pro_id 
+                                    INNER JOIN product_brand ON product_brand.id = product_brand_model_mapping.brand_id 
+                                    INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id 
+                                    WHERE products.deleted = 0  
+                                    ORDER BY ".$data['sorting_column']." ".$data['sort']." ");  
+        }      
         return $query->getResultArray();
     }
 

@@ -3,7 +3,7 @@
 namespace App\Controllers\Cms;
 
 use App\Controllers\BaseController;
-
+use App\Models\Products;
 use App\Models\Cms\Models;
 
 class ModelsController extends BaseController
@@ -11,6 +11,7 @@ class ModelsController extends BaseController
 
     private $models;
 	private $session;
+	private $products;
     /**
 	 * constructor
 	 */
@@ -20,8 +21,16 @@ class ModelsController extends BaseController
         $this->session = \Config\Services::session();
         
 		$this->models = new Models();
+		$this->products = new Products();
 		$this->session = session();
 	}
+
+	public function modelform()
+	{
+		$data['brand'] = $this->products->get_product_brands(['is_brand' => true]);
+		return view('cms/add_model',$data);
+	}
+	
 
     public function modelslist()
 	 {
@@ -30,37 +39,41 @@ class ModelsController extends BaseController
 		$data['modelList']  = $this->models->model_list($data);
 		return view('cms/model_list',$data);
  	 }
-
+	  
       public function addmodels()
 	 {
 		if ($this->validate([
-			'model_name' => 'required',
+			'models' => 'required',
+			'year' => 'required',
+			'brand_id' => 'required',
 			'model_alias_name' => 'required',
-			'model_image' => [
-                'uploaded[file]',
-                'mime_in[file,image/jpg,image/jpeg,image/png]',
-                'max_size[file,1024]'
-            ]])){
+			'image' => [
+				'uploaded[image]',
+				'mime_in[image,image/jpg,image/jpeg,image/png]',
+				'max_size[image,4096]',
+			],
+			])){
+					
+					$modelsimg = $this->request->getFile('image');
+					$modelimg = $modelsimg->getRandomName();
+					$modelsimg->move(DIR_MEDIA . 'models',$modelimg);
 
-					$brnadimg = $this->request->getFile('model_image');
-					$imgbrand = $brnadimg->getRandomName();
-					$brnadimg->move(URL_IMAGES_MEDIA . 'models',$imgbrand);
-
-					$this->user->save([
-						'brand_id' => $this->request->getVar('brand_id'),
-						'user_id' => $this->session['id'] ,
-						'year' => $this->request->getVar('model_year'),
-						'name' => $this->request->getVar('model_name'),
-						'machine_name'  => $this->request->getVar('model_alias_name'),
-						'thumbnail'  => $imgbrand,
-						'created_datetime' => NOW(),
+					$this->models->save([
+						'brand_id' => $this->request->getPost('brand_id'),
+						'user_id' => session()->get('id'),
+						'year' => $this->request->getPost('year'),
+						'name' => $this->request->getPost('models'),
+						'machine_name'  => $this->request->getPost('model_alias_name'),
+						'thumbnail'  => $modelimg,
+						'created_datetime' => date('Y-m-d H:i:s'),
 						'deleted' => 0
 					]);
 
 					session()->setFlashdata('success', 'Success! Model Added Successfully.');
-					return view('cms/brand_list');	
+					return redirect()->to(site_url('cms/modelslist'));	
 				}else{
-					return view('cms/add_model', ['validation' => $this->validator]);
+					$data['brand'] = $this->products->get_product_brands(['is_brand' => true]);
+					return view('cms/add_model',['validation' => $this->validator,'brand'=>$data['brand']]);
 				}
  	 }
 }

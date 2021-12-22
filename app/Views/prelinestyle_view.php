@@ -25,8 +25,8 @@
 	}
 
 	.sptb.detils-sptb {
-		padding-top: 6rem !important;
-		padding-bottom: 6rem !important;
+		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
 	}
 
 	/* cardetils div start */

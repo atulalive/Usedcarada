@@ -47,9 +47,16 @@ $routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
 $routes->get('(:any)/brandform', 'Cms/BrandController::brandform');
 $routes->post('(:any)/brandadd', 'Cms/BrandController::brandadd');
 
-//Brand
+//Model
 $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
-$routes->get('(:any)/addmodels', 'Cms/ModelsController::addmodels');
+$routes->get('(:any)/modelform', 'Cms/ModelsController::modelform');
+$routes->post('(:any)/addmodels', 'Cms/ModelsController::addmodels');
+
+//Cties
+$routes->get('(:any)/citieslist', 'Cms/CitiesController::citieslist');
+$routes->get('(:any)/citiesform', 'Cms/CitiesController::citiesform');
+$routes->post('(:any)/addcities', 'Cms/CitiesController::addcities');
+
 
 
 /* Vendor Routes Start */

@@ -21,7 +21,7 @@ $bud_countt = 1;
                     <div class="items-gallery">
                         <div class="items-blog-tab text-left">
                             <div class="items-blog-tab-heading  center-block text-left">
-                                <h2>Trusted used cars by Budget</h2><br>
+                                <h4>Trusted used cars by Budget</h4><br>
                                 <div class="col-12">
                                     <ul class="nav items-blog-tab-menu">
                                         <li class=""><a href="#tab-bud1" class="active show" data-toggle="tab">Used Cars</a></li>
@@ -55,7 +55,15 @@ $bud_countt = 1;
                                                                         <h4 class="mb-0"><?php echo $value['product_name']; ?></h4>
                                                                     </a>
                                                                 </div>
-                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i><?php echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1); ?></p>
+                                                                <p class="pb-0 pt-0 mb-2 mt-2"></i>
+                                                                    <?php  
+                                                                        if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
+                                                                        } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                            echo money_format('&#x20b9;%!n',$value['product_sell_price']);
+                                                                        }
+                                                                     ?>
+                                                                </p>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -93,7 +101,16 @@ $bud_countt = 1;
                                                                             <h4 class="mb-0"><?php echo $single_product_value['product_name']; ?></h4>
                                                                         </a>
                                                                     </div>
-                                                                    <p class="pb-0 pt-0 mb-2 mt-2"></i><?php echo number_to_currency($single_product_value['product_sell_price'], 'INR', $locale = 1); ?></p>
+                                                                    <p class="pb-0 pt-0 mb-2 mt-2"></i>
+                                                                        <?php 
+                                                                            
+                                                                            if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                                echo number_to_currency($single_product_value['product_sell_price'], 'INR', $locale = 1);
+                                                                            } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                                echo money_format('&#x20b9;%!n',$single_product_value['product_sell_price']); 
+                                                                            }
+                                                                        ?>
+                                                                    </p>
                                                                     </a>
                                                                 </div>
                                                             </div>

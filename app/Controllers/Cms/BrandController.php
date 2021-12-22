@@ -42,23 +42,23 @@ class BrandController extends BaseController
 	 {
 		
 		if ($this->validate([
-			'brand_name' => 'required',
+			'brand' => 'required',
 			'brand_alias_name' => 'required',
-			'brand_year' => 'required',
-			'brand_image' => [
-				'uploaded[brand_image]',
-				'mime_in[brand_image,image/jpg,image/jpeg,image/png]',
-				'max_size[brand_image,4096]',
+			'year' => 'required',
+			'image' => [
+				'uploaded[image]',
+				'mime_in[image,image/jpg,image/jpeg,image/png]',
+				'max_size[image,4096]',
 			],
 			])){
 					
-					$brnadimg = $this->request->getFile('brand_image');
+					$brnadimg = $this->request->getFile('image');
 					$imgbrand = $brnadimg->getRandomName();
 					$brnadimg->move(DIR_MEDIA . 'brands',$imgbrand);
 					
 					$this->brand->save([
-						'brand_name' => $this->request->getPost('brand_name'),
-						'year' => $this->request->getPost('brand_year'),
+						'brand_name' => $this->request->getPost('brand'),
+						'year' => $this->request->getPost('year'),
 						'added_by' => session()->get('id'),
 						'action_by' => session()->get('user_type_name'),
 						'machine_name'  => $this->request->getPost('brand_alias_name'),

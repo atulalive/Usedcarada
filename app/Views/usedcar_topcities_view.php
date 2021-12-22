@@ -17,7 +17,7 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
                         <div class="row ">
                             <div class="col-8" style="font-size:10px">
                                 <div class=" center-block text-left">
-                                    <h2>Used Cars In Top Cities</h2>
+                                    <h4>Used Cars In Top Cities</h4>
                                     <hr class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="padding-top:20px">
                                 </div>
                                 <div class="row">
@@ -46,9 +46,9 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
                                 </div>
                             </div>
                             <div style="padding-top:16%;" class="col-4" style="font-size:10px ">
-                            <div class="text-right">
+                                <div class="text-right">
 
-<h2 style="font-size:18px;">I am looking to buy a second hand car </h2><br><br>
+                                    <!--h2 style="font-size:18px;">I am looking to buy a second hand car </h2><br><br>
 
 <a href="#location" data-toggle="modal" class="text-dark"> </a>
 
@@ -58,10 +58,10 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
     <option value="Mumbai">Mumbai</option>
     <option value="India">India</option>
     <option value="England">England</option>
-</select>
-</div>
+</select-->
+                                </div>
 
-</div>
+                            </div>
 
 
                         </div>
@@ -70,3 +70,4 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
             </div>
         </div>
     </div>
+</section>

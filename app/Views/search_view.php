@@ -118,7 +118,13 @@ switch ($segment['type']) {
                                                                                 <h4 class="font-weight-semibold mt-1"> ' . $value['product_name'] . '</h4>
                                                                             </a>
                                                                             <a href=' . base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . '/' . $value['product_alias_name'] . ' " class="text-dark">
-                                                                                <h4 class="font-weight-semibold mt-1"> ' . number_to_currency($value['product_sell_price'], 'INR', $locale = 1) . '</h4>
+                                                                                <h4 class="font-weight-semibold mt-1"> ' ; 
+                                                                                    if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                                        echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
+                                                                                    } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
+                                                                                        echo money_format('&#x20b9;%!n',$value['product_sell_price']);
+                                                                                    }
+                                                                                 ;echo '</h4>
                                                                             </a>
                                                                         </div>
                                                                         <div class="item-card9-desc mb-2">

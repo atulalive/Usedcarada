@@ -4,17 +4,18 @@ namespace App\Models\Cms;
 
 use CodeIgniter\Model;
 
-class Models extends Model
+class Cities extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'product_model';
+    protected $table            = 'top_cities';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['created_datetime','updated_datetime','brand_id','name','year','machine_name','thumbnail','deleted','user_id'];
+    protected $allowedFields    = ['created_datetime','updated_datetime','car_name','city_name','city_state','city_image_thumbnail','city_country','deleted'];
+
 
     // Dates
     protected $useTimestamps = false;
@@ -41,11 +42,10 @@ class Models extends Model
     protected $afterDelete    = [];
 
 
+    function cities_list($data){
 
-    function model_list($data){
-
-        $modelquery = $this->db->query("SELECT * FROM product_model WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
-         return $modelquery->getResultArray();
+        $citiesquery = $this->db->query("SELECT * FROM top_cities WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
+         return $citiesquery->getResultArray();
 
    }
 }
