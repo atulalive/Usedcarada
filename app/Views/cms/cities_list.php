@@ -43,7 +43,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="w-1">Sr No.</th>
-                                                        <th>Image</th>
+                                                        <!--th>Image</th-->
                                                         <th>Country Name</th>
                                                         <th>State Name</th>
                                                         <th>City Name</th>
@@ -55,16 +55,16 @@
                                                     </tr>
                                                     
                                                          <tr>   
-                                                        <th></th>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <th>1</th>
+                                                        <td>India</td>
+                                                        <td>Maharastra</td>
+                                                        <td>Mumbai</td>
+                                                        <td>Suzuki</td>
+                                                        <td>22-12-2021</td>
+                                                        <td>22-12-2021</td>
                                                         <!--td><?php echo  date_format(date_create($brandls['created_datetime']),"M d,Y");?></td>
                                                         <td><?php echo  date_format(date_create($brandls['updated_datetime']),"M d,Y");?></td-->
-                                                        <td><i style="color:blue;text-shadow:2px 2px 4px #000000;" class="side-menu__icon fa fa-edit"><?php $brandls['id'];?></i><i style="color:black;text-shadow:2px 2px 4px #000000;" class="side-menu__icon fa fa-trash"><?php $brandls['id'];?></i></td>
+                                                        <td><i style="color:blue;text-shadow:2px 2px 4px #000000;" class="side-menu__icon fa fa-edit"><?php $brandls['id'];?></i><i style="color:black;text-shadow:2px 2px 4px #000000;" class="side-menu__icon fa fa-trash"></i></td>
                                                         </tr>
                                                                     
                                                    

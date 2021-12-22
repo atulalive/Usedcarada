@@ -53,7 +53,7 @@ class ModelsController extends BaseController
 				'max_size[image,4096]',
 			],
 			])){
-				
+					
 					$modelsimg = $this->request->getFile('image');
 					$modelimg = $modelsimg->getRandomName();
 					$modelsimg->move(DIR_MEDIA . 'models',$modelimg);
@@ -72,7 +72,8 @@ class ModelsController extends BaseController
 					session()->setFlashdata('success', 'Success! Model Added Successfully.');
 					return redirect()->to(site_url('cms/modelslist'));	
 				}else{
-					return view('cms/add_model',['validation' => $this->validator]);
+					$data['brand'] = $this->products->get_product_brands(['is_brand' => true]);
+					return view('cms/add_model',['validation' => $this->validator,'brand'=>$data['brand']]);
 				}
  	 }
 }
