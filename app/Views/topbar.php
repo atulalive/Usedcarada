@@ -74,7 +74,7 @@
 						<ul class="horizontalMenu-list">
 							<li aria-haspopup="true"><a href="<?php echo base_url(); ?>" class="active">Home</a></li>
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/category'; ?>">USED Car </a></li>
-							<!-- <li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">SELL Cars </a></li>
+                        <li aria-haspopup="true"><a href="<?php echo base_url() . '/detailscar'; ?>">SELL Cars </a></li>
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">COMPARE</a></li> 
 							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">News</a></li> -->
 							<li aria-haspopup="true"><a href="#"> Contact Us <span class="horizontalarrow"></span></a></li>

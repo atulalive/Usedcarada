@@ -76,6 +76,10 @@ class Home extends BaseController
     {
         return view('category_view');
     }
+    public function detailscar()
+    {
+        return view('detailscar_view');
+    }
 
 
     /*   AJAX Call function */

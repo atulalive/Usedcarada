@@ -19,7 +19,7 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 
 	<!--Section-->
 	<div>
-		<div class="cover-image sptb-1 bg-background-r" data-image-src="<?php echo base_url(); ?>/assets/images/banners/Used-Car-Adda-Slider.png">
+		<div class="cover-image sptb-1 bg-background-r" data-image-src="<?php echo base_url(); ?>/assets/images/banners/banner.jpg">
 			<div class="header-text1 mb-0">
 				<div class="container">
 					<div class="row">
@@ -108,12 +108,16 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 
 
 	<?php
-
+   echo view('themostusedcar_view.php');
+   
 	echo view('trustedUsedCar_view.php');
-	echo view('budget_view.php');
-	//echo view('mostUsedCar_view.php');
-	echo view('popularbrands_view.php');
-	// echo view('lestedcar_view.php');
+	echo view('Trustedbybudget_view.php');
+	echo view('brands_view.php');
+	echo view('bymodel_view.php');
+echo view('budget_view.php');
+	echo view('mostUsedCar_view.php');
+	 echo view('popularbrands_view.php');
+	 echo view('lestedcar_view.php');
 
 
 	 echo view('usedcar_topcities_view.php');
