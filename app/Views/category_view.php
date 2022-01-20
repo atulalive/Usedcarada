@@ -8,6 +8,8 @@ $product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
 $years = $pro_detail->years(['' => true]);
 $fuel = $pro_detail->fuel();
 $body = $pro_detail->body();
+$owner_filter = $pro_detail->owner_filter();
+$getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 
 ?>
 <!doctype html>
@@ -162,6 +164,60 @@ $body = $pro_detail->body();
 									<input type="checkbox" class="custom-control-input" name="checkbox12" value="option1">
 									<span class="custom-control-label">
 									<h5 class=""><?php echo $body_val['body_type']; ?></h5>
+									</span>
+								</label>
+								
+								
+								
+								
+								
+								
+							</div>
+						</div>
+						<?php } } ?>
+						<div class="px-4 py-3 border-bottom border-top">
+							<h4 class="mb-0">Owner</h4>
+						</div><br>
+						<?php
+							
+						if (!empty($owner_filter) && is_array($owner_filter)) {
+                            foreach ($owner_filter as $owner_filter_val) {
+								
+								
+                        ?>
+						<div class="">
+							<div class="filter-product-checkboxs"style="padding-left:15%;">
+								<label class="custom-control custom-checkbox mb-2">
+									<input type="checkbox" class="custom-control-input" name="checkbox12" value="option1">
+									<span class="custom-control-label">
+									<h5 class=""><?php echo $owner_filter_val['owner_type']; ?></h5>
+									</span>
+								</label>
+								
+								
+								
+								
+								
+								
+							</div>
+						</div>
+						<?php } } ?>
+						<div class="px-4 py-3 border-bottom border-top">
+							<h4 class="mb-0">Price Range</h4>
+						</div><br>
+						<?php
+							
+						if (!empty($getBudegetPriceRange) && is_array($getBudegetPriceRange)) {
+                            foreach ($getBudegetPriceRange as $getBudegetPriceRange_val) {
+								
+								
+                        ?>
+						<div class="">
+							<div class="filter-product-checkboxs"style="padding-left:15%;">
+								<label class="custom-control custom-checkbox mb-2">
+									<input type="checkbox" class="custom-control-input" name="checkbox12" value="option1">
+									<span class="custom-control-label">
+									<h5 class=""><?php echo $getBudegetPriceRange_val['display_price_range']; ?></h5>
 									</span>
 								</label>
 								
