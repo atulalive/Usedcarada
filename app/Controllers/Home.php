@@ -66,6 +66,31 @@ class Home extends BaseController
         $data['key'] = $key;
         $data['top']['cities'] = $pro_detail->gettopcities(['city_id' => $data['city'][0]['id'],'single'=>true,'print'=>false]);
     }
+    public function car()
+    {
+        return view('car_view');
+    }
+ public function mylistings()
+    {
+        return view('mylistings_view');
+    }
+    
+     public function car_compare_details()
+    {
+        return view('car_compare_details');
+    }
+    public function news()
+    {
+        return view('news_view');
+    }
+    public function contact()
+    {
+        return view('contact_view');
+    }
+    public function used_car_dealers()
+    {
+        return view('used_car_dealers');
+    }
     
     
     public function usedcar()
@@ -75,6 +100,11 @@ class Home extends BaseController
     public function category()
     {
         return view('category_view');
+      
+    }
+    public function detailscar()
+    {
+        return view('detailscar_view');
     }
 
 
@@ -98,8 +128,9 @@ class Home extends BaseController
                 return view('search_view',$data);
             case "brand":
                 return view('search_view',$data);
-                case "top_cities":
-                    return view('search_view',$data);
+            case "top_cities":
+                return view('search_view',$data);
+            
             default:
                 break;
         }
@@ -125,5 +156,13 @@ class Home extends BaseController
             }
             
         }
+    }
+
+    public function search_city($id) {
+       // $t = $this->uri->segment(1);
+        print_r($id);
+        // return ("Mantosh");
+ 
+
     }
 }

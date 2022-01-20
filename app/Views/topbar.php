@@ -1,5 +1,5 @@
-		<!--Loader-->
-		<div id="global-loader">
+  		<!--Loader-->
+		  <div id="global-loader">
 			<img src="<?php echo URL_IMAGES; ?>loader.svg" class="loader-img " alt="">
 		</div>
 		<!--Topbar-->
@@ -19,7 +19,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="header2" class="col-xl-6 col-lg-6 col-sm-6 col-6 d-lg-block" >
+						<div id="header2" class="col-xl-4 col-lg-4 col-sm-4 col-4 d-lg-block" >
 							<div class="top-bar-center header-inputs mb-lg-0">
 								<div class="input-group">
 									<input type="text" class="form-control br-tl-0 br-bl-0" placeholder="Search Cars & Brands">
@@ -29,18 +29,21 @@
 								</div>
 							</div>
 						</div>
-						<div id="header3" class="col-xl-3 col-lg-3 col-sm-3 col-3">
+						<div id="header3" class="col-xl-5 col-lg-4 col-sm-4 col-4">
 							
-							<div class="top-bar-right">
+							<div class="top-bar-right" >
 								<ul class="custom">
 									<li>
 										<a href="#" data-toggle="modal" class="text-dark"><i class="fa fa-map-marker mr-1"></i> <span>Location</span></a>
 									</li>
-									<li>
+									<li> 
 										<?php if(session()->get('loggedIn') == true){ ?>
 											<a href="<?php echo base_url('admin/myinfo'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span>Hello <?php print_r(session()->get('name')); ?></span></a>
 										<?php }else {?>
-											<!--a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a-->
+										<li><a href="#mylistings" data-toggle="modal" class="text-dark"><i class="glyphicon glyphicon-home"></i> <span>My Listings</span></a><li>
+										    	<a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a></li>
+											
+											
 										<?php }?>
 
 									</li>
@@ -72,12 +75,14 @@
 					<!--Nav-->
 					<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true"><a href="<?php echo base_url(); ?>" class="active">Home</a></li>
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/category'; ?>">USED Car </a></li>
-							<!-- <li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">SELL Cars </a></li>
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">COMPARE</a></li> 
-							<li aria-haspopup="true"><a href="<?php echo base_url() . '/about'; ?>">News</a></li> -->
-							<li aria-haspopup="true"><a href="#"> Contact Us <span class="horizontalarrow"></span></a></li>
+							<li aria-haspopup="true"><a href="<?php echo base_url(); ?>" class="">HOME</a></li>
+							<li aria-haspopup="true"><a href="<?php echo base_url() . '/category'; ?>">USED CAR </a></li>
+							 <li aria-haspopup="true"><a href="<?php echo base_url() . '/car_compare_details'; ?>">COMPARE CAR </a></li>
+							<li aria-haspopup="true"><a href="<?php echo base_url() . '/used_car_dealers'; ?>">USED CAR DEALERS</a></li> 
+							<!--<li><a href="#mylistings" data-toggle="modal" class="text-dark"><span>MYLISTINGS</span></a></li>-->
+							<li aria-haspopup="true"><a href="<?php echo base_url() . '/news'; ?>">NEWS</a></li> 
+							<!--<li aria-haspopup="true"><a href="<?php echo base_url() . '/contact'; ?>">CONTACT US</a></li> -->
+							<!--<li aria-haspopup="true"><a href="#"> Contact Us <span class="horizontalarrow"></span></a></li>-->
 							<li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0">
 								<span><a class="btn btn-orange" href="<?php echo base_url('vendor/login');?>"><i class="fa fa-car text-white mr-1"></i> Sell Your Car</a></span>
 							</li>

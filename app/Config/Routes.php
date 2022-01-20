@@ -33,9 +33,17 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
+$routes->get('/car', 'Home::car');
+$routes->get('/car_compare_details', 'Home::car_compare_details');
+$routes->get('/mylistings', 'Home::mylistings');
 $routes->get('/category', 'Home::category');
+$routes->get('/news', 'Home::news');
+$routes->get('/contact', 'Home::contact');
+$routes->get('/used_car_dealers', 'Home::used_car_dealers');
 $routes->get("/cardetails/(:any)/(:any)", "Home::cardetails/$1/$2");
 $routes->get('/usedcar_topcities', 'Home::usedcar_topcities');
+$routes->get('/city/(:any)', 'Home::search_city/$1');
+
 
 //Product
 $routes->get('(:any)/carlist', 'Cms/ProductController::productlist');
@@ -46,6 +54,17 @@ $routes->post('(:any)/productstore', 'Cms/ProductController::productstore');
 $routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
 $routes->get('(:any)/brandform', 'Cms/BrandController::brandform');
 $routes->post('(:any)/brandadd', 'Cms/BrandController::brandadd');
+
+//customer
+$routes->get('(:any)/customerlist', 'Cms/BrandController::customerlist');
+$routes->get('(:any)/customerform', 'Cms/BrandController::customerform');
+$routes->post('(:any)/customeradd', 'Cms/BrandController::customeradd');
+
+//vendor
+$routes->get('(:any)/vendorlist', 'Cms/Vendor1Controller::vendorlist');
+$routes->get('(:any)/vendorform', 'Cms/Vendor1Controller::vendorform');
+$routes->post('(:any)vendor1add', 'Cms/Vendor1Controller::vendor1add');
+
 
 //Model
 $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
@@ -75,6 +94,8 @@ $routes->get('admin/login', 'Admin/UserController::login');
 $routes->post('admin/login', 'Admin/UserController::loginValidate');
 $routes->get('admin/(:any)', "Admin/UserController::master", ['filter' => 'auth']);
 $routes->get('logout', 'Admin/UserController::logout');
+
+// $routes->get('admin/vendorform', function(){return 'helo'};
 
 /* Admin Routes End ***/
 

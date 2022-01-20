@@ -31,7 +31,8 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
                                                 <div class="card bg-card mb-lg-0">
                                                     <div class="card-body bg-white">
                                                         <div class="cat-item text-center">
-                                                            <div class="cat-img text-shadow1 bg-white"><a href="<?php echo  base_url() . URL_SEPARATOR . 'city' . URL_SEPARATOR . $top_cities_val['city_state']; ?>"></a>
+                                                            <div class="cat-img text-shadow1 bg-white">
+                                                                <a href="<?php echo  base_url() . URL_SEPARATOR . 'city' . URL_SEPARATOR . $top_cities_val['city_state']; ?>"></a>
                                                                 <img src="<?php echo URL_IMAGES_MEDIA . 'cities' . URL_SEPARATOR . $top_cities_val['city_image_thumbnail'] ?>" alt="img" class="mx-auto" h-15 w-15>
                                                             </div>
                                                             <div class="cat-desc">
