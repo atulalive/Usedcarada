@@ -39,7 +39,18 @@
                                                 <label class="form-label">Please Select Country</label>
                                                 <select class="form-control select-sm custom-select select2" id="country_id" name="country_id" placeholder="">
                                                     <option selected>Select Country </option>
+
+                                                    <?php
+                                                    foreach ($top_cities as $top_cities_val) {
+                                                        echo '<option value="' . $top_cities_val['id'] . '">' . ucwords($top_cities_val['city_country']) . '</option>';
+                                                    }
+                                                    ?>
                                                 </select>
+                                                <?php if ($validation->getError('city_id')) : ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('city_id') ?>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
@@ -51,50 +62,50 @@
                                             </div>
                                         </div>
                                     </div>
-                               
 
 
-                        <div class="row">
 
-                            <div class="col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-label">Please Select City</label>
-                                    <select class="form-control select-sm custom-select select2" id="city_id" name="city_id" placeholder="">
-                                        <option selected>Select City </option>
-                                    </select>
+                                    <div class="row">
+
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Please Select City</label>
+                                                <select class="form-control select-sm custom-select select2" id="city_id" name="city_id" placeholder="">
+                                                    <option selected>Select City </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Car Name</label>
+                                                <input type="text" class="form-control" id="car" name="car" placeholder="Car Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label"> Image</label>
+                                                <input type="file" class="dropify" data-height="120" id="image" name="image" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-label">Car Name</label>
-                                    <input type="text" class="form-control" id="car" name="car" placeholder="Car Name" onkeyup="machine_name(this,'product_alias_name_span','product_alias_name_hidden')">
+                                <div class="card-footer text-right">
+                                    <div class="d-flex">
+                                        <a href="javascript:void(0)" class="btn btn-link">Cancel</a>
+                                        <button type="submit" class="btn btn-info ml-auto">Submit</button>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-label"> Image</label>
-                                    <input type="file" class="dropify" data-height="120" id="image" name="image" value="" />
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="card-footer text-right">
-                            <div class="d-flex">
-                                <a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-                                <button type="submit" class="btn btn-info ml-auto">Submit</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
+
             </div>
-            
-            </div>
-            <!--App-Content-->
+
 
         </div>
         <!--Footer-->

@@ -239,6 +239,7 @@ $(document).ready(function () {
 		$('div#horizontal-main-header').html('');
 		$('div#horizontal-main-header').html(responsive_header);
 	}
+	
 
 	var obj = {};
 	$('ul.items-blog-tab-menu li.budget-range').each(function(){

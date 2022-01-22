@@ -7,8 +7,9 @@
                 <li class="breadcrumb-item"><a href="<?php echo base_url();?>">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
             </ol>
-        </div>
+        </div> 
         <div class="row">
+        
             <div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="card ">
                     <div class="card-body text-center">
@@ -16,12 +17,15 @@
                             <div class="counter-icon bg-primary text-primary">
                                 <i class="icon icon-people text-white"></i>
                             </div>
-                            <h5>Vendor</h5>
+                            <h5>Customer</h5>
                             <h2 class="counter mb-0">10</h2>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
             <div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="card ">
                     <div class="card-body text-center">
@@ -29,12 +33,15 @@
                             <div class="counter-icon bg-info text-info">
                                 <i class="icon icon-rocket text-white"></i>
                             </div>
-                            <h5>Total Cars</h5>
+                            <h5>Vendor</h5>
                             <h2 class="counter mb-0">100</h2>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><?php }?>
+            <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
             <div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="card ">
                     <div class="card-body text-center">
@@ -42,12 +49,40 @@
                             <div class="counter-icon bg-success text-success">
                                 <i class="icon icon-docs text-white"></i>
                             </div>
-                            <h5>Total Brands</h5>
+                            <h5>Total cars</h5>
+                            <h2 class="counter mb-0">102</h2>
+                        </div>
+                    </div>
+                </div>
+            </div><?php }?> <div class="col-xl-3 col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-body text-center">
+                        <div class="counter-status dash3-counter">
+                            <div class="counter-icon bg-success text-success">
+                                <i class="icon 	fa fa-calendar-check-o text-white"></i>
+                            </div>
+                            <h5>Bookings</h5>
                             <h2 class="counter mb-0">102</h2>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php
+            if (session()->get('user_type_name') === 'vendor') {
+         ?>
+            <div class="col-xl-3 col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-body text-center">
+                        <div class="counter-status dash3-counter">
+                            <div class="counter-icon bg-info text-info">
+                                <i class="icon fa fa-car text-white"></i>
+                            </div>
+                            <h5>Car Sold</h5>
+                            <h2 class="counter mb-0">100</h2>
+                        </div>
+                    </div>
+                </div>
+            </div><?php }?>
             <!--div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="card ">
                     <div class="card-body text-center">
