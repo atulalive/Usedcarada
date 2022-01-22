@@ -152,6 +152,7 @@ class Products extends Model
                                     FROM products AS products 
                                     
                                     INNER JOIN product_overview AS product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                    
                                     INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
                                     INNER JOIN products_category_mapping AS products_category_mapping ON products_category_mapping.pro_id = products.pro_id AND products_category_mapping.cat_id = 1 AND products_category_mapping.sub_cat_id = ".$data['sub_cat_id']." 
                                     
@@ -403,8 +404,8 @@ class Products extends Model
     ###########################
 
     function get_top_cities($data=null)
-
     {
+       
         if ($data['print']) {
             echo "<pre></br>";
             print_r( $this->db->lastQuery); die;
@@ -438,7 +439,7 @@ class Products extends Model
             return $query->getResultArray(); 
         }
     }    
-###########################
+###########################   
     ### Year #########
     ###########################
 

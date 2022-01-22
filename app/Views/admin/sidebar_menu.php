@@ -22,6 +22,9 @@
             </a>
             
         </li>
+        <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">Vendor</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -32,18 +35,22 @@
                     <a href="<?php echo base_url(session()->get('user_type_name')."/vendorform")?>" class="slide-item">Add of Vendor</a>
                 </li>
             </ul>
-        </li>
-         <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">Customer</span><i class="angle fa fa-angle-right"></i></a>
-            <ul class="slide-menu">
-                <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name')."/carlist")?>" class="slide-item">List of Registered Users</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url(session()->get('user_type_name')."/customeradd")?>" class="slide-item">Add New User</a>
-                </li>
-            </ul>
-        </li>
+        </li><?php }?>
+         <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">Customer</span><i class="angle fa fa-angle-right"></i></a>
+                <ul class="slide-menu">
+                    <li>
+                        <a href="<?php echo base_url(session()->get('user_type_name')."/carlist")?>" class="slide-item">List of Registered Users</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url(session()->get('user_type_name')."/customeradd")?>" class="slide-item">Add New User</a>
+                    </li>
+                </ul>
+            </li>
+         <?php }?>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-car"></i><span class="side-menu__label">Car</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -55,6 +62,9 @@
                 </li>
             </ul>
         </li>
+        <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-flag"></i><span class="side-menu__label">Brand</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -69,8 +79,11 @@
 
             </ul>
         </li> 
-
-        <li class="slide">
+        <?php }?>
+        <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
+        <li class="slide">  
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Model</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
 
@@ -84,7 +97,10 @@
 
             </ul>
         </li> 
-
+        <?php }?>
+        <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Cities</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -98,7 +114,10 @@
                 </li>
 
             </ul>
-        </li> 
+        </li>  <?php }?>
+        <?php
+            if (session()->get('user_type_name') === 'admin') {
+         ?>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-car"></i><span class="side-menu__label">Compare Cars</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -112,9 +131,9 @@
                 </li>
 
             </ul>
-        </li> 
+        </li>  <?php }?>
          <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-car"></i><span class="side-menu__label">Advertise</span></a>
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-bullhorn"></i><span class="side-menu__label">Advertise</span></a>
             <ul class="slide-menu">
 
             
@@ -127,7 +146,48 @@
 
             </ul>
         </li> 
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-calendar-check-o "></i><span class="side-menu__label">Bookings</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
 
+            
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Booking Add </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Booking List </a>
+                </li>
+
+            </ul>
+        </li> 
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-user "></i><span class="side-menu__label">Profile Settings</span></a>
+            <ul class="slide-menu">
+
+            
+            <!-- <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Booking Add </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Booking List </a>
+                </li> -->
+
+            </ul>
+        </li> 
+<li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-calendar-check-o "></i><span class="side-menu__label">Bookings</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+
+            
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Booking Add </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Booking List </a>
+                </li>
+
+            </ul>
+        </li> 
 
     </ul>
 </aside>
