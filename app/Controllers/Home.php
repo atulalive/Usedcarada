@@ -22,6 +22,9 @@ class Home extends BaseController
 
     public function index()
     {
+        //$pro_detail = new Products();
+       // $f = $pro_detail->product_detail();
+        
         return view('index_view');
     }
 

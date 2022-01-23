@@ -8,8 +8,6 @@ $data = ['category' => 'cars']; // category come from session
 $product_sub_category = $pro_detail->get_product_sub_category($data);
 $all_product_list = $pro_detail->get_sub_category_product_list($data);
 
-// print_r($product_sub_category);
-
 ?>
 <section class="sptb bg-white">
 			<div class="container">
@@ -29,7 +27,7 @@ $all_product_list = $pro_detail->get_sub_category_product_list($data);
                                                         
                                                         <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
                                                         
-                                                        <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
+                                                        <img src="<?php echo base_url('./assets/images/media/') . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
                                                          
                                                         <div class="item-tag-overlaytext">
                                                         

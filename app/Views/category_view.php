@@ -1257,7 +1257,7 @@ $all_product_list = $pro_detail->get_sub_category_product_list($data);
 				<div class="mb-lg-0 mb-2">
 					<div class="service-card text-center">
 						<div class="bg-white ">
-							<img src="<?= $baseURL; ?>/assets/images/media/cars/no.1.png" alt="img">
+							<img src="<? echo base_url() ?>/assets/images/media/cars/no.1.png" alt="img">
 						</div>
 						<div class="servic-data mt-3">
 							<h4 class="font-weight-semibold mb-2" style="font-size:18px">India’s #1 </h4>

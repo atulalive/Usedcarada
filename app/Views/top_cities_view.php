@@ -24,7 +24,7 @@ $top_cities = $pro_detail->get_top_cities(['is_brand' => true]);
 											<div class="cat-img text-shadow1 bg-white">
 												<a href="<?php echo  base_url() . URL_SEPARATOR . 'city' . URL_SEPARATOR . strtolower($top_cities_val['city_name']); ?>"></a>
 
-												<img src="<?php echo URL_IMAGES_MEDIA . 'cities' . URL_SEPARATOR . $top_cities_val['city_image_thumbnail'] ?>" alt="img" class="mx-auto">
+												<img src="<?php echo base_url('./assets/images/media/') . 'cities' . URL_SEPARATOR . $top_cities_val['city_image_thumbnail'] ?>" alt="img" class="mx-auto">
 											</div>
 											<div class="cat-desc">
 												<h5 class="mb-1"><?php echo ucwords($top_cities_val['city_state']); ?></h5>
