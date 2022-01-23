@@ -24,7 +24,7 @@ class App extends BaseConfig
      * @var string
      */
 
-    public $baseURL = "http://usedcaradda-local.com/";
+    public $baseURL = "http://www.usedcaradda.com/";
 
     /**
      * --------------------------------------------------------------------------
