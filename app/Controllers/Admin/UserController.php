@@ -15,7 +15,6 @@ class UserController extends BaseController
 	{
 		helper(['form', 'url', 'session','number']);
         $this->session = \Config\Services::session();
-        
 		$this->user = new User();
 		$this->session = session();
 	}

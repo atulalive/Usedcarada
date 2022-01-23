@@ -22,9 +22,6 @@ class Home extends BaseController
 
     public function index()
     {
-        //$pro_detail = new Products();
-       // $f = $pro_detail->product_detail();
-        
         return view('index_view');
     }
 
@@ -32,6 +29,7 @@ class Home extends BaseController
     {
         return view('about_view');
     }
+
     public function cardetails($key, $id)
     {
         $pro_detail = new Products();
@@ -68,38 +66,42 @@ class Home extends BaseController
     {
         return view('car_view');
     }
- public function mylistings()
+
+    public function mylistings()
     {
         return view('mylistings_view');
     }
     
-     public function car_compare_details()
+    public function car_compare_details()
     {
         return view('car_compare_details');
     }
+
     public function news()
     {
         return view('news_view');
     }
+
     public function contact()
     {
         return view('contact_view');
     }
+
     public function used_car_dealers()
     {
         return view('used_car_dealers');
     }
     
-    
     public function usedcar()
     {
         return view('usedcar_view');
     }
+
     public function category()
     {
         return view('category_view');
-      
     }
+
     public function detailscar()
     {
         return view('detailscar_view');
