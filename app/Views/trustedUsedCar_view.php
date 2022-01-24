@@ -14,13 +14,16 @@ $countt = 1;
 <!--Section-->
 <section class="sptb">
     <div class="container ">
+      
         <div class="card">
             <div class="card-body">
+                  <div class="items-blog-tab-heading  center-block text-center">
+                                <h2>Trusted used cars by Model</h2>
+                                <p>Get high quality used car by your specific model choice</p>
                 <div class="col-md-12">
                     <div class="items-gallery">
                         <div class="items-blog-tab text-left">
-                            <div class="items-blog-tab-heading  center-block text-left">
-                                <h4>Trusted used cars by Model</h4><br>
+                            
                                 <div class="col-12">
                                     <ul class="nav items-blog-tab-menu">
                                         <li class=""><a href="#tab-1" class="active show" data-toggle="tab">All</a></li>

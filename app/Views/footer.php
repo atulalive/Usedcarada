@@ -35,7 +35,7 @@
 								</ul>
 							</div>
 							<div class="col-lg-4 col-md-12">
-								<!--h6>Download App</h6>
+								h6>Download App</h6>
 								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
 								<div class="">
 									<a class="btn bg-store fs-16" href=""><i class="fa fa-apple mr-2"></i> App Store</a>
@@ -50,7 +50,7 @@
 									<li><a href="javascript:;"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a></li>
 									<li><a href="javascript:;"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a></li>
 									<li><a href="javascript:;"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a></li>
-								</ul-->
+								</ul>
 							</div>
 							<div class="col-lg-3 col-md-12">
 								<h6 class="mt-5 mb-3">Follow Us</h6>
