@@ -5,7 +5,6 @@ use App\Models\Products;
 use function PHPSTORM_META\type;
 
 $pro_detail = new Products();
-$product_brands = $pro_detail->get_product_brands(['is_brand'=>true]);
 //print_r($data);
 $segment = ['type' => $type, 'first' => $first, 'second' => $second];
 if (in_array($segment['type'], array('budget', 'model'))) {
@@ -13,10 +12,11 @@ if (in_array($segment['type'], array('budget', 'model'))) {
 } else if (in_array($segment['type'], array('brand'))) {
     $get_search_data = $pro_detail->get_search_budget_model($segment);
     
-}else if(in_array($segment['type'], array('top_cities'))) {
+}
+else if(in_array($segment['type'], array('top_cities'))) {
 
     $get_search_data = $pro_detail->get_search_budget_model($segment);
-    
+    print_r( $get_search_data); 
 
 }
 switch ($segment['type']) {
@@ -77,172 +77,7 @@ switch ($segment['type']) {
                             </div>
                         </div>
                     </div>
-                    <div class="card overflow-hidden">
-						<div class="px-4 py-3 border-bottom">
-							<h4 class="mb-0">Categories</h4>
-						</div>
-						<div class="card-body">
-							<div class="" id="container">
-								<div class="filter-product-checkboxs">
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox1" value="option1">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Maruti<span class="label label-secondary float-right"></span></a>
-										</span>
-
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox2" value="option2">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Hyundai<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox3" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Honda<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox4" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Toyota<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox5" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Mahindra<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox6" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Ford<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Volkswagen<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Mercedes-Benz<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Renault<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Tata<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Audi<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Nissan<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">BMW<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Chevrolet<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Datsun<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Volvo<span class="label label-secondary float-right"></span></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Skoda<span class="label label-secondary float-right"></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">MG<span class="label label-secondary float-right"></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Land Rover<span class="label label-secondary float-right"></a>
-										</span>
-									</label>
-									
-									<label class="custom-control custom-checkbox mb-3">
-										<input type="checkbox" class="custom-control-input" name="checkbox7" value="option3">
-										<span class="custom-control-label">
-											<a href="#" class="text-dark">Kia<span class="label label-secondary float-right"></a>
-										</span>
-									</label>
-									
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-					</div>
                 </div>
-                
                 <!--/Left Side Content-->
 
                 <!-- Right side Lists -->
@@ -287,7 +122,7 @@ switch ($segment['type']) {
                                                                                     if(ACTIVE_MODE == MODE_DEVELOPMENT){
                                                                                         echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
                                                                                     } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
-                                                                                        echo $money_format('&#x20b9;%!n',$value['product_sell_price']);
+                                                                                        echo money_format('&#x20b9;%!n',$value['product_sell_price']);
                                                                                     }
                                                                                  ;echo '</h4>
                                                                             </a>
@@ -321,7 +156,6 @@ switch ($segment['type']) {
                 </div>
                 <!-- /Right side Lists -->
             </div>
-            
         </div>
     </section>
 

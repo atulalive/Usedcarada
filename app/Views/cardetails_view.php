@@ -1,10 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="en">
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <?php echo view('header.php'); ?>
+
 <body>
 	<?php echo view('topbar.php'); ?>
+
 	<br>
+
+
+
 	<section class="sptb detils-sptb">
 		<div id="main-content" class="container">
 			<div class="row">
@@ -18,13 +22,10 @@
 									<h3><?php echo $product[0]['product_name']; ?></h3>
 								</a>
 								<div class=" d-flex">
-								<ul class="d-flex mb-0">
-										<li class="mr-4"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
-										<li class="mr-4"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i>&nbsp;India</a></li>
-										<li class="mr-4"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i>&nbsp;2018</a></li>
-										<li class="mr-4"><a href="#" class="icons"><i class="fa fa-road"></i>&nbsp;&nbsp;2000km</a</li>
-										<li class="mr-4"><a href="#" class="icons"><i class="fas fa-gas-pump"></i>&nbsp;&nbsp;Petrol</a></li>
-										<li class="mr-4"><a href="#" class="icons"><i class="fa fa-eye"></i>&nbsp;&nbsp;125</a></li>
+									<ul class="d-flex mb-0">
+										<li class="mr-5"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
+										<li class="mr-5"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i> India</a></li>
+										<li class="mr-5"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i> 5 hours ago</a></li>
 										<!--li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li-->
 									</ul>
 
@@ -48,56 +49,14 @@
 											echo '<div class="carousel-item"> <img src="' . URL_IMAGES_MEDIA . strtolower($product[0]['product_category']) . URL_SEPARATOR . $image['product_image'] . '" alt="img"> </div>';
 										}
 										?>
-										<div class="arrow-ribbon2 bg-primary">$539</div>
-										<div class="item-card2-icons">
-											<a href="#" class="item-card2-icons-l bg-primary"> <i class="fa fa-share-alt"></i></a>
-
-										</div>
-										
 									</div>
-									
+									<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+										<i class="fa fa-angle-left" aria-hidden="true"></i>
+									</a>
+									<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+										<i class="fa fa-angle-right" aria-hidden="true"></i>
+									</a>
 								</div>
-								<div class="clearfix">
-										<div id="thumbcarousel" class="carousel thumbcarousel slide" data-interval="false">
-											<div class="carousel-inner">
-												<div class="carousel-item active">
-													<div data-target="#carousel" data-slide-to="0" class="thumb"><img src="\assets\images\media\cars\2019-Honda-Accord-chicago-auto-show-debut_o.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="1" class="thumb"><img src="../assets/images/media/gallery/v2.png" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="2" class="thumb"><img src="../assets/images/media/gallery/v3.png" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="3" class="thumb"><img src="../assets/images/media/gallery/v4.png" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="4" class="thumb"><img src="../assets/images/media/gallery/v5.png" alt="img"></div>
-												</div>
-												<div class="carousel-item ">
-													<div data-target="#carousel" data-slide-to="5" class="thumb"><img src="../assets/images/media/gallery/1.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="6" class="thumb"><img src="../assets/images/media/gallery/2.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="7" class="thumb"><img src="../assets/images/media/gallery/3.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="8" class="thumb"><img src="../assets/images/media/gallery/4.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="9" class="thumb"><img src="../assets/images/media/gallery/5.jpg" alt="img"></div>
-												</div>
-												<div class="carousel-item ">
-													<div data-target="#carousel" data-slide-to="10" class="thumb"><img src="../assets/images/media/gallery/6.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="11" class="thumb"><img src="../assets/images/media/gallery/7.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="12" class="thumb"><img src="../assets/images/media/gallery/8.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="13" class="thumb"><img src="../assets/images/media/gallery/9.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="14" class="thumb"><img src="../assets/images/media/gallery/10.jpg" alt="img"></div>
-												</div>
-												<div class="carousel-item ">
-													<div data-target="#carousel" data-slide-to="15" class="thumb"><img src="../assets/images/media/gallery/11.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="16" class="thumb"><img src="../assets/images/media/gallery/12.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="17" class="thumb"><img src="../assets/images/media/gallery/13.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="18" class="thumb"><img src="../assets/images/media/gallery/14.jpg" alt="img"></div>
-													<div data-target="#carousel" data-slide-to="19" class="thumb"><img src="../assets/images/media/gallery/v6.png" alt="img"></div>
-												</div>
-
-											</div>
-											<a class="carousel-control-prev" href="#thumbcarousel" role="button" data-slide="prev">
-												<i class="fa fa-angle-left" aria-hidden="true"></i>
-											</a>
-											<a class="carousel-control-next" href="#thumbcarousel" role="button" data-slide="next">
-												<i class="fa fa-angle-right" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
 							</div>
 						</div>
 					</div>
@@ -400,7 +359,7 @@
 											if(ACTIVE_MODE == MODE_DEVELOPMENT){
 												echo number_to_currency($product[0]['product_sell_price'], 'INR', $locale = 1);
 											} else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
-												echo $money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
+												echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
 											}
 										?>
 									</h3>
