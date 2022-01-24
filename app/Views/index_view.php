@@ -108,22 +108,18 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 
 
 	<?php
-   echo view('themostusedcar_view.php');
-   
+
+   	echo view('themostusedcar_view.php');
 	echo view('trustedUsedCar_view.php');
 	echo view('Trustedbybudget_view.php');
 	echo view('brands_view.php');
 	echo view('bymodel_view.php');
-echo view('budget_view.php');
+	// //echo view('budget_view.php');
 	echo view('mostUsedCar_view.php');
-	 echo view('popularbrands_view.php');
-	 echo view('lestedcar_view.php');
-
-
-	 echo view('usedcar_topcities_view.php');
-
-
-
+	// // echo view('popularbrands_view.php');
+	echo view('lestedcar_view.php');
+	//echo view('top_cities_view.php');
+	// //echo view('usedcar_topcities_view.php');
 	echo view('footer.php');
 	echo view('model_view.php');
 
