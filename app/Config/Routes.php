@@ -33,13 +33,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
-$routes->get('/detailscar', 'Home::detailscar');
 $routes->get('/car', 'Home::car');
 $routes->get('/car_compare_details', 'Home::car_compare_details');
 $routes->get('/mylistings', 'Home::mylistings');
 $routes->get('/category', 'Home::category');
+$routes->get('/news', 'Home::news');
+$routes->get('/contact', 'Home::contact');
+$routes->get('/used_car_dealers', 'Home::used_car_dealers');
 $routes->get("/cardetails/(:any)/(:any)", "Home::cardetails/$1/$2");
 $routes->get('/usedcar_topcities', 'Home::usedcar_topcities');
+$routes->get('/city/(:any)', 'Home::search_city/$1');
 
 //Product
 $routes->get('(:any)/carlist', 'Cms/ProductController::productlist');
