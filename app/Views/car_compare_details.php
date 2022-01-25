@@ -1,9 +1,6 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en" dir="ltr">
 <?php echo view('header.php'); ?>
-
-<body>
-	<?php echo view('topbar.php'); ?>
 	
 						<div class="col-xl-4 col-lg-4 col-sm-8 col-5">
 							<div class="top-bar-right">

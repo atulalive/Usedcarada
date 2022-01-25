@@ -1,12 +1,10 @@
 
 <?php
 
-use App\Models\Cms\Product;
 use App\Models\Products;
 
 $pro_detail = new Products();
 $product_brands = $pro_detail->get_product_brands(['is_brand'=>true]);
-
 ?>
 <section class="sptb">
 			<div class="container">
@@ -16,11 +14,9 @@ $product_brands = $pro_detail->get_product_brands(['is_brand'=>true]);
 				</div>
 				<div id="small-categories" class="owl-carousel owl-carousel-icons2">
 				<?php if(!empty($product_brands) && is_array($product_brands)) {
-					
-
 									foreach($product_brands as $brand_val)	{
 								?>
-					  <div class="item">
+					<div class="item">
 						<div class="card mb-4">
 							<div class="card-body">
 							<div class="cat-item text-center">
