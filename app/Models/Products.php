@@ -20,13 +20,9 @@ class Products extends Model
     ### PRoduct Info ##########
     ###########################
 
-    function product_detail($data=null)
+    function product_detail(array $data = [])
     {   
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['id'])) {
             $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
@@ -62,13 +58,9 @@ class Products extends Model
     ### PRoduct Image #########
     ###########################
 
-    function product_image($data=null)
+    function product_image(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data) && is_array($data)) {
             $query = $this->db->query("SELECT products_image.product_image_thumbnail, products_image.product_image 
@@ -83,13 +75,9 @@ class Products extends Model
     ### PRoduct Category ######
     ###########################
 
-    function get_product_category($data=null)
+    function get_product_category(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data)) {
             $query = $this->db->query("SELECT products_category.id, products_category.category_alias_name, products_category.category_name, products_category.deleted 
@@ -108,13 +96,9 @@ class Products extends Model
     ## PRoduct Category / SUB #
     ###########################
 
-    function get_product_sub_category($data=null)
+    function get_product_sub_category(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['id'])) {
             $query = $this->db->query("SELECT products_sub_category.id AS sub_cat_id, products_sub_category.sub_category_alias_name, products_sub_category.sub_category_name, products_sub_category.deleted
@@ -137,13 +121,9 @@ class Products extends Model
     ### PRoduct SUB Category ##
     ###########################
 
-    function get_sub_category_product_list($data=null)
+    function get_sub_category_product_list(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['sub_cat_id'])) {
             // print_r($data);
@@ -166,13 +146,9 @@ class Products extends Model
     ### PRoduct Price Range ###
     ###########################
 
-    function getBudegetPriceRange($data=null)
+    function getBudegetPriceRange(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['product_max_price'])) {
             $query = $this->db->query("SELECT `id`, `display_price_range`, `product_price`, CONVERT(SUBSTRING_INDEX(product_price,'-',1),UNSIGNED INTEGER) AS min_price, CONVERT(SUBSTRING_INDEX(product_price,'-',-1),UNSIGNED INTEGER) AS max_price, `deleted` 
@@ -188,7 +164,7 @@ class Products extends Model
                                 FROM `products_price_range` 
                                 WHERE `deleted` = 0 ");
         }
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -199,13 +175,9 @@ class Products extends Model
     ### PRoduct Overview ######
     ###########################
 
-    function getProductOverview($data=null)
+    function getProductOverview(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['product_id'])) {
             $query = $this->db->query("SELECT `id`, `pro_id`, `make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`, `deleted` 
@@ -216,7 +188,7 @@ class Products extends Model
                                     FROM `product_overview` 
                                     WHERE `deleted` = 0");
         }
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -226,13 +198,9 @@ class Products extends Model
     ## PRoduct Specifications #
     ###########################
 
-    function getProductspecifications($data=null)
+    function getProductspecifications(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['product_id'])) {
             $query = $this->db->query("SELECT `id`, `pro_id`, `mileage`, `engine`, `max_power`, `torque`, `wheel_size`, `seats`, `color`, `deleted` 
@@ -243,7 +211,7 @@ class Products extends Model
                                     FROM `product_specifications` 
                                     WHERE `deleted` = 0");
         }
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -254,14 +222,10 @@ class Products extends Model
     ### Popular Brands ########
     ###########################
 
-    function get_product_brands($data=null)
+    function get_product_brands(array $data = [])
 
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['brand_id'])) {
             $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
@@ -283,7 +247,7 @@ class Products extends Model
                                     WHERE `deleted` = 0");
         }
 
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -294,13 +258,9 @@ class Products extends Model
     ### Product Model #########
     ###########################
 
-    function get_product_model($data=null)
+    function get_product_model(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
         if (!empty($data['brand_id'])) {
             $query = $this->db->query("SELECT `id`,  `brand_id`, `machine_name`, `name`, `thumbnail`, `year`, `deleted` 
                                     FROM `product_model` 
@@ -312,7 +272,7 @@ class Products extends Model
         }
 
 
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -323,13 +283,9 @@ class Products extends Model
     ### Search by Budget ######
     ###########################
 
-    function get_search_budget_model($data=null)
+    function get_search_budget_model(array $data = [])
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
         // print_r($data);
         if (!empty($data['type'])) {
             if ($data['type'] == 'budget') {
@@ -389,7 +345,7 @@ class Products extends Model
             
         
 
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray();
@@ -399,14 +355,10 @@ class Products extends Model
     ### Top city ########
     ###########################
 
-    function get_top_cities($data=null)
+    function get_top_cities(array $data = [])
 
     {
-        if ($data['print']) {
-            echo "<pre></br>";
-            print_r( $this->db->lastQuery); die;
-            echo "</pre>";
-        }
+        
 
         if (!empty($data['top_cities_id'])) {
             $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`, `deleted` 
@@ -428,7 +380,7 @@ class Products extends Model
                                 WHERE `deleted` = 0");
     }
 
-        if ($data['single']) {
+        if (@$data['single']) {
             return $query->getFirstRow();
         }else {
             return $query->getResultArray(); 

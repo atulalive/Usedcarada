@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
+use Config\Services;
 use App\Models\Products;
-use CodeIgniter\Config\Config;
-use CodeIgniter\Controller;
-use App\Libraries\Utilities;
 
 class Home extends BaseController
 {   
@@ -16,8 +14,7 @@ class Home extends BaseController
 	 */
 	public function __construct()
 	{
-		helper(['form', 'url', 'session', 'number']);
-        $this->session = \Config\Services::session();
+        $this->session = Services::session();
         
 		$this->session = session();
         setlocale(LC_MONETARY, 'en_IN.UTF-8');
