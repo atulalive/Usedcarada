@@ -26,7 +26,7 @@ $product_brands = $pro_detail->get_product_brands(['is_brand'=>true]);
 							<div class="cat-item text-center">
 												<a href="<?php echo  base_url() .URL_SEPARATOR. 'brand'.URL_SEPARATOR.$brand_val['machine_name']; ?>"></a>
 												<div class="cat-img1">
-													<img src="<?php echo base_url('./assets/images/media/') . 'brands'.URL_SEPARATOR.$brand_val['brand_thumbnail_image'] ?>" alt="img" class="mx-auto">
+													<img src="<?php echo URL_IMAGES_MEDIA.'brands'.URL_SEPARATOR.$brand_val['brand_thumbnail_image'] ?>" alt="img" class="mx-auto">
 												</div>
 												<div class="cat-desc">
 													<h5 class="mb-1"><?php echo $brand_val['brand_name']; ?></h5>

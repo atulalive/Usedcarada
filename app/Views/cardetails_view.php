@@ -393,14 +393,17 @@
 									<a href="userprofile.html" class="text-dark">
 										<h4 class="mt-3 mb-1 font-weight-semibold"><?php echo $product[0]['product_name']; ?></h4>
 									</a>
-									<h6 class="text-muted font-weight-normal">Seller Name</h6>
+									<div>
+										<i class="fa fa-user">&nbsp;&nbsp; Balaji Showroom</i>
+									</div>
+									
 									<!-- <span class="text-muted" style="font-size: 10px;">EMI starts from ₹ 10,125</span> -->
 									<h3 class="text-muted font-weight-bold">
 										<?php 
 											if(ACTIVE_MODE == MODE_DEVELOPMENT){
 												echo number_to_currency($product[0]['product_sell_price'], 'INR', $locale = 1);
 											} else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
-												echo $money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
+												echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
 											}
 										?>
 									</h3>
@@ -411,6 +414,13 @@
 											<a href="#" class="btn " data-toggle="modal" data-target="#LgoinRegister" style="border: 1px solid;"> Book Now @ ₹ 5,100</a>
 										</div>
 										<div class="col-xl-6 col-lg-6 col-sm-6 col-6"><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#LgoinRegister"> Schedule Test Drive</a>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-sm-6 col-6 mt-3">
+											<a href="#" class="btn btn-success" data-toggle="modal" data-target="#LgoinRegister" style="border: 1px solid;"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Whatsapp Seller</a>
+										</div>
+
+										<div class="col-xl-6 col-lg-6 col-sm-6 col-lg-8  mt-3">
+											<a href="#" class="btn btn-dark" data-toggle="modal" style="border: 1px solid;"><i class="fa fa-phone" style="padding-left: 20px;" aria-hidden="true"></i>&nbsp;&nbsp;<span>call Seller</span></a>
 										</div>
 									</div>
 								</div>
