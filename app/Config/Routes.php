@@ -53,7 +53,10 @@ $routes->post('(:any)/productstore', 'Cms/ProductController::productstore');
 $routes->get('(:any)/brandlist', 'Cms/BrandController::brandlist');
 $routes->get('(:any)/brandform', 'Cms/BrandController::brandform');
 $routes->post('(:any)/brandadd', 'Cms/BrandController::brandadd');
-
+//vendor
+$routes->get('(:any)/vendorlist', 'Cms/Vendor1Controller::vendorlist');
+$routes->get('(:any)/vendorform', 'Cms/Vendor1Controller::vendorform');
+$routes->post('(:any)vendor1add', 'Cms/Vendor1Controller::vendor1add');
 //Model
 $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
 $routes->get('(:any)/modelform', 'Cms/ModelsController::modelform');
