@@ -123,18 +123,22 @@ class Products extends Model
 
     function get_sub_category_product_list(array $data = [])
     {
-        
 
         if (!empty($data['sub_cat_id'])) {
             // print_r($data);
-            $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
+            $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`, products_price.product_base_price, products_price.product_sell_price
                                     FROM products AS products 
+                                    
+                                    INNER JOIN product_overview AS product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
+                                    
                                     INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
                                     INNER JOIN products_category_mapping AS products_category_mapping ON products_category_mapping.pro_id = products.pro_id AND products_category_mapping.cat_id = 1 AND products_category_mapping.sub_cat_id = ".$data['sub_cat_id']." 
+                                    
                                     WHERE products.deleted = 0");
         }else{
-            $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
+            $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail,product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`, products_price.product_base_price, products_price.product_sell_price 
                                     FROM products AS products 
+                                    INNER JOIN product_overview AS product_overview ON product_overview.pro_id = products.pro_id AND product_overview.deleted = 0
                                     INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
                                     INNER JOIN products_category_mapping AS products_category_mapping ON products_category_mapping.pro_id = products.pro_id AND products_category_mapping.cat_id = 1 
                                     WHERE products.deleted = 0");
@@ -386,5 +390,122 @@ class Products extends Model
             return $query->getResultArray(); 
         }
     }    
+
+    ###########################   
+    ### Year #########
+    ###########################
+
+    function years(array $data = [])
+    {
+       
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `min`, `max`,  `deleted` 
+                                    FROM years` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT `id`, `min`, `max`,  `deleted`
+                                    FROM `years` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+    ###########################
+    ### Fuel #########
+    ###########################
+
+    function fuel(array $data = [])
+    {
+       
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `fuel_type`,  `deleted` 
+                                    FROM fuel` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `fuel_type`,  `deleted` 
+                                    FROM `fuel` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+     ###########################
+    ### body type #########
+    ###########################
+
+    function body(array $data = [])
+    {
+        
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `body_type`,  `deleted` 
+                                    FROM body` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `body_type`,  `deleted` 
+                                    FROM `body` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+    }
+    ###########################
+    ### body type #########
+    ###########################
+
+    function owner_filter(array $data = [])
+    {
+        
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `owner_type`,  `deleted` 
+                                    FROM owner_filter` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `owner_type`,  `deleted` 
+                                    FROM `owner_filter` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+
+    }
+    ###########################
+    ### Features #########
+    ###########################
+
+    function getProductfeatures(array $data = [])
+    {
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `pro_id`, `feature`,`deleted` 
+                                    FROM product_features` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `pro_id`, `feature`, `deleted`
+                                    FROM `product_features` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+
+    }
 
 }

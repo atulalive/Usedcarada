@@ -25,12 +25,7 @@ $all_product_list = $pro_detail->get_sub_category_product_list($data);
                                                     <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i class="fa fa-bolt"></i></span></div>
                                                     <div class="item-card2-img">
                                                         <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
-<<<<<<< HEAD
-                                                        
-                                                         <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
-=======
                                                         <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
->>>>>>> f1f0f469b70305d12e4ce2cd0bdc53f5338efb99
                                                         <div class="item-tag-overlaytext">
                                                         
 														</div>
@@ -47,37 +42,22 @@ $all_product_list = $pro_detail->get_sub_category_product_list($data);
                                                                         if(ACTIVE_MODE == MODE_DEVELOPMENT){
                                                                             echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
                                                                         } else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
-                                                                            echo money_format('&#x20b9;%!n',$value['product_sell_price']);
+                                                                            echo $money_format('&#x20b9;%!n',$value['product_sell_price']);
                                                                         }
                                                                     ?>
                                                                 </p>
                                                                 </a>
                                                             </div></div><div class="item-card2-footer mt-4 mb-4">
-									<div class="item-card2-footer-u">
-										<div class="d-md-flex">
-											<span class="review_score mr-2 badge badge-primary">4.0/5</span>
-                                            <div class="rating-stars d-inline-flex ml-auto">
-												<input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value" value="3">
-												<div class="rating-stars-container">
-													<div class="rating-star sm is--active">
-														<i class="fa fa-star"></i>
-													</div>
-													<div class="rating-star sm is--active">
-														<i class="fa fa-star"></i>
-													</div>
-													<div class="rating-star sm is--active">
-														<i class="fa fa-star"></i>
-													</div>
-													<div class="rating-star sm">
-														<i class="fa fa-star"></i>
-													</div>
-													<div class="rating-star sm">
-														<i class="fa fa-star"></i>
-													</div>
-												</div> (5 Reviews)
-											</div>
-										</div>
-									</div>
+																<div class="item-card9-footer d-sm-flex">
+                                                                        <div class="ml-auto">
+																	<a href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>" class="text-dark">
+																	
+                                                                        <a href class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-tachometer text-muted mr-1"></i><?php echo ucwords($value['fuel']); ?></a>
+																		<a href class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-road text-muted mr-1 "></i><?php echo ucwords($value['kms_driven']); ?></a>
+																		<a href class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i><?php echo ucwords($value['transmission']); ?></a>
+																		
+                                                                    </a></div></div>
+									
 								</div>
                                                         </div>
                                                     </div>
