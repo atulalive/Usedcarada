@@ -35,7 +35,9 @@ class Vendor1Controller extends BaseController
 	}
 
     public function vendor1add() 
-	{		
+	{
+		
+				
 		$vendorsimg = $this->request->getFile('image');
 		$vendorimg = $vendorsimg->getRandomName();
 		$vendorsimg->move(DIR_MEDIA . 'vendors',$vendorimg);
