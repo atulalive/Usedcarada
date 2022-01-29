@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Products;
+// use App\Models\Products;
 
-$pro_detail = new Products();
-$data = ['category' => 'cars']; // category come from session
-$product_sub_category = $pro_detail->get_product_sub_category($data);
-$all_product_list = $pro_detail->get_sub_category_product_list($data);
+// $pro_detail = new Products();
+// $data = ['category' => 'cars']; // category come from session
+// $product_sub_category = $pro_detail->get_product_sub_category($data);
+// $all_product_list = $pro_detail->get_sub_category_product_list($data);
 // print_r($product_sub_category);
 
 ?>

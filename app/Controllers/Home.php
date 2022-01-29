@@ -70,7 +70,8 @@ class Home extends BaseController
         return view('usedcar_view');
     }
     public function category()
-    {
+    {   
+        
         return view('category_view');
     }
     public function detailscar()
