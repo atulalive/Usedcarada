@@ -506,6 +506,27 @@ class Products extends Model
             return $query->getResultArray();
         }
 
-    }
+    } ###########################
+    ### country #########
+    ###########################
 
+    function getcountry(array $data = [])
+    {
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `name`,`deleted` 
+                                    FROM country` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`,  `name`, `deleted`
+                                    FROM `country` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+
+    }
 }

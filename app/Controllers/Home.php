@@ -63,6 +63,22 @@ class Home extends BaseController
         $data['key'] = $key;
         $data['top']['cities'] = $pro_detail->gettopcities(['city_id' => $data['city'][0]['id'],'single'=>true,'print'=>false]);
     }
+    public function car_compare_details()
+    {
+        return view('car_compare_details');
+    }
+    public function news()
+    {
+        return view('news_view');
+    }
+    public function contact()
+    {
+        return view('contact_view');
+    }
+    public function used_car_dealers()
+    {
+        return view('used_car_dealers');
+    }
     
     
     public function usedcar()
@@ -71,8 +87,19 @@ class Home extends BaseController
     }
     public function category()
     {   
-        
-        return view('category_view');
+        $pro_detail = new Products();
+        $product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
+        $years = $pro_detail->years(['' => true]);
+        $fuel = $pro_detail->fuel();
+        $body = $pro_detail->body();
+        $owner_filter = $pro_detail->owner_filter();
+        $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
+        $data = ['category' => 'cars']; // category come from session
+        //$product_sub_category = $pro_detail->get_product_sub_category($data);
+        $all_product_list = $pro_detail->get_sub_category_product_list($data);
+
+        return view('category_view', 
+        compact('product_brands', 'years', 'fuel', 'body', 'owner_filter', 'getBudegetPriceRange', 'all_product_list'));
     }
     public function detailscar()
     {
