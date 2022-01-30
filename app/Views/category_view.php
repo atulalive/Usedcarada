@@ -3,16 +3,7 @@
 use App\Models\Cms\Product;
 use App\Models\Products;
 
-$pro_detail = new Products();
-$product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
-$years = $pro_detail->years(['' => true]);
-$fuel = $pro_detail->fuel();
-$body = $pro_detail->body();
-$owner_filter = $pro_detail->owner_filter();
-$getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
-$data = ['category' => 'cars']; // category come from session
-//$product_sub_category = $pro_detail->get_product_sub_category($data);
-$all_product_list = $pro_detail->get_sub_category_product_list($data);
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">

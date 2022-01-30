@@ -66,6 +66,10 @@ $routes->post('(:any)/addmodels', 'Cms/ModelsController::addmodels');
 $routes->get('(:any)/citieslist', 'Cms/CitiesController::citieslist');
 $routes->get('(:any)/citiesform', 'Cms/CitiesController::citiesform');
 $routes->post('(:any)/addcities', 'Cms/CitiesController::addcities');
+$routes->get('(:any)/countryform', 'Cms/CitiesController::countryform');
+$routes->post('(:any)/addcountry', 'Cms/CitiesController::addcountry');
+$routes->get('(:any)/stateform', 'Cms/CitiesController::stateform');
+$routes->post('(:any)/addstate', 'Cms/CitiesController::addstate');
 
 
 

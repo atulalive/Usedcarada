@@ -4,18 +4,17 @@ namespace App\Models\Cms;
 
 use CodeIgniter\Model;
 
-class Cities extends Model
+class Country extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'top_cities';
+    protected $table            = 'country';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['created_datetime','updated_datetime','car_name','city_name','city_state','city_image_thumbnail','city_country','deleted'];
-
+    protected $allowedFields    = ['name'];
 
     // Dates
     protected $useTimestamps = false;
@@ -42,11 +41,20 @@ class Cities extends Model
     protected $afterDelete    = [];
 
 
-    function cities_list($data){
+    function country_list($name){
 
-        $citiesquery = $this->db->query("SELECT * FROM top_cities WHERE deleted = 0 ORDER BY ".$data['sorting_column']." ".$data['sort']." "); 
-         return $citiesquery->getResultArray();
-
+        $countryquery = $this->db->query("SELECT * FROM country WHERE deleted = 0 ORDER BY ".$name['sorting_column'].''.$name['sort'].''); 
+         return $countryquery->getResultArray();
    }
-   
+
+   public function addCountry($name)
+   {
+        $status = $this->db->query("INSERT INTO `country` (`id`, `name`, `deleted`) VALUES (NULL, ' . $name . ', '0');");
+        if ($status) {
+            return 1;
+        } else {
+            return 0;
+        }
+   }
+
 }

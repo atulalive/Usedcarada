@@ -105,7 +105,12 @@
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-folder"></i><span class="side-menu__label">Cities</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
 
-            
+            <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/countryform') ?>" class="slide-item">Country Add </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(session()->get('user_type_name').'/stateform') ?>" class="slide-item">State Add </a>
+                </li>
             <li>
                     <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Cities Add </a>
                 </li>
