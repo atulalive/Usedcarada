@@ -1,14 +1,4 @@
 <script>
-    
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content')
-        }
-    });
-    
-    var Body = $('body');
-    
-    
 
     function get_filter(className) {
 
