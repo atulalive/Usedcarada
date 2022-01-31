@@ -80,27 +80,30 @@ class Home extends BaseController
         return view('used_car_dealers');
     }
     
-    
     public function usedcar()
     {
         return view('usedcar_view');
     }
     public function category()
-    {   
-        $pro_detail = new Products();
-        $product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
-        $years = $pro_detail->years(['' => true]);
-        $fuel = $pro_detail->fuel();
-        $body = $pro_detail->body();
-        $owner_filter = $pro_detail->owner_filter();
-        $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
-        $data = ['category' => 'cars']; // category come from session
-        //$product_sub_category = $pro_detail->get_product_sub_category($data);
-        $all_product_list = $pro_detail->get_sub_category_product_list($data);
+    {  
+        $products = new Products();
 
-        return view('category_view', 
-        compact('product_brands', 'years', 'fuel', 'body', 'owner_filter', 'getBudegetPriceRange', 'all_product_list'));
+        if ($this->request->isAJAX()) {
+            $brand = $this->request->getVar('brand');
+            $minYear = $this->request->getVar('min_year');
+            $maxYear = $this->request->getVar('max_year');
+            $fuel = $this->request->getVar('fuel');
+            $bodyType = $this->request->getVar('body_type');
+            $price = $this->request->getVar('price');
+            
+            $data = $products->getAllProduct($brand, $minYear, $maxYear, $fuel, $price, $bodyType);
+            return $this->response->setJSON($data, 200);
+        }
+      
+        $all_product_list = $products->getAllProduct();
+        return view('category_view', compact('all_product_list'));
     }
+
     public function detailscar()
     {
         return view('detailscar_view');

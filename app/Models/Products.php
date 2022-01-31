@@ -227,10 +227,8 @@ class Products extends Model
     ###########################
 
     function get_product_brands(array $data = [])
-
     {
         
-
         if (!empty($data['brand_id'])) {
             $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
                                     FROM `product_brand` 
@@ -346,9 +344,6 @@ class Products extends Model
                                 
         }
         
-            
-        
-
         if (@$data['single']) {
             return $query->getFirstRow();
         }else {
@@ -528,5 +523,39 @@ class Products extends Model
             return $query->getResultArray();
         }
 
+    }
+    
+    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $bodyType = null)
+    {
+        $query = 'SELECT * FROM product_details ';
+
+        $query .= 'WHERE category_id = 1 ';
+        if ($brand) {
+            $brandString = trim(json_encode($brand), '[]');
+            $query .= 'AND brand_name IN (' .  $brandString . ') ';
+        }
+
+        if ($minYear && $maxYear) {
+            $query .= 'AND brand_year BETWEEN ' . $minYear .' AND ' . $maxYear . ' ';
+        }
+
+        if ($fuel) {
+            $fuelString = trim(json_encode($fuel), '[]');
+            $query .= 'AND fuel IN (' .  $fuelString . ') ';
+        }
+
+        if ($price) {
+            $t = explode('-', $price);
+            $query .= 'AND product_sell_price BETWEEN ' . trim($t[0], ' ') .' AND ' . trim($t[1], ' ') . ' ';
+        }
+
+        // if ($bodyType) {
+        //     $bodyTypeString = trim(json_encode($bodyType), '[]');
+        //     $query .= 'AND fuel IN (' .  $bodyTypeString . ') ';
+        // }
+    
+        $query = $this->db->query($query);
+
+        return $query->getResultArray();
     }
 }

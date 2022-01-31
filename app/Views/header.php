@@ -1,6 +1,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<?= csrf_meta();?>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 	<meta name="msapplication-TileColor" content="#162946">
 	<meta name="theme-color" content="#e72a1a">
@@ -13,6 +14,7 @@
 	<meta name="keywords" content="autotrader,autotrader dealer portal,car classifieds,autoportal,auto classifieds,car dealer template,Autolist,vehicle sale template,car dealer website,car sale template,automotive websites,auto websites,template for selling car,automotive template,car dealer website template,automotive classifieds,car for sale template,car dealer html template,automotive template,car dealer template,car dealer website template,car service template,html template,bootstrap templates,css templates,responsive template,premium html templates,template premium">
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
 
 	<!-- Title -->
 	<title>Usedcaradda Sale & Buy Our Dram Car here</title>
