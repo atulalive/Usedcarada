@@ -43,7 +43,7 @@ class Products extends Model
             $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
                                         FROM products AS products 
                                         INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
-                                        WHERE products.deleted = 0 AND products_price.product_sell_price BETWEEN " . $data['product_sell_min_price'] . " AND  " . $data['product_sell_max_price'] . " 
+                                        WHERE products.deleted = 0 AND products_price.product_sell_price BETWEEN " . @$data['product_sell_min_price'] . " AND  " . @$data['product_sell_max_price'] . " 
                                         ORDER BY products_price.product_sell_price  ASC");            
         } else{
             $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
@@ -367,7 +367,7 @@ class Products extends Model
             $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`, `deleted`  
                                     FROM `top_cities` 
                                     WHERE `deleted` = 0 AND `city_country` = '".$data['top_cities_city_country']."' LIMIT 1");
-       } else if ($data['is_top_cities']) {
+       } else if (@$data['is_top_cities']) {
         $query = $this->db->query("SELECT DISTINCT top_cities.`id`, top_cities.`city_country`, top_cities.`city_state`, top_cities.`city_name`,top_cities.`car_name`top_cities.`city_image_thumbnail`  top_cities.`deleted` 
                                 FROM top_cities
                                 INNER JOIN `product_cities_mapping` ON `product_cities_mapping`.`city_id` = product_id AND top_cities.deleted = 0 

@@ -55,15 +55,7 @@
                                                     </tr>
                                                     
                                                                     
-                                                    <?php
-                                                        $i = 1;
-                                                        foreach($citiesList as $citiesls){
-                                                           $i++; 
-                                                            ?>
-                                                         <tr>   
-                                                        <th><?php echo $i;?></th>
-                                                        <td><?php echo $citiesls['name'];?></td>    
-                                                        <?php } ?> 
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
