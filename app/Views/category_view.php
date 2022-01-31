@@ -2,7 +2,13 @@
 
 use App\Models\Cms\Product;
 use App\Models\Products;
-
+$pro_detail = new Products();
+$product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
+$years = $pro_detail->years(['' => true]);
+$fuel = $pro_detail->fuel();
+$body = $pro_detail->body();
+$owner_filter = $pro_detail->owner_filter();
+$getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 
 ?>
 <!doctype html>
@@ -277,12 +283,14 @@ use App\Models\Products;
 		</div>
 	</div>
 	</div><br><br>
-	</section><?php
-				echo view('footer.php');
-				echo view('model_view.php');
+	</section>
 
-				?>
+	<?php
+		echo view('footer.php');
+		echo view('model_view.php');
+
+	?>
 </body>
 
 </html>
-<script src="./js/filter.js"></script>
+<?php include('js/filter.php') ?>
