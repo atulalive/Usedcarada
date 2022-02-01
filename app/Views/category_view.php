@@ -6,7 +6,7 @@ $pro_detail = new Products();
 $product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
 $years = $pro_detail->years(['' => true]);
 $fuel = $pro_detail->fuel();
-$body = $pro_detail->body();
+$vehicleTypes = $pro_detail->vehicleTypes();
 $owner_filter = $pro_detail->owner_filter();
 $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 
@@ -48,9 +48,12 @@ $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 								<div class=" mb-0">
 									<?php include('list-grid-category/feature-model.php');?>
 								</div>
-								<div class="tab-content">
+								<div class="tab-content" id="hide-list-grid">
 									<?php include('list-grid-category/list-view.php');?>
 									<?php include('list-grid-category/grid-view.php');?>
+								</div>
+								<div class="tab-content" id="product-filter">
+									
 								</div>
 							</div>
 							<div class="center-block text-center">

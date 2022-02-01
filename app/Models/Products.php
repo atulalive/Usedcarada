@@ -436,24 +436,16 @@ class Products extends Model
     ### body type #########
     ###########################
 
-    function body(array $data = [])
+    public function vehicleTypes(array $data = [])
     {
-        
-
+        $query = 'SELECT * FROM products_sub_category ';
         if (!empty($data['id'])) {
-            $query = $this->db->query("SELECT `id`, `body_type`,  `deleted` 
-                                    FROM body` 
-                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+            $query .= 'WHERE id' . $data['id'];
+            return $this->db->query($query)->getFirstRow();
         } else {
-            $query = $this->db->query("SELECT`id`, `body_type`,  `deleted` 
-                                    FROM `body` 
-                                    WHERE `deleted` = 0");
+            return $this->db->query($query)->getResultArray();
         }
-        if (@$data['single']) {
-            return $query->getFirstRow();
-        }else {
-            return $query->getResultArray();
-        }
+
     }
     ###########################
     ### body type #########
@@ -525,7 +517,7 @@ class Products extends Model
 
     }
     
-    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $bodyType = null)
+    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $vehicleType = null)
     {
         $query = 'SELECT * FROM product_details ';
 
@@ -549,10 +541,10 @@ class Products extends Model
             $query .= 'AND product_sell_price BETWEEN ' . trim($t[0], ' ') .' AND ' . trim($t[1], ' ') . ' ';
         }
 
-        // if ($bodyType) {
-        //     $bodyTypeString = trim(json_encode($bodyType), '[]');
-        //     $query .= 'AND fuel IN (' .  $bodyTypeString . ') ';
-        // }
+        if ($vehicleType) {
+            $vehicleTypeString = trim(json_encode($vehicleType), '[]');
+            $query .= 'AND sub_category_name IN (' .  $vehicleTypeString . ') ';
+        }
     
         $query = $this->db->query($query);
 

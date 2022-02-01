@@ -116,20 +116,20 @@
         </div>
         <?php } } ?>
         <div class="px-4 py-3 border-bottom border-top">
-            <h4 class="mb-0">Body Type</h4>
+            <h4 class="mb-0">Vehicle Type</h4>
         </div>
         <br>
 
         <?php 
-        if (!empty($body) && is_array($body)) {
-            foreach ($body as $body_val) {      
+        if (!empty($vehicleTypes) && is_array($vehicleTypes)) {
+            foreach ($vehicleTypes as $vehicleType) {
         ?>
         <div class="">
             <div class="filter-product-checkboxs"style="padding-left:15%;">
                 <label class="custom-control custom-checkbox mb-2">
-                    <input type="checkbox" class="custom-control-input body-type" value="<?php echo ucwords($body_val['body_type']); ?>">
+                    <input type="checkbox" class="custom-control-input vehicle-type" value="<?php echo ucwords($vehicleType['sub_category_name']); ?>">
                     <span class="custom-control-label">
-                    <h5 class=""><?php echo ucwords($body_val['body_type']); ?></h5>
+                    <h5 class=""><?php echo ucwords($vehicleType['sub_category_name']); ?></h5>
                     </span>
                 </label>
             </div>
