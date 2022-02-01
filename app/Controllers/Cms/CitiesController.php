@@ -4,6 +4,7 @@ namespace App\Controllers\Cms;
 use App\Models\Cms\Cities;
 use App\Controllers\BaseController;
 use App\Models\Cms\Country;
+use App\Models\Cms\State;
 
 class CitiesController extends BaseController
 {
@@ -22,7 +23,9 @@ class CitiesController extends BaseController
 	 {
 		$name['sorting_column'] = 'id';
 		$name['sort'] = 'DESC';
-		$name['citiesList']  = $this->cities->cities_list($name);
+	
+		
+		
 		return view('cms/cities_list');
 		
  	 }
@@ -35,6 +38,7 @@ class CitiesController extends BaseController
 	{
 		return view('cms/add_country');
 	}
+	
 	public function addcountry()
 	{
 		if ($this->validate([
@@ -58,19 +62,18 @@ class CitiesController extends BaseController
 				}
 		
 	}
-	public function stateform()
-	{
-		return view('cms/add_state');
-	}
 	public function addstate()
 	{
 		if ($this->validate([
-			'name' => 'required'
+			
+			'state_name' => 'required'
 		])){
-				$name = $this->request->getPost('name');
+				$state_name = $this->request->getPost('state_name');
 				
-				$state = new Country();
-				$insert = $state->addstate($name);
+				
+				$state = new State();
+				$insert = $state->addstate($state_name);
+				
 				
 				if ($insert) {
 					session()->setFlashdata('success', 'Success! state Added Successfully.');
@@ -81,8 +84,15 @@ class CitiesController extends BaseController
 				}
 					
 				}else{
-					return view('cms/add_country', ['validation' => $this->validator]);
+					return view('cms/add_state', ['validation' => $this->validator]);
 				}
 		
 	}
+
+
+	public function stateform()
+	{
+		return view('cms/add_state');
+	}
+	
 }

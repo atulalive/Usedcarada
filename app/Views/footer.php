@@ -159,3 +159,15 @@
 
 		<!-- Sticky Sidebar Js-->
 		<script type="module" src="<?php echo base_url(); ?>/assets/js/sticky-sidebar.js"></script>
+		
+		<script>
+			
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content')
+				}
+			});
+			
+			var Body = $('body');
+
+		</script>

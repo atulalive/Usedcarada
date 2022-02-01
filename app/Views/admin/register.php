@@ -64,3 +64,6 @@
 </div>
 <!--/Page-->
 <?php echo view('admin/footer.php'); ?>
+<script>
+    
+</script>

@@ -43,7 +43,7 @@ class Products extends Model
             $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
                                         FROM products AS products 
                                         INNER JOIN products_price AS products_price ON products_price.pro_id = products.pro_id AND products_price.deleted = 0 
-                                        WHERE products.deleted = 0 AND products_price.product_sell_price BETWEEN " . $data['product_sell_min_price'] . " AND  " . $data['product_sell_max_price'] . " 
+                                        WHERE products.deleted = 0 AND products_price.product_sell_price BETWEEN " . @$data['product_sell_min_price'] . " AND  " . @$data['product_sell_max_price'] . " 
                                         ORDER BY products_price.product_sell_price  ASC");            
         } else{
             $query = $this->db->query("SELECT products.pro_id, products.product_name, products.product_alias_name, products.product_category, products.product_thumbnail, products_price.product_base_price, products_price.product_sell_price 
@@ -367,7 +367,7 @@ class Products extends Model
             $query = $this->db->query("SELECT `id`, `city_country`, `city_state`, `city_name`,`car_name`,`city_image_thumbnail`, `deleted`  
                                     FROM `top_cities` 
                                     WHERE `deleted` = 0 AND `city_country` = '".$data['top_cities_city_country']."' LIMIT 1");
-       } else if ($data['is_top_cities']) {
+       } else if (@$data['is_top_cities']) {
         $query = $this->db->query("SELECT DISTINCT top_cities.`id`, top_cities.`city_country`, top_cities.`city_state`, top_cities.`city_name`,top_cities.`car_name`top_cities.`city_image_thumbnail`  top_cities.`deleted` 
                                 FROM top_cities
                                 INNER JOIN `product_cities_mapping` ON `product_cities_mapping`.`city_id` = product_id AND top_cities.deleted = 0 
@@ -436,24 +436,16 @@ class Products extends Model
     ### body type #########
     ###########################
 
-    function body(array $data = [])
+    public function vehicleTypes(array $data = [])
     {
-        
-
+        $query = 'SELECT * FROM products_sub_category ';
         if (!empty($data['id'])) {
-            $query = $this->db->query("SELECT `id`, `body_type`,  `deleted` 
-                                    FROM body` 
-                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+            $query .= 'WHERE id' . $data['id'];
+            return $this->db->query($query)->getFirstRow();
         } else {
-            $query = $this->db->query("SELECT`id`, `body_type`,  `deleted` 
-                                    FROM `body` 
-                                    WHERE `deleted` = 0");
+            return $this->db->query($query)->getResultArray();
         }
-        if (@$data['single']) {
-            return $query->getFirstRow();
-        }else {
-            return $query->getResultArray();
-        }
+
     }
     ###########################
     ### body type #########
@@ -525,7 +517,7 @@ class Products extends Model
 
     }
     
-    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $bodyType = null)
+    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $vehicleType = null)
     {
         $query = 'SELECT * FROM product_details ';
 
@@ -549,10 +541,10 @@ class Products extends Model
             $query .= 'AND product_sell_price BETWEEN ' . trim($t[0], ' ') .' AND ' . trim($t[1], ' ') . ' ';
         }
 
-        // if ($bodyType) {
-        //     $bodyTypeString = trim(json_encode($bodyType), '[]');
-        //     $query .= 'AND fuel IN (' .  $bodyTypeString . ') ';
-        // }
+        if ($vehicleType) {
+            $vehicleTypeString = trim(json_encode($vehicleType), '[]');
+            $query .= 'AND sub_category_name IN (' .  $vehicleTypeString . ') ';
+        }
     
         $query = $this->db->query($query);
 

@@ -50,6 +50,17 @@
 		<!-- Custom, Common Js-->
 		<script src="<?php echo URL_JS.URL_SEPARATOR.'admin-custom.js'; ?>"></script>
 		<script src="<?php echo URL_REL_CMS_JS.'common.js'; ?>"></script>
+		<script>
+			
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content')
+				}
+			});
+			
+			var Body = $('body');
+
+		</script>
 
 	</body>
 </html>
