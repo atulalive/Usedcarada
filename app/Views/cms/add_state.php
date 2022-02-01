@@ -1,3 +1,8 @@
+<?php
+	use App\Models\CMS\Country;
+	$countries = new Country();
+	$getAllCountries = $countries->getAllCountry();
+?>
 <?php echo view('./admin/head.php'); ?>
 <!--Page-->
 <div class="page">
@@ -29,7 +34,7 @@
 								<h3 class="card-title">State Basic Info</h3>
 							</div>
 							<?php $validation =  \Config\Services::validation(); ?>
-							<form action="<?php echo base_url(session()->get('user_type_name') . '/addcountry'); ?>" method="post" enctype="multipart/form-data">
+							<form action="<?php echo base_url(session()->get('user_type_name') . '/addstate'); ?>" method="post" enctype="multipart/form-data">
 								<?php echo csrf_field() ?>
 
 								<div class="card-body">
@@ -41,13 +46,16 @@
 										<div class="col-md-6 col-lg-6">
 											<div class="form-group">
                                             <label class="form-label">Please Select Country</label>
-                                                <select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('id')) ? "is-invalid" : ""; ?>" id="id" name="id" placeholder="">
+                                                <select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('id')) ? "is-invalid" : ""; ?>" id="country-list" name="id" placeholder="">
                                                     <option selected>Select Country </option>
-                                                    
+													<?php foreach($getAllCountries as $getAllCountry) {?>
+														<option value="<?= $getAllCountry['id']?>" ><?= $getAllCountry['name']?></option>
+
+													<?php } ?>
                                                 </select>
-                                                <?php if ($validation->getError('name')) : ?>
+                                                <?php if ($validation->getError('id')) : ?>
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('name') ?>
+                                                        <?= $validation->getError('id') ?>
                                                     </div>
                                                 <?php endif; ?>
 
@@ -62,11 +70,11 @@
 												<label class="form-label">State Name</label>
 												<input 
 														type="text" 
-														class="form-control <?php if ($validation->getError('name')) : ?> is-invalid<?php endif ?>" 
-														id="name" 
-														name="name" 
+														class="form-control <?php if ($validation->getError('state_name')) : ?> is-invalid<?php endif ?>" 
+														id="id" 
+														name="state_name" 
 														placeholder="state Name" 
-														onkeyup="name()">
+														onkeyup="state_name()">
 
 											</div>
 										</div>
@@ -96,3 +104,24 @@
 			</div>
 			<!--/Page-->
 			<?php echo view('admin/footer.php'); ?>
+
+			<script>
+				$(document).ready(function(){
+        
+					Body.on('change', '#country-list', function(){
+						var countryValue = $(this).val();
+						$.ajax({
+							type: "GET",
+							url: '<?php echo base_url('/admin/stateform');?>',
+							data:{
+								country_name:  countryValue,
+							},
+							success: function(data){
+								console.log(data);
+								//$('#state-list').val(data);
+							}
+						});
+					});
+        
+    			});
+			</script>
