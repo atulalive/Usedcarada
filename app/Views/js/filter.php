@@ -75,6 +75,9 @@
             var fuel = get_filter('fuel');
             var vehicleType = get_filter('vehicle-type');
             var price = $('.price-filter').val();
+             var ownerType = $('.owner-type').val();
+            
+             
             
             $.ajax({
                 type: "GET",
@@ -87,6 +90,9 @@
                     fuel: fuel,
                     vehicle_type: vehicleType,
                     price: price,
+              owner_type: ownerType,
+           
+
 
                 },
                 success: function(data){

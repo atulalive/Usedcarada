@@ -8,7 +8,12 @@ $years = $pro_detail->years(['' => true]);
 $fuel = $pro_detail->fuel();
 $vehicleTypes = $pro_detail->vehicleTypes();
 $owner_filter = $pro_detail->owner_filter();
+$transmition = $pro_detail->transmition();
+$kilometer = $pro_detail->kilometer();
 $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
+$getProductOverview = $pro_detail->getProductOverview();
+$get_product_model = $pro_detail->get_product_model();
+
 
 ?>
 <!doctype html>

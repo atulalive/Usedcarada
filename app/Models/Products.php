@@ -471,6 +471,54 @@ class Products extends Model
         }
 
     }
+     ###########################
+    ### transmition #########
+    ###########################
+
+    function transmition(array $data = [])
+    {
+        
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `transmition_name`,  `deleted` 
+                                    FROM `transmition` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `transmition_name`,  `deleted` 
+                                    FROM `transmition` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+
+    }
+     ###########################
+    ### kilometer #########
+    ###########################
+
+    function kilometer(array $data = [])
+    {
+        
+
+        if (!empty($data['id'])) {
+            $query = $this->db->query("SELECT `id`, `distance`,  `deleted` 
+                                    FROM `kilometer` 
+                                    WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
+        } else {
+            $query = $this->db->query("SELECT`id`, `distance`,  `deleted` 
+                                    FROM `kilometer` 
+                                    WHERE `deleted` = 0");
+        }
+        if (@$data['single']) {
+            return $query->getFirstRow();
+        }else {
+            return $query->getResultArray();
+        }
+
+    }
     ###########################
     ### Features #########
     ###########################
@@ -517,7 +565,7 @@ class Products extends Model
 
     }
     
-    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $vehicleType = null)
+    public function getAllProduct($brand = null, $minYear = null, $maxYear = null, $fuel = null, $price = null, $vehicleType = null, $ownerType = null)
     {
         $query = 'SELECT * FROM product_details ';
 
@@ -545,6 +593,12 @@ class Products extends Model
             $vehicleTypeString = trim(json_encode($vehicleType), '[]');
             $query .= 'AND sub_category_name IN (' .  $vehicleTypeString . ') ';
         }
+
+        if ($ownerType) {
+            $ownerTypeString = trim(json_encode($ownerType), '[]');
+            $query .= 'AND no_of_owner IN (' .  $ownerTypeString . ') ';
+        }
+       
     
         $query = $this->db->query($query);
 

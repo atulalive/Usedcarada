@@ -1,14 +1,15 @@
 <!--Left Side Content-->
 <div class="col-xl-3 col-lg-3 col-md-12">
     <div class="card">
-        <div class="card-body"><br>
-            <h5>Location</h5><br>
+        <div class=""><div class="px-4 py-3 border-bottom border-top">
+            <h4 class="mb-0">Location</h4>
+        </div><br>
             <div class="input-group">
                 <input type="text" class="form-control br-tl-3  br-bl-3" placeholder="Search">
                 <div class="input-group-append ">
                     <button type="button" class="btn btn-primary br-tr-3  br-br-3">
                         Search
-                    </button>
+                    </button><br>
                 </div>
             </div>
         </div>
@@ -40,9 +41,9 @@
     </div>  
 
     <div class="card overflow-hidden">
-        <div class="card-body">
-            <h4 class="mb-2"style="padding-left:15%;">Categories</h4><hr>
-        </div>
+    <div class="px-4 py-3 border-bottom border-top">
+            <h4 class="mb-0">Categories</h4>
+        </div><br>
         <?php if (!empty($product_brands) && is_array($product_brands)) {
                 foreach ($product_brands as $brand_val) {
         ?>
@@ -139,7 +140,7 @@
             <h4 class="mb-0">Owner</h4>
         </div><br>
         <?php
-            
+           
         if (!empty($owner_filter) && is_array($owner_filter)) {
             foreach ($owner_filter as $owner_filter_val) {
         ?>
@@ -154,6 +155,49 @@
             </div>
         </div>
         <?php } } ?> 
+        <div class="px-4 py-3 border-bottom border-top">
+            <h4 class="mb-0">Transmition</h4>
+        </div><br>
+        <?php
+           
+        if (!empty($transmition) && is_array($transmition)) {
+            foreach ($transmition as $transmition_val) {
+        ?>
+        <div class="">
+            <div class="filter-product-checkboxs"style="padding-left:15%;">
+                <label class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input transmition_name" value="<?= ucwords($transmition_val['transmition_name']); ?>">
+                    <span class="custom-control-label">
+                    <h5 class=""><?= ucwords($transmition_val['transmition_name']); ?></h5>
+                    </span>
+                </label>
+            </div>
+        </div>
+        <?php } } ?> 
+        <div class="card">
+        <div class="px-4 py-3 border-bottom border-top">
+            <h4 class="mb-0">Kilometer Range</h4>
+        </div><br>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group col-md-12 mb-1">
+                    <select class="form-control select2 price-filter">
+                        <option value="">Select Kilometer</option>
+                    <?php 
+                        foreach ($kilometer as $kilometer_val) {	
+                    ?>
+                        <option value="<?= $kilometer_val['distance']; ?>">
+                            <h5>
+                                <?= $kilometer_val['distance']; ?>
+                            </h5>
+                        </option>
+                    <?php }?>	
+                    </select>
+                </div>
+            </div>
+        </div> 
+    </div>  
     </div>
 
 </div>

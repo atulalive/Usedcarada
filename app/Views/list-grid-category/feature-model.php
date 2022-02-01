@@ -20,10 +20,10 @@
                     <input type="radio" name="value" value="Latest" class="selectgroup-input">
                     <span class="selectgroup-button">Latest</span>
                 </label>
-                <label class="selectgroup-item mb-0">
+                <!-- <label class="selectgroup-item mb-0">
                     <input type="radio" name="value" value="Rating" class="selectgroup-input">
                     <span class="selectgroup-button">Rating</span>
-                </label>
+                </label> -->
             </div>
         </div>
     </div>
