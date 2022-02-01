@@ -1,15 +1,14 @@
 <!--Left Side Content-->
 <div class="col-xl-3 col-lg-3 col-md-12">
     <div class="card">
-        <div class=""><div class="px-4 py-3 border-bottom border-top">
-            <h4 class="mb-0">Location</h4>
-        </div><br>
+        <div class="card-body"><br>
+            <h5>Location</h5><br>
             <div class="input-group">
                 <input type="text" class="form-control br-tl-3  br-bl-3" placeholder="Search">
                 <div class="input-group-append ">
                     <button type="button" class="btn btn-primary br-tr-3  br-br-3">
                         Search
-                    </button><br>
+                    </button>
                 </div>
             </div>
         </div>
@@ -42,7 +41,7 @@
 
     <div class="card overflow-hidden">
     <div class="px-4 py-3 border-bottom border-top">
-            <h4 class="mb-0">Categories</h4>
+            <h4 class="mb-0">Brand Name</h4>
         </div><br>
         <?php if (!empty($product_brands) && is_array($product_brands)) {
                 foreach ($product_brands as $brand_val) {
@@ -62,7 +61,8 @@
             </div>
         </div>
         <?php } } ?>
-        
+
+<!-- ---------------------------------------------------------------------------- -->
         <div class="px-4 py-3 border-bottom border-top">
             <h4 class="mb-0">Year</h4>
         </div>
@@ -96,7 +96,7 @@
         </div>
             
         <?php } ?>
-
+<!-- ------------------------------------------------------------------- -->
         <div class="px-4 py-3 border-bottom border-top">
             <h4 class="mb-0">Fuel Type</h4>
         </div><br>
@@ -116,6 +116,7 @@
             </div>
         </div>
         <?php } } ?>
+<!-- --------------------------------------------------------------------- -->
         <div class="px-4 py-3 border-bottom border-top">
             <h4 class="mb-0">Vehicle Type</h4>
         </div>
@@ -136,37 +137,38 @@
             </div>
         </div>
         <?php } } ?>
+<!-- ------------------------------------------------------------------ -->
         <div class="px-4 py-3 border-bottom border-top">
             <h4 class="mb-0">Owner</h4>
         </div><br>
         <?php
            
-        if (!empty($owner_filter) && is_array($owner_filter)) {
-            foreach ($owner_filter as $owner_filter_val) {
+        if (!empty($owners) && is_array($owners)) {
+            foreach ($owners as $owner) {
         ?>
         <div class="">
             <div class="filter-product-checkboxs"style="padding-left:15%;">
                 <label class="custom-control custom-checkbox mb-2">
-                    <input type="checkbox" class="custom-control-input owner-type" value="<?= ucwords($owner_filter_val['owner_type']); ?>">
+                    <input type="checkbox" class="custom-control-input owner-type" value="<?= ucwords($owner['owner_type']); ?>">
                     <span class="custom-control-label">
-                    <h5 class=""><?= ucwords($owner_filter_val['owner_type']); ?></h5>
+                    <h5 class=""><?= ucwords($owner['owner_type']); ?></h5>
                     </span>
                 </label>
             </div>
         </div>
         <?php } } ?> 
+<!-- -------------------------------------------------------------------- -->
         <div class="px-4 py-3 border-bottom border-top">
             <h4 class="mb-0">Transmition</h4>
         </div><br>
         <?php
-           
         if (!empty($transmition) && is_array($transmition)) {
             foreach ($transmition as $transmition_val) {
         ?>
         <div class="">
             <div class="filter-product-checkboxs"style="padding-left:15%;">
                 <label class="custom-control custom-checkbox mb-2">
-                    <input type="checkbox" class="custom-control-input transmition_name" value="<?= ucwords($transmition_val['transmition_name']); ?>">
+                    <input type="checkbox" class="custom-control-input transmition-filter" value="<?= ucwords($transmition_val['transmition_name']); ?>">
                     <span class="custom-control-label">
                     <h5 class=""><?= ucwords($transmition_val['transmition_name']); ?></h5>
                     </span>
@@ -174,30 +176,32 @@
             </div>
         </div>
         <?php } } ?> 
-        <div class="card">
-        <div class="px-4 py-3 border-bottom border-top">
-            <h4 class="mb-0">Kilometer Range</h4>
-        </div><br>
+<!-- ------------------------------------------------------------- -->
 
-        <div class="card-body">
-            <div class="row">
-                <div class="form-group col-md-12 mb-1">
-                    <select class="form-control select2 price-filter">
-                        <option value="">Select Kilometer</option>
-                    <?php 
-                        foreach ($kilometer as $kilometer_val) {	
+        <div class="px-4 py-3 border-bottom border-top">
+            <h4 class="mb-0">Kilo Meter</h4>
+        </div><br>
+        <?php
+        if (!empty($kilometers) && is_array($kilometers)) {
+        ?>
+        <div class="">
+            <div class="form-group col-md-12 mb-1" style="padding-bottom:2pc;">
+                <select class="form-control select2 kilo-meter-filter">
+                    <option value="">Select Price</option>
+                    <?php
+                        foreach ($kilometers as $kilometer) {
                     ?>
-                        <option value="<?= $kilometer_val['distance']; ?>">
-                            <h5>
-                                <?= $kilometer_val['distance']; ?>
-                            </h5>
-                        </option>
-                    <?php }?>	
-                    </select>
-                </div>
+                            <option value="<?= $kilometer['distance']; ?>">
+                                <h5>
+                                    <?= $kilometer['distance']; ?>
+                                </h5>
+                            </option>
+                    <?php } ?>
+                </select>
             </div>
-        </div> 
-    </div>  
+        </div>
+        <?php } ?> 
+
     </div>
 
 </div>
