@@ -86,6 +86,7 @@ class Home extends BaseController
     }
     public function category()
     {  
+        
         $products = new Products();
 
         if ($this->request->isAJAX()) {

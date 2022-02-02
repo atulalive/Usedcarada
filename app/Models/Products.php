@@ -471,7 +471,7 @@ class Products extends Model
 
         if (!empty($data['id'])) {
             $query = $this->db->query("SELECT `id`, `pro_id`, `feature`,`deleted` 
-                                    FROM product_features` 
+                                    FROM `product_features` 
                                     WHERE `deleted` = 0 AND `id` = ".$data['id']." LIMIT 1");
         } else {
             $query = $this->db->query("SELECT`id`, `pro_id`, `feature`, `deleted`
