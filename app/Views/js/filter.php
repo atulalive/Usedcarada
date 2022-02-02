@@ -10,7 +10,7 @@
                     '<div class="arrow-ribbon bg-primary">Sale</div>'  +
                     '<div class="item-card9-imgs">' +
                         '<a class="link" href="'+ baseUrl + '/cardetails/' + record.product_category + '/' + record.product_alias_name + ' "></a>' +
-                        '<img src="'+ urlImageMedia + record.product_category + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
+                        '<img src="'+ urlImageMedia + record.product_category.toLowerCase(); + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
                     '</div>' +
                     '<div class="item-card9-icons">' +
                         '<a href="#" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>' +
