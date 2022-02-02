@@ -5,7 +5,7 @@
 
     function getLowerCase(string)
     {
-        return str.toLowerCase();
+        return string.toLowerCase();
     }
 
     function listView(record = null)
