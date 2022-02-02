@@ -6,24 +6,20 @@
             <li><a href="#tab-12" data-toggle="tab" class="" title="Grid"><i class="fa fa-th"></i></a></li>
         </ul>
         <div class="d-sm-flex">
-            <label class="mr-2 mt-2 mb-sm-1">Sort By:</label>
-            <div class="selectgroup">
-                <label class="selectgroup-item mb-md-0">
-                    <input type="radio" name="value" value="Price" class="selectgroup-input" checked="">
-                    <span class="selectgroup-button">Price <i class="fa fa-sort ml-1"></i></span>
-                </label>
-                <label class="selectgroup-item mb-md-0">
-                    <input type="radio" name="value" value="Popularity" class="selectgroup-input">
-                    <span class="selectgroup-button">Popularity</span>
-                </label>
-                <label class="selectgroup-item mb-md-0">
-                    <input type="radio" name="value" value="Latest" class="selectgroup-input">
-                    <span class="selectgroup-button">Latest</span>
-                </label>
-                <label class="selectgroup-item mb-0">
-                    <input type="radio" name="value" value="Rating" class="selectgroup-input">
-                    <span class="selectgroup-button">Rating</span>
-                </label>
+            <!-- <label class="mr-2 mt-2 mb-sm-1">Sort By:</label>
+             -->
+             <div class="center-block text-center">
+                <ul class="pagination mb-3">
+                    <li class="page-item page-prev disabled">
+                        <a class="page-link" href="#" tabindex="-1">Prev</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item page-next">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

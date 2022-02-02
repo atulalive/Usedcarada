@@ -52,7 +52,7 @@ class Country extends Model
         $status = $this->db->query("INSERT INTO `country` (`id`, `name`, `deleted`) VALUES (NULL, ' . $name . ', '0');");
         if ($status) {
             return 1;
-        } else {
+        } else { 
             return 0;
         }
    }

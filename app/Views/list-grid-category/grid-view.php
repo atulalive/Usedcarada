@@ -40,10 +40,20 @@
                             <a href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>" class="text-dark">
                                 <h4 class="mb-0"><?php echo $value['product_name']; ?></h4>
                             </a>
-                                <div class="item-card9-desc mb-2">
-                                    <a href="#" class="mr-4"><span class=""><i class="fa fa-map-marker text-muted mr-1"></i> USA</span></a>
-                                    <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i>  2 days ago</span></a>
-                                </div>
+                                <div class=" mb-2"><br>
+                                   <b> <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i><b><?php echo ucwords($value['make_year']); ?></span></a></b>
+                                    <a href="#" class="mr-4"><span class="">   <?php
+                                    if (ACTIVE_MODE == MODE_DEVELOPMENT) {
+                                        echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
+                                    } else  if (ACTIVE_MODE == MODE_DEVELOPMENT) {
+                                        echo $money_format('&#x20b9;%!n', $value['product_sell_price']);
+                                    }
+                                    ?></span></a></b>
+                                </div> <div class="item-card9-desc mb-2">
+                                <a href="#" class="mr-4"><span class=""><i class="fa fa-map-marker text-muted mr-1"></i>Mumbai</span></a>
+                                <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i> 2 days ago</span></a>
+                            </div>
+                                
                               
                         </div>
                         <div class="card-footer pt-4 pb-4 pr-4 pl-4">

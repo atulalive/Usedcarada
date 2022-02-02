@@ -1,3 +1,5 @@
+
+
 <?php echo view('./admin/head.php'); ?>
 <!--Page-->
 <div class="page">
@@ -240,11 +242,18 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-label">Number Ownership</label>
-                                                <input type="text" class="form-control <?php echo ($validation->getError('no_of_owner')) ? "is-invalid" : ""; ?>" id="no_of_owner" name="no_of_owner" placeholder="No. Owner"  value="<?php echo set_value('no_of_owner'); ?>" />
-                                                <?php if ($validation->getError('no_of_owner')) : ?>
+                                                <label class="form-label">Owner Type</label>
+                                                <select class="form-control select-sm custom-select select2 <?php echo ($validation->getError('owner_type')) ? "is-invalid" : ""; ?>" id="owner_type" name="owner_type" placeholder="" >
+                                                    <option selected>Select Owner Type</option>
+                                                    <?php
+                                                    foreach ($owner_filter as $owner_filter_val) {
+                                                        echo '<option value="' . $owner_filter_val['owner_type'] . '">' . ucwords($owner_filter_val['owner_type']) . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <?php if ($validation->getError('owner_type')) : ?>
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('no_of_owner') ?>
+                                                        <?= $validation->getError('owner_type') ?>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>

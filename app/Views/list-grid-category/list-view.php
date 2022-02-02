@@ -24,6 +24,7 @@
                                 <a href="#" class="mr-4"><span class=""><i class="fa fa-map-marker text-muted mr-1"></i> USA</span></a>
                                 <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i> 2 days ago</span></a>
                             </div>
+                            
 
                         </div>
                     </div>

@@ -49,6 +49,7 @@ class ProductController extends BaseController
 		$data['sub_category'] = $this->products->get_product_sub_category(['category' => 'cars']);
 		$data['brand'] = $this->products->get_product_brands(['is_brand' => true]);
 		$data['top_cities']  = $this->products->get_top_cities();
+		$data['owner_filter']  = $this->products->owner_filter();
 		return view('cms/product_new',$data);
 	}
 
@@ -57,8 +58,11 @@ class ProductController extends BaseController
 	 */
     public function productstore()
 	{
-		$product = $this->request->getPost('product'); 
+		$product = $this->request->getPost(); 
+		d($product);
+		die;
 		$product_basic_info = $product['basic_info'];
+
 		$product_product_price = $product['product_price'];
 		$product_top_cities = $product['top_cities'];
 		$product_overview = $product['overview'];

@@ -7,8 +7,13 @@ $product_brands = $pro_detail->get_product_brands(['is_brand' => true]);
 $years = $pro_detail->years(['' => true]);
 $fuel = $pro_detail->fuel();
 $vehicleTypes = $pro_detail->vehicleTypes();
-$owner_filter = $pro_detail->owner_filter();
+$owners = $pro_detail->owner_filter();
+$transmition = $pro_detail->transmition();
+$kilometers = $pro_detail->kilometer();
 $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
+$getProductOverview = $pro_detail->getProductOverview();
+$get_product_model = $pro_detail->get_product_model();
+
 
 ?>
 <!doctype html>
@@ -56,19 +61,7 @@ $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 									
 								</div>
 							</div>
-							<div class="center-block text-center">
-								<ul class="pagination mb-3">
-									<li class="page-item page-prev disabled">
-										<a class="page-link" href="#" tabindex="-1">Prev</a>
-									</li>
-									<li class="page-item active"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item page-next">
-										<a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 					<!--/Lists-->

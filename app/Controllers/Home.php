@@ -92,11 +92,14 @@ class Home extends BaseController
             $brand = $this->request->getVar('brand');
             $minYear = $this->request->getVar('min_year');
             $maxYear = $this->request->getVar('max_year');
-            $fuel = $this->request->getVar('fuel');
+            $fuels = $this->request->getVar('fuel');
             $vehicleType = $this->request->getVar('vehicle_type');
             $price = $this->request->getVar('price');
-            
-            $data = $products->getAllProduct($brand, $minYear, $maxYear, $fuel, $price, $vehicleType);
+            $owners = $this->request->getVar('owner_type');
+            $transmissions = $this->request->getVar('transmisson_type');
+            $kiloMeter = $this->request->getVar('kilo_meter');
+
+            $data = $products->getAllProduct($brand, $minYear, $maxYear, $fuels, $price, $vehicleType, $owners, $transmissions, $kiloMeter);
             return $this->response->setJSON($data, 200);
         }
       
