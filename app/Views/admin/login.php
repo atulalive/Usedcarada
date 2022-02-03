@@ -1,13 +1,18 @@
 <?php echo view('admin/head.php');?>
 <!--Page-->
 <div class="page page-h">
-    <div class="page-content z-index-10">
+    <div class="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-md-12 col-md-12 d-block mx-auto">
+                <div class="col-xl-4 col-md-6 col-md-6 d-block mx-auto">
                     <div class="card box-shadow-0 mb-0">
-                        <div class="card-header">
-                            <h3 class="card-title">Login to your Account</h3>
+                        
+                        <div class=""style="padding-left: 32%;">
+                        <br><img src="<?php echo URL_IMAGES_MEDIA; ?>logos/logo.png" class="header-brand-img text-center" alt="Claylist logo">
+                        </div>
+                        <div class=""style="padding-left: 32%;">
+                        <br><h4 style="padding-left: 2%;">Admin Login</h4>
+                     
                         </div>
 
                         <?php if (session()->getFlashdata('success')) : ?>
@@ -42,10 +47,10 @@
                                     </label>
                                 </div>
                                 <div class="form-footer mt-2">
-                                    <button type="submit" class="btn btn-primary btn-block">SignIn</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                                 </div>
                                 <div class="text-center  mt-3 text-dark">
-                                    Don't have account yet? <a href="<?php echo base_url('admin/register'); ?>">SignUp</a>
+                                    Don't have account yet? <a href="<?php echo base_url('admin/register'); ?>">Sign Up</a>
                                 </div>
                             </div>
                         </form>

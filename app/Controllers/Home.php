@@ -84,6 +84,7 @@ class Home extends BaseController
     {
         return view('usedcar_view');
     }
+
     public function category()
     {  
         $products = new Products();
