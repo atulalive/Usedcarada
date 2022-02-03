@@ -14,7 +14,6 @@ $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 $getProductOverview = $pro_detail->getProductOverview();
 $get_product_model = $pro_detail->get_product_model();
 
-
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -54,12 +53,17 @@ $get_product_model = $pro_detail->get_product_model();
 									<?php include('list-grid-category/feature-model.php');?>
 								</div>
 								<div class="tab-content" id="hide-list-grid">
-									<?php include('list-grid-category/list-view.php');?>
+									<?php //include('list-grid-category/list-view.php');?>
 									<?php include('list-grid-category/grid-view.php');?>
 								</div>
-								<div class="tab-content" id="product-filter">
-									
+								<div class="tab-content" >
+									<div class="tab-pane active" id="tab-12">
+										<div class="row" id="product-filter">
+											
+										</div>
+									</div>
 								</div>
+								
 							</div>
 							
 						</div>

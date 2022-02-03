@@ -1,44 +1,32 @@
-<?php
 
-// use App\Models\Products;
-
-// $pro_detail = new Products();
-// $data = ['category' => 'cars']; // category come from session
-// $product_sub_category = $pro_detail->get_product_sub_category($data);
-// $all_product_list = $pro_detail->get_sub_category_product_list($data);
-// print_r($product_sub_category);
-
-?>
-<div class="tab-pane" id="tab-12">
+<div class="tab-pane active" id="tab-12">
     <div class="row">
         <?php foreach ($all_product_list as $k => $value) { ?>
             <div class="col-lg-6 col-md-12 col-xl-4">
                 <div class="card overflow-hidden">
                     <div class="item-card9-img">
                         <div class="arrow-ribbon bg-primary">
-                        <div class="arrow-ribbon bg-danger " style="margin-top:125%;"><i class="fa fa-eye"></i>7</div>
-                            <p class="pb-0 pt-0 mb-2 mt-2"></i>
-                                <?php
-                                if (ACTIVE_MODE == MODE_DEVELOPMENT) {
-                                    echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
-                                } else  if (ACTIVE_MODE == MODE_DEVELOPMENT) {
-                                    echo $money_format('&#x20b9;%!n', $value['product_sell_price']);
-                                }
-                                ?>
-                            </p>
-                        </div>
-                        <div class="item-card9-imgs">
-                            <a class="link" href="cars.html"></a>
-                            <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
-                            <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
-                        </div>
-                        <div class="item-card9-icons">
-                           
-
-                            <a href="" class="bg-white"><img src="<?php echo URL_IMAGES_MEDIA . 'brands' . URL_SEPARATOR . $value['brand_thumbnail_image'] ?>" alt="img" class="mx-auto"></a>
-                            </a>
-                            <!-- <div class=" text-white bg-primary " style="margin-top:330%;"><i class="fa fa-camera"></i>7
-                        </div> -->
+                            <div class="arrow-ribbon bg-danger " style="margin-top:125%;"><i class="fa fa-eye"></i>7</div>
+                                <p class="pb-0 pt-0 mb-1 mt-2"></i>
+                                    <?php
+                                    if (ACTIVE_MODE == MODE_DEVELOPMENT) {
+                                        echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
+                                    } else  if (ACTIVE_MODE == MODE_DEVELOPMENT) {
+                                        echo $money_format('&#x20b9;%!n', $value['product_sell_price']);
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+                            <div class="item-card9-imgs">
+                                <a class="link" href="cars.html"></a>
+                                <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
+                                <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
+                            </div>
+                            <div class="item-card9-icons">
+                                <a href="" class="bg-white"><img src="<?php echo URL_IMAGES_MEDIA . 'brands' . URL_SEPARATOR . $value['brand_thumbnail_image'] ?>" alt="img" class="mx-auto"></a>
+                                </a>
+                                <!-- <div class=" text-white bg-primary " style="margin-top:330%;"><i class="fa fa-camera"></i>7
+                            </div> -->
                             </div>
                     </div>
 
