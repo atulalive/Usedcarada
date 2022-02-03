@@ -2,6 +2,7 @@
 
     var baseUrl = '<?php echo base_url();?>';
     var urlImageMedia = '<?php echo URL_IMAGES_MEDIA ?>';
+  
     function shimmerEffects() 
     {
         return '<!DOCTYPE html>' +
@@ -91,6 +92,11 @@
                 '</div>';
     }
 
+    function getLowerCase(string)
+    {
+        return string.toLowerCase();
+    }
+
     function listView(record = null)
     {
         return '<div class="card overflow-hidden">'  +
@@ -98,8 +104,8 @@
                 '<div class="item-card9-img">' +
                     '<div class="arrow-ribbon bg-primary">Sale</div>'  +
                     '<div class="item-card9-imgs">' +
-                        '<a class="link" href="'+ baseUrl + '/cardetails/' + record.product_category + '/' + record.product_alias_name + ' "></a>' +
-                        '<img src="'+ urlImageMedia + record.product_category + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
+                        '<a class="link" href="'+ baseUrl + '/cardetails/' + getLowerCase(record.product_category) + '/' + record.product_alias_name + ' "></a>' +
+                        '<img src="'+ urlImageMedia + getLowerCase(record.product_category) + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
                     '</div>' +
                     '<div class="item-card9-icons">' +
                         '<a href="#" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>' +
