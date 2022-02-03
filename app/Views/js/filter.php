@@ -2,7 +2,12 @@
 
     var baseUrl = '<?php echo base_url();?>';
     var urlImageMedia = '<?php echo URL_IMAGES_MEDIA ?>';
-  
+    
+    function getLowerCase(string)
+    {
+        return string.toLowerCase();
+    }
+
     function shimmerEffects() 
     {
         return '<!DOCTYPE html>' +
@@ -47,11 +52,11 @@
                                 '</div>' +
                                 '<div class="item-card9-imgs">' +
                                     '<a class="link" href="cars.html"></a>' +
-                                    '<a class="link" href="'+ baseUrl + '/cardetails/' + record.product_category + '/' + record.product_alias_name + ' "></a>' +
-                                    '<img src="' + urlImageMedia + record.product_category + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
+                                    '<a class="link" href="'+ baseUrl + '/cardetails/' + getLowerCase(record.product_category) + '/' + record.product_alias_name + ' "></a>' +
+                                    '<img src="' + urlImageMedia + getLowerCase(record.product_category) + '/' + record.product_thumbnail + ' " alt="img" class="cover-image">' +
                                 '</div>' +
                                 '<div class="item-card9-icons">' +
-                                    '<a href="" class="bg-white"><img src="'+ urlImageMedia + record.product_category + '/' + record.product_thumbnail + '" alt="img" class="mx-auto"></a>' +
+                                    '<a href="" class="bg-white"><img src="'+ urlImageMedia + getLowerCase(record.product_category) + '/' + record.product_thumbnail + '" alt="img" class="mx-auto"></a>' +
                                     '</a>' +
                                 '</div>' +
                             '</div>' +
@@ -61,7 +66,7 @@
                             '<div class="card-body  ">' +
                                 '<div class="item-card9-img ">' +
 
-                                    '<a href="'+ baseUrl + '/cardetails/' + record.product_category + '/' + record.product_alias_name + '" class="text-dark">' +
+                                    '<a href="'+ baseUrl + '/cardetails/' + getLowerCase(record.product_category) + '/' + record.product_alias_name + '" class="text-dark">' +
                                         '<h4 class="mb-0">' + record.product_name + '</h4>' +
                                         '<h4 class="mb-0">' + record.name + '</h4>' +
                                     '</a>' +
@@ -79,7 +84,7 @@
                                 '<div class="card-footer pt-4 pb-4 pr-4 pl-4">' +
                                     '<div class="item-card9-footer d-sm-flex">' +
                                         '<div class="ml-auto">' +
-                                            '<a href="'+ baseUrl + '/cardetails/' + record.product_category + '/' + record.product_alias_name + '" class="text-dark">' +
+                                            '<a href="'+ baseUrl + '/cardetails/' + getLowerCase(record.product_category) + '/' + record.product_alias_name + '" class="text-dark">' +
                                                 '<a href="#" class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i> ' + record.fuel + '</a>' +
                                                 '<a href="#" class="w-50 mt-1 mb-1 float-left" title="Kilometrs"><i class="fa fa-road text-muted mr-1 "></i>' + record.kms_driven + '</a>' +
                                                 '<a href="#" class="w-50 mt-1 mb-1 float-left" title="FuealType"><i class="fa fa-tachometer text-muted mr-1"></i>' + record.transmission + '</a>' +
@@ -92,10 +97,6 @@
                 '</div>';
     }
 
-    function getLowerCase(string)
-    {
-        return string.toLowerCase();
-    }
 
     function listView(record = null)
     {
@@ -152,13 +153,12 @@
     }
 
     function get_filter(className) {
-
         var values = $('.' + className +':checked');
         var array = [];
         values.each(function(){
             array.push($(this).val());
         });
-       return array;
+        return array;
     }
     
     $(document).ready(function(){
@@ -196,6 +196,7 @@
             
                     },
                     success: function(data){
+                        
                         if (data) {
                             $('#product-filter').empty();
                         
@@ -203,6 +204,7 @@
                                 record = data[item];
                                 $('#product-filter').append(gridView(record));
                             }
+
                         } else {
                             $('#hide-list-grid').show();
                         }
