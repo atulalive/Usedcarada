@@ -28870,6 +28870,11 @@ hr.divider:after {
     margin-top: 0;
     color: #fff;
 }
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
 
 .widget-user .widget-user-image {
     position: absolute;

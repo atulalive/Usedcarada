@@ -228,7 +228,7 @@ class Products extends Model
             $query = $this->db->query("SELECT `id`, `machine_name`, `brand_name`, `brand_thumbnail_image`, `deleted` 
                                     FROM `product_brand` 
                                     WHERE `deleted` = 0 AND `machine_name` = '".$data['brand_machine_name']."' LIMIT 1");
-        } else if ($data['is_brand']) {
+        } else if (@$data['is_brand']) {
             $query = $this->db->query("SELECT DISTINCT product_brand.`id`, product_brand.`machine_name`, product_brand.`brand_name`, product_brand.`brand_thumbnail_image`, product_brand.`deleted` 
                                     FROM product_brand 
                                     INNER JOIN `product_model` ON `product_model`.`brand_id` = product_brand.id AND product_brand.deleted = 0 
@@ -296,7 +296,7 @@ class Products extends Model
                                     INNER JOIN product_model ON product_model.id = product_brand_model_mapping.model_id AND product_model.deleted = 0 AND product_model.machine_name = '".$data['second']."'
                                     WHERE products.deleted = 0 
                                     ORDER BY products.pro_id DESC");
-            }else if ($data['type'] == 'brand') {
+            }else if ($data['type'] == 'brand') { 
                 $getbrandID = $this->get_product_brands(['brand_machine_name'=>$data['second']]);
                 $query = $this->db->query("SELECT DISTINCT products.pro_id, products.product_alias_name, products.product_name, products.product_category, products.product_thumbnail, product_overview.`make_year`, `registraion_year`, `fuel`, `kms_driven`, `engine_displacenent`, `no_of_owner`, `rto`, `transmission`, `insurance_type`,
                                     product_brand.machine_name AS brand_machine_name, `name` AS brand_name, product_model.machine_name AS model_machine_name, `name` AS model_name, product_model.`year` AS model_year, products_price.`id`, `product_sell_price`
