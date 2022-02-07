@@ -19,7 +19,7 @@
                         <img src="<?php echo URL_IMAGES_MEDIA . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_thumbnail']); ?>" alt="img" class="cover-image">
                     </div>
                     <div class="item-card9-icons">
-                    <a href="#" class="bg-white"><img src="<?php echo URL_IMAGES_MEDIA.'brands'.URL_SEPARATOR.$value['thumbnail_image'] ?>" alt="img" class="mx-auto"></a>
+                    <a href="#" class="bg-white"><img src="<?php echo URL_IMAGES_MEDIA.'brands'.URL_SEPARATOR.$value['brand_thumbnail_image'] ?>" alt="img" class="mx-auto"></a>
                     </div>
 
                 </div>

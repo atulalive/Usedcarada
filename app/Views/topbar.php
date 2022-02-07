@@ -38,9 +38,11 @@
 									</li>
 									<li>
 										<?php if(session()->get('loggedIn') == true){ ?>
-											<a href="<?php echo base_url('admin/myinfo'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span>Hello <?php print_r(session()->get('name')); ?></span></a>
+											<a href="<?php echo base_url('customer/profile'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span>Hello <?php echo session()->get('contact'); ?></span></a>
+											<a href="<?php echo base_url('customer/logout'); ?>" class="text-dark"><i class="fa fa-user-circle mr-1"></i> <span> Logout</span></a>
 										<?php }else {?>
-											<li><a href="#mylistings" data-toggle="modal" class="text-dark"><i class="glyphicon glyphicon-home"></i> <span>My Listings</span></a><li>
+											<li>
+												<a href="#mylistings" data-toggle="modal" class="text-dark"><i class="glyphicon glyphicon-home"></i> <span>My Listings</span></a><li>
 										    	<a href="#LgoinRegister" data-toggle="modal" class="text-dark"><i class="fa fa-sign-in mr-1"></i> <span>Login/Register</span></a></li>
 										<?php }?>
 
