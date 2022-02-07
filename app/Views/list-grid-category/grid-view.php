@@ -6,7 +6,7 @@
                 <div class="card overflow-hidden">
                     <div class="item-card9-img">
                         <div class="arrow-ribbon bg-primary">
-                            <div class="arrow-ribbon bg-danger " style="margin-top:125%;"><i class="fa fa-eye"></i>7</div>
+                           
                                 <p class="pb-0 pt-0 mb-1 mt-2"></i>
                                     <?php
                                     if (ACTIVE_MODE == MODE_DEVELOPMENT) {
@@ -17,6 +17,8 @@
                                     ?>
                                 </p>
                             </div>
+                            <div class="arrow-ribbon bg-danger " style="margin-top:50%;"><i class="fa fa-eye"></i>7</div>
+                            
                             <div class="item-card9-imgs">
                                 <a class="link" href="cars.html"></a>
                                 <a class="link" href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>"></a>
@@ -25,8 +27,8 @@
                             <div class="item-card9-icons">
                                 <a href="" class="bg-white"><img src="<?php echo URL_IMAGES_MEDIA . 'brands' . URL_SEPARATOR . $value['brand_thumbnail_image'] ?>" alt="img" class="mx-auto"></a>
                                 </a>
-                                <!-- <div class=" text-white bg-primary " style="margin-top:330%;"><i class="fa fa-camera"></i>7
-                            </div> -->
+                                 <div class=" text-white bg-primary " style="margin-top:330%;"><i class="fa fa-camera">&nbsp;&nbsp;7</i>
+                            </div> 
                             </div>
                     </div>
 
@@ -38,18 +40,18 @@
                                 <a href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>" class="text-dark">
 
                                     <h4 class="mb-0"><?php echo $value['product_name']; ?></h4>
-                                    <h4 class="mb-0"><?php echo $value['name']; ?></h4>
+                                    <h6 class="mb-0"><?php echo $value['name']; ?></h6>
 
                                 </a>
                                 <div class=" mb-2"><br>
                                     <b> <a href="#" class="mr-4"><span class=""><i class="fa fa-calendar-o text-muted mr-1"></i><b><?php echo ucwords($value['make_year']); ?></span></a></b>
-                                   <del> <a href="#" class="mr-4"style=padding-left:30%;><span class=""> <?php
+                                   <a href="#" class="mr-4"style=padding-left:30%;><span class=""> <?php
                                                                                 if (ACTIVE_MODE == MODE_DEVELOPMENT) {
                                                                                     echo number_to_currency($value['product_sell_price'], 'INR', $locale = 1);
                                                                                 } else  if (ACTIVE_MODE == MODE_DEVELOPMENT) {
                                                                                     echo $money_format('&#x20b9;%!n', $value['product_sell_price']);
                                                                                 }
-                                                                                ?></span></a></b><del>
+                                                                                ?></span></a></b>
                                 </div>
                                 <div class="item-card9-desc mb-2">
                                     <a href="#" class="mr-4"><span class=""><i class="fa fa-map-marker text-muted mr-1"></i>Mumbai</span></a>
@@ -58,13 +60,13 @@
 
 
                             </div>
-                            <div class="card-footer pt-4 pb-4 pr-4 pl-4">
-                                <div class="item-card9-footer d-sm-flex">
-                                    <div class="ml-auto">
+                            <div class="card-footer pt-2 pb-2 pr-2 pl-2">
+                                <div class="">
+                                    <div class="">
                                         <a href="<?php echo base_url() . '/cardetails' . URL_SEPARATOR . strtolower($value['product_category']) . URL_SEPARATOR . strtolower($value['product_alias_name']); ?>" class="text-dark">
-                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i> <?php echo ucwords($value['fuel']); ?></a>
-                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="Kilometrs"><i class="fa fa-road text-muted mr-1 "></i><?php echo ucwords($value['kms_driven']); ?></a>
-                                            <a href="#" class="w-50 mt-1 mb-1 float-left" title="FuealType"><i class="fa fa-tachometer text-muted mr-1"></i><?php echo ucwords($value['transmission']); ?></a>
+                                            <a href="#" class="" title="Car type"><i class="fa fa-car  mr-1 text-muted"></i> <?php echo ucwords($value['fuel']); ?></a>
+                                            <a href="#" class="" title="Kilometrs"><i class="fa fa-road text-muted mr-1 "></i><?php echo ucwords($value['kms_driven']); ?></a>
+                                            <a href="#" class=" " title="FuealType"><i class="fa fa-tachometer text-muted mr-1"></i><?php echo ucwords($value['transmission']); ?></a>
                                     </div>
                                 </div>
                             </div>

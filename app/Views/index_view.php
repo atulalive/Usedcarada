@@ -16,6 +16,7 @@ $brand = $pro_detail->get_product_brands(['is_brand' => true]);
 <body>
 
 	<?php echo view('topbar.php'); ?>
+	
 
 	<!--Section-->
 	<div>

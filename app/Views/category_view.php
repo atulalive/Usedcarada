@@ -13,7 +13,7 @@ $kilometers = $pro_detail->kilometer();
 $getBudegetPriceRange = $pro_detail->getBudegetPriceRange();
 $getProductOverview = $pro_detail->getProductOverview();
 $get_product_model = $pro_detail->get_product_model();
-
+$get_top_cities = $pro_detail->get_top_cities();
 ?>
 <!doctype html>
 <html class="no-js" lang="en">

@@ -92,6 +92,15 @@ $routes->get('logout', 'Admin/UserController::logout');
 
 /* Admin Routes End ***/
 
+// Customer Routes
+$routes->group("customer", function($routes){
+    $routes->post('login', 'Cms/CustomerController::login');
+    $routes->get('logout', 'Cms/CustomerController::logout');
+    $routes->get('profile', 'Cms/CustomerController::profile');
+});
+
+//...
+
 
 // AJAX Call page
 $routes->get('/(:any)', 'Home::search/$1');

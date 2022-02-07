@@ -5,7 +5,7 @@
 <body>
 	<?php echo view('topbar.php'); ?>
 
-	<br>
+	<br><br><br><br><br>
 
 
 
@@ -15,6 +15,7 @@
 				<div class="col-xl-8 col-lg-8 col-md-12 product-left">
 					<!--Classified Description-->
 					<div class="card overflow-hidden">
+						
 						<!-- <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">Offer</span></div> -->
 						<div class="card-body">
 							<div class="item-det mb-5"><br>
@@ -22,10 +23,13 @@
 									<h3><?php echo $product[0]['product_name']; ?></h3>
 								</a>
 								<div class=" d-flex">
-									<ul class="d-flex mb-0">
-										<li class="mr-5"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
-										<li class="mr-5"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i> India</a></li>
-										<li class="mr-5"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i> 5 hours ago</a></li>
+								<ul class="d-flex mb-0">
+										<li class="mr-4"><a href="#" class="icons"><i class="ti-car text-muted mr-1 fs-18"></i> <?php echo $product[0]['product_category']; ?></a></li>
+										<li class="mr-4"><a href="#" class="icons"><i class="ti-location-pin text-muted mr-1"></i>&nbsp;India</a></li>
+										<li class="mr-4"><a href="#" class="icons"><i class="ti-calendar text-muted mr-1"></i>&nbsp;2018</a></li>
+										<li class="mr-4"><a href="#" class="icons"><i class="fa fa-road"></i>&nbsp;&nbsp;2000km</a</li>
+										<li class="mr-4"><a href="#" class="icons"><i class="fas fa-gas-pump"></i>&nbsp;&nbsp;Petrol</a></li>
+										<li class="mr-4"><a href="#" class="icons"><i class="fa fa-eye"></i>&nbsp;&nbsp;125</a></li>
 										<!--li class="mr-5"><a href="#" class="icons"><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a></li-->
 									</ul>
 
@@ -362,7 +366,7 @@
 											if(ACTIVE_MODE == MODE_DEVELOPMENT){
 												echo number_to_currency($product[0]['product_sell_price'], 'INR', $locale = 1);
 											} else  if(ACTIVE_MODE == MODE_DEVELOPMENT){
-												echo money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
+												echo $money_format('&#x20b9;%!n',$product[0]['product_sell_price']);
 											}
 										?>
 									</h3>
