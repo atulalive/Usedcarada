@@ -62,6 +62,10 @@ $routes->get('(:any)/modelslist', 'Cms/ModelsController::modelslist');
 $routes->get('(:any)/modelform', 'Cms/ModelsController::modelform');
 $routes->post('(:any)/addmodels', 'Cms/ModelsController::addmodels');
 
+
+
+
+
 //Cties
 $routes->get('(:any)/citieslist', 'Cms/CitiesController::citieslist');
 $routes->get('(:any)/citiesform', 'Cms/CitiesController::citiesform');
@@ -97,6 +101,7 @@ $routes->group("customer", function($routes){
     $routes->post('login', 'Cms/CustomerController::login');
     $routes->get('logout', 'Cms/CustomerController::logout');
     $routes->get('profile', 'Cms/CustomerController::profile');
+    $routes->get('editprofile', 'Cms/CustomerController::editprofile');
 });
 
 //...
