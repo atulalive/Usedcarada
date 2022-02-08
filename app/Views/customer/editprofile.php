@@ -1,15 +1,21 @@
 <?php echo view('header.php'); ?>
+<?php echo view('topbar.php'); ?>
+
+<br><br><br><br>
 <?php echo view('customer/left-side-view.php'); ?>
 
 
 
 
+
+
+
 <div class="col-xl-9 col-lg-12 col-md-12">
-    
-<h4>Edit Profile</h4>
+
+    <h4>Edit Profile</h4>
     <div class="card mb-0">
         <div class="card-header">
-          
+
             <div class="card-body text-center item-user ">
                 <div class="profile-pic">
                     <div class="profile-pic-img">
@@ -47,7 +53,7 @@
                 <div class="col-sm-6 col-md-6">
                     <div class="form-group">
                         <label class="form-label">Phone Number</label>
-                        <input type="number" class="form-control" placeholder="Number">
+                        <input type="text" class="form-control" placeholder="Number">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -62,16 +68,11 @@
                         <input type="text" class="form-control" placeholder="City">
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group">
-                        <label class="form-label">Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
-                    </div>
-                </div>
+
                 <div class="col-md-5">
                     <div class="form-group">
                         <label class="form-label">Country</label>
-                        <select class="form-control select2-show-search border-bottom-0 w-100 select2-show-search" data-placeholder="Select">
+                        <select class="form-control   " data-placeholder="Select">
                             <optgroup label="Categories">
                                 <option>--Select--</option>
                                 <option value="1">Germany</option>
@@ -91,7 +92,7 @@
                             </optgroup>
                         </select>
                     </div>
-                </div>
+                </div><br>
 
 
 
@@ -115,3 +116,9 @@
 </div>
 </div>
 </section>
+
+<?php
+echo view('footer.php');
+echo view('model_view.php');
+
+?>

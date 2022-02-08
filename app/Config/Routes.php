@@ -102,6 +102,8 @@ $routes->group("customer", function($routes){
     $routes->get('logout', 'Cms/CustomerController::logout');
     $routes->get('profile', 'Cms/CustomerController::profile');
     $routes->get('editprofile', 'Cms/CustomerController::editprofile');
+    $routes->get('shortlistedvehicles', 'Cms/CustomerController::shortlistedvehicles');
+    $routes->get('myvehicles', 'Cms/CustomerController::myvehicles');
 });
 
 //...
