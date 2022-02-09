@@ -54,4 +54,19 @@ class CustomerController extends BaseController
 	{
 		return view('customer/index.php');
 	}
+	public function editprofile()
+	{
+		return view('customer/editprofile.php');
+	}
+	public function shortlistedvehicles()
+	{
+		return view('customer/shortlistedvehicles.php');
+	}
+	public function myvehicles()
+	{
+		return view('customer/myvehicles.php');
+	}
+	
+	
+	
 }

@@ -86,7 +86,7 @@ class CustomerAuthController extends BaseController
 
 			if ($authPassword) {
 				$sessionData = [
-					'id' => $user['id'],
+					'id' => $user['id'], 
 					'name' => $user['name'],
 					'email' => $user['email'],
 					'loggedIn' => true,
