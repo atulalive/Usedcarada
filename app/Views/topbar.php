@@ -13,7 +13,8 @@
 								<div class="clearfix text-center">
 									<div class="header-search-logo d-lg-block">
 										<a class="header-logo" href="<?php echo base_url(); ?>">
-											<img src="<?php echo URL_IMAGES_MEDIA; ?>logos/logo.png" class="header-brand-img" alt="dashr logo">
+											<!-- <img src="<?php echo URL_IMAGES_MEDIA; ?>logos/logo.png" class="header-brand-img" alt="dashr logo"> -->
+											<img src="<?php echo base_url(); ?>/assets/images/media/logos/logo.png" class="header-brand-img" alt="dashr logo">
 										</a>
 									</div>
 								</div>

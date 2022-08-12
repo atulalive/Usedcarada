@@ -8,7 +8,7 @@
                     <div class="card box-shadow-0 mb-0">
                         
                         <div class=""style="padding-left: 32%;">
-                        <br><img src="<?php echo URL_IMAGES_MEDIA; ?>logos/logo.png" class="header-brand-img text-center" alt="Claylist logo">
+                        <br><img src="<?php echo base_url(); ?>/assets/images/media/logos/logo.png" class="header-brand-img text-center" alt="Claylist logo">
                         </div>
                         <div class=""style="padding-left: 32%;">
                         <br><h4 style="padding-left: 2%;">Admin Login</h4>

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="d-flex">
             <a class="header-brand" href="index.html">
-                <img src="<?php echo URL_IMAGES_MEDIA; ?>logos/logo.png" class="header-brand-img" alt="Claylist logo">
+                <img src="<?php echo base_url(); ?>/assets/images/media/logos/logo.png" class="header-brand-img" alt="Claylist logo">
             </a>
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
             <div class="header-navicon">
@@ -29,7 +29,8 @@
                 
                 <div class="dropdown ">
                     <a href="#" class="nav-link pr-0 leading-none user-img" data-toggle="dropdown">
-                        <img src="<?php echo URL_IMAGES; ?>/users/male/25.jpg" alt="profile-img" class="avatar avatar-md brround">
+                        <!-- <img src="<?php echo URL_IMAGES; ?>/users/male/25.jpg" alt="profile-img" class="avatar avatar-md brround"> -->
+                        <img src="<?php echo base_url(); ?>/assets/images/users/male/25.jpg" alt="user-img" class="avatar avatar-lg brround">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
                         <a class="dropdown-item" href="profile.html">

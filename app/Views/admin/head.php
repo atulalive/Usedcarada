@@ -18,14 +18,14 @@
 		<title>Car Listing,Dealer,Rental Auto Classifieds Bootstrap Modern Responsive Clean HTML Template</title>
 
 		<!-- Bootstrap Css -->
-		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url(); ?>/assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 
 		<!-- Sidemenu Css -->
-		<link href="<?php echo URL_CSS.'sidemenu.css'; ?>" rel="stylesheet" />
+		<link href="<?php echo base_url(); ?>/assets/css/sidemenu.css" rel="stylesheet" />
 
 		<!-- Dashboard css -->
-		<link href="<?php echo URL_CSS.'style.css'; ?>" rel="stylesheet" />
-		<link href="<?php echo URL_CSS.'admin-custom.css'; ?>" rel="stylesheet" />
+		<link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet" />
+		<link href="<?php echo base_url(); ?>/assets/css/admin-custom.css" rel="stylesheet" />
 
 		<!-- c3.js Charts Plugin -->
 		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
 		<link href="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/select2/select2.min.css" rel="stylesheet" />
 
 		<!---Font icons-->
-		<link href="<?php echo URL_CSS.'icons.css'; ?>" rel="stylesheet"/>
+		<link href="<?php echo base_url(); ?>/assets/css/icons.css" rel="stylesheet"/>
 
 		<!-- Color-Skins -->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url().URL_SEPARATOR; ?>assets/color-skins/color13.css" />
@@ -58,7 +58,7 @@
 	<body class="<?php ($session->get('loggedIn')=="")?"construction-image":""; ?>">
 
 		<!--Loader-->
-		<div id="global-loader">
-			<!-- <img src="../assets/images/loader.svg" class="loader-img " alt=""> -->
-		</div>
+		<!-- <div id="global-loader">
+			<img src="../assets/images/loader.svg" class="loader-img " alt="">
+		</div> -->
 		<!--/Loader-->
