@@ -18,8 +18,8 @@
 		<title>Car Listing,Dealer,Rental Auto Classifieds Bootstrap Modern Responsive Clean HTML Template</title>
 
 		<!-- Bootstrap Css -->
-		<link href="<?php echo base_url(); ?>/assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
 		<!-- Sidemenu Css -->
 		<link href="<?php echo base_url(); ?>/assets/css/sidemenu.css" rel="stylesheet" />
 
@@ -53,6 +53,10 @@
 		
 		<!-- Common css -->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo base_url().URL_SEPARATOR; ?>assets/css/cms/common.css" />
+
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
 	</head>
 	<?php $session = \Config\Services::session(); ?>
 	<body class="<?php ($session->get('loggedIn')=="")?"construction-image":""; ?>">

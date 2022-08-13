@@ -48,12 +48,15 @@
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/counters/counterup.min.js"></script>
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/plugins/counters/waypoints.min.js"></script>
 
+		
+		
 		<!-- Custom, Common Js-->
 		
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/js/admin-custom.js"></script>
 		<script src="<?php echo base_url().URL_SEPARATOR; ?>assets/js/cms/common.js"></script>
 		<!-- <script src="<?php echo URL_JS.URL_SEPARATOR.'admin-custom.js'; ?>"></script> -->
 		<!-- <script src="<?php echo URL_REL_CMS_JS.'common.js'; ?>"></script> -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 		<script>
 			
 			$.ajaxSetup({
@@ -65,6 +68,6 @@
 			var Body = $('body');
 
 		</script>
-
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 	</body>
 </html>

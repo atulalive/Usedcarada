@@ -4,7 +4,6 @@ namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
-
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
 if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
@@ -109,6 +108,59 @@ $routes->group("customer", function($routes){
     $routes->get('shortlistedvehicles', 'Cms/CustomerController::shortlistedvehicles');
     $routes->get('myvehicles', 'Cms/CustomerController::myvehicles');
 });
+
+
+
+//------------- Admin Route -----------------// 
+//Master Route
+
+$routes->group('admin', ['namespace' => 'App\Controllers\admin'], function($routes)
+{
+    //Car Bodies
+    $routes->get('CarBodies', 'MasterController::CarBodies' );
+    $routes->post('CarBodies_loaddata', 'MasterController::CarBodies_ajaxLoadData' );
+    $routes->post('CarBodies_Save', 'MasterController::CarBodies_Save' );
+    $routes->post('CarBodiesDelete', 'MasterController::CarBodiesDelete' );
+    $routes->post('CarBodiesEdit', 'MasterController::CarBodiesEdit' );
+
+    //Car Brand
+    $routes->get('CarBrands', 'MasterController::CarBrands' );
+    $routes->post('CarBrandList', 'MasterController::CarBrandList' );
+    $routes->get('addCarBrandView', 'MasterController::addCarBrandView' );
+    $routes->post('AddCarBrand', 'MasterController::AddCarBrand' );
+    $routes->post('CarBrandDelete', 'MasterController::CarBrandDelete' );
+    $routes->get('CarBrandEdit/(:any)', 'MasterController::CarBrandEdit/$1' );
+
+    //Car Features
+    $routes->get('CarFeaturesList', 'MasterController::CarFeaturesListView' );
+    $routes->post('CarFeatures_loaddata', 'MasterController::CarFeatures_loaddata' );
+    $routes->post('CarFeatures_Save', 'MasterController::CarFeatures_Save' );
+    $routes->post('CarFeaturesEdit', 'MasterController::CarFeaturesEdit' );
+    $routes->post('CarFeaturesDelete', 'MasterController::CarFeaturesDelete' );
+     
+    //Car Specifications
+    $routes->get('CarSpecificationsList', 'MasterController::CarSpecificationsView' );
+    $routes->post('CarSpecifications_loaddata', 'MasterController::CarSpecifications_loaddata' );
+    $routes->post('CarSpecifications_Save', 'MasterController::CarSpecifications_Save' );
+    $routes->post('CarSpecificationsDelete', 'MasterController::CarSpecificationsDelete' );
+    $routes->post('CarSpecificationsEdit', 'MasterController::CarSpecificationsEdit' );
+    
+    
+    
+    
+    
+});
+
+// $routes->group("admin", function($routes){
+//     $routes->get('CarBodies', 'Admin/MasterController::CarBodies');
+//     // $routes->get('logout', 'Cms/CustomerController::logout');
+//     // $routes->get('profile', 'Cms/CustomerController::profile');
+//     // $routes->get('editprofile', 'Cms/CustomerController::editprofile');
+//     // $routes->get('shortlistedvehicles', 'Cms/CustomerController::shortlistedvehicles');
+//     // $routes->get('myvehicles', 'Cms/CustomerController::myvehicles');
+// });
+
+
 
 //...
 

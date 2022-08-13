@@ -36,7 +36,7 @@ class BaseController extends Controller
      * @var array
      */
     protected $helpers = ['form', 'url', 'session', 'number', 'app'];
-
+    
     /**
      * Constructor.
      */
@@ -46,7 +46,7 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        $this->database = \Config\Database::connect();
         // E.g.: $this->session = \Config\Services::session();
     }
 }

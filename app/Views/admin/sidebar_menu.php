@@ -1,99 +1,9 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar doc-sidebar">
-    <div class="app-sidebar__user clearfix">
-        <div class="dropdown user-pro-body">
-            <div>
-            
-                <img src="<?php echo base_url(); ?>/assets/images/users/male/25.jpg" alt="user-img" class="avatar avatar-lg brround">
-                <a href="editprofile.html" class="profile-img">
-                    <span class="fa fa-pencil" aria-hidden="true"></span>
-                </a>
-            </div>
-            <div class="user-info">
-                <h2><?php echo ucwords(session()->get('name')); ?></h2>
-                <span><?php echo ucwords(session()->get('user_type_name')); ?></span>
-            </div>
-        </div>
-    </div>
+    <br>
+
     <ul class="side-menu">
-    <li class="slide">
-            <a class="side-menu__item active" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-eye "></i><span class="side-menu__label">Master</span><i class="angle fa fa-angle-right"></i></a>
-            <ul class="slide-menu">
-
-            
-                <li>
-                <a href="#" class="slide-item">Car Bodies </a>
-                    <!-- <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Booking Add </a> -->
-                </li>
-                <li>
-                <a href="#" class="slide-item">Car Brands </a>
-                    <!-- <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Booking List </a> -->
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Car Features </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Car Specifications </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Car Sub Brands </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Car Sub Brand Model </a>
-                </li>  
-                
-                <li>
-                <a href="#" class="slide-item">Car Types </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item"> Car Sub Brand Model </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item"> Cities </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Countries </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Fuels </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Kilometers  </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Owners</a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Prices </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">States </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Transmitions </a>
-                </li>
-
-                
-                <li>
-                <a href="#" class="slide-item">Years</a>
-                </li>
-
-            </ul>
-        </li>
         <li class="slide">
              <a class="side-menu__item " href="widgets.html">
                 <i class="side-menu__icon ti-package"></i><span class="side-menu__label">Dashboard</span>
@@ -245,6 +155,83 @@
 
             </ul>
         </li> 
+        <li class="slide">
+            <a class="side-menu__item active" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-eye "></i><span class="side-menu__label">Master</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+
+            
+                <li>
+                <a href="<?php echo base_url('public/admin/CarBodies');?>" class="slide-item">Car Bodies </a>
+                    <!-- <a href="<?php echo base_url(session()->get('user_type_name').'/citiesform') ?>" class="slide-item">Booking Add </a> -->
+                </li>
+                <li>
+                <a href="<?php echo base_url('public/admin/CarBrands');?>" class="slide-item">Car Brands </a>
+                    <!-- <a href="<?php echo base_url(session()->get('user_type_name').'/citieslist') ?>" class="slide-item">Booking List </a> -->
+                </li>
+
+                <li>
+                <a href="<?php echo base_url('public/admin/CarFeaturesList');?>" class="slide-item">Car Features </a>
+                </li>
+
+                <li>
+                <a href="<?php echo base_url('public/admin/CarSpecificationsList');?>" class="slide-item">Car Specifications </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Car Sub Brands </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Car Sub Brand Model </a>
+                </li>  
+                
+                <li>
+                <a href="#" class="slide-item">Car Types </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item"> Car Sub Brand Model </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item"> Cities </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Countries </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Fuels </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Kilometers  </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Owners</a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Prices </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">States </a>
+                </li>
+
+                <li>
+                <a href="#" class="slide-item">Transmitions </a>
+                </li>
+
+                
+                <li>
+                <a href="#" class="slide-item">Years</a>
+                </li>
+
+            </ul>
+        </li>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-user "></i><span class="side-menu__label">Profile Settings</span></a>
             <ul class="slide-menu">
