@@ -40,35 +40,7 @@ $(document).ready(function() {
     });
 });
 
-function loadModelList(scope){
-	var brandVal = $(scope).val();
-	var base_url = window.location.origin;
-    console.log(base_url);
-    $('select[name="model"]').html('');
-	
-	// alert(brandVal);
-	if((brandVal != 'undefined') && (brandVal.length != 0)){
 
-		var request = $.ajax({
-			url: base_url+"/for-model",
-			dataType: "json",
-			async: true,
-            method: 'get',
-			data: {id : brandVal, source:'cms'},
-            success: function (response) {
-				// console.log(response);
-				if (response.ticket) {
-                    if (response.succeed) {
-                        $('select[name="model"]').append('<option value="null">Select Model</option>');
-						$.each(response.data, function (i, value) {
-							$('select[name="model"]').append($('<option>').text(value.name).attr('value', value.id));
-                        });
-					}
-				}
-			}  
-		});
-	}
-}
 
 
 var num = 4;

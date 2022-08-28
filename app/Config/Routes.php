@@ -145,10 +145,108 @@ $routes->group('admin', ['namespace' => 'App\Controllers\admin'], function($rout
     $routes->post('CarSpecificationsDelete', 'MasterController::CarSpecificationsDelete' );
     $routes->post('CarSpecificationsEdit', 'MasterController::CarSpecificationsEdit' );
     
+    //Car Sub Brands
+    $routes->get('CarSubBrandsList', 'MasterController::CarSubBrandsListView' );
+    $routes->post('CarSubBrandList', 'MasterController::CarSubBrandList' );
+    $routes->get('addCarSubBrandView', 'MasterController::addCarSubBrandView' );
+    $routes->post('AddCarSubBrand', 'MasterController::AddCarSubBrand' );
+    $routes->get('CarSubBrandEdit/(:any)', 'MasterController::CarSubBrandEdit/$1' );
+    $routes->post('CarSubBrandDelete', 'MasterController::CarSubBrandDelete' );
+
+    //Car Sub Next Brands
+    $routes->get('CarSubNextBrandsList', 'MasterController::CarSubNextBrandsListView' );
+    $routes->post('CarSubNextBrandList', 'MasterController::CarSubNextBrandList');
+    $routes->get('addCarSubNextBrandView', 'MasterController::addCarSubNextBrandView');
+    $routes->post('FindSubBrandData', 'MasterController::FindSubBrandData');
+    $routes->post('AddCarSubNextBrand', 'MasterController::AddCarSubNextBrand');
+    $routes->get('CarSubNextBrandEdit/(:any)', 'MasterController::CarSubNextBrandEdit/$1');
+    $routes->post('CarSubNextBrandDelete', 'MasterController::CarSubNextBrandDelete');
+    
+    //Car Type
+    $routes->get('CarTypeList', 'MasterController::CarTypeListView' );
+    $routes->post('CarType_loaddata', 'MasterController::CarType_loaddata' );
+    $routes->post('CarType_Save', 'MasterController::CarType_Save' );
+    $routes->post('CarTypeEdit', 'MasterController::CarTypeEdit' );
+    $routes->post('CarTypeDelete', 'MasterController::CarTypeDelete' );
+    
+
+    //Car Fule
+    $routes->get('CarFuleList', 'MasterController::CarFuleListView' );
+    $routes->post('CarFule_loaddata', 'MasterController::CarFule_loaddata' );
+    $routes->post('CarFule_Save', 'MasterController::CarFule_Save' );
+    $routes->post('CarFuleEdit', 'MasterController::CarFuleEdit' );
+    $routes->post('CarFuleDelete', 'MasterController::CarFuleDelete' );
+
+    
+    //Kilo Meters
+    $routes->get('CarKiloMetersList', 'MasterController::CarKiloMetersListView' );
+    $routes->post('CarKiloMeters_loaddata', 'MasterController::CarKiloMeters_loaddata' );
+    $routes->post('CarKiloMeters_Save', 'MasterController::CarKiloMeters_Save' );
+    $routes->post('CarKiloMetersEdit', 'MasterController::CarKiloMetersEdit' );
+    $routes->post('CarKiloMetersDelete', 'MasterController::CarKiloMetersDelete' );
+    
+    //Owners
+    $routes->get('CarOwnersList', 'MasterController::CarOwnersListView' );
+    $routes->post('CarOwners_loaddata', 'MasterController::CarOwners_loaddata' );
+    $routes->post('CarOwners_Save', 'MasterController::CarOwners_Save' );
+    $routes->post('CarOwnersEdit', 'MasterController::CarOwnersEdit' );
+    $routes->post('CarOwnersDelete', 'MasterController::CarOwnersDelete' );
+
+    //Prices
+    $routes->get('CarPricesList', 'MasterController::CarPricesListView' );
+    $routes->post('CarPrices_loaddata', 'MasterController::CarPrices_loaddata' );
+    $routes->post('CarPrices_Save', 'MasterController::CarPrices_Save' );
+    $routes->post('CarPricesEdit', 'MasterController::CarPricesEdit' );
+    $routes->post('CarPricesDelete', 'MasterController::CarPricesDelete' );
+    
+    //Transmitions
+    $routes->get('CarTransmitionsList', 'MasterController::CarTransmitionsListView' );
+    $routes->post('CarTransmitions_loaddata', 'MasterController::CarTransmitions_loaddata' );
+    $routes->post('CarTransmitions_Save', 'MasterController::CarTransmitions_Save' );
+    $routes->post('CarTransmitionsEdit', 'MasterController::CarTransmitionsEdit' );
+    $routes->post('CarTransmitionsDelete', 'MasterController::CarTransmitionsDelete' );
+
+    //Years
+    $routes->get('CarYearsList', 'MasterController::CarYearsListView' );
+    $routes->post('CarYears_loaddata', 'MasterController::CarYears_loaddata' );
+    $routes->post('CarYears_Save', 'MasterController::CarYears_Save' );
+    $routes->post('CarYearsEdit', 'MasterController::CarYearsEdit' );
+    $routes->post('CarYearsDelete', 'MasterController::CarYearsDelete' );
+
+
+    //Countries
+    $routes->get('CarCountriesList', 'MasterController::CarCountriesListView' );
+    $routes->post('CarCountries_loaddata', 'MasterController::CarCountries_loaddata' );
+    $routes->post('CarCountries_Save', 'MasterController::CarCountries_Save' );
+    $routes->post('CarCountriesEdit', 'MasterController::CarCountriesEdit' );
+    $routes->post('CarCountriesDelete', 'MasterController::CarCountriesDelete' );
+
+    //States
+    $routes->get('CarStatesList', 'MasterController::CarStatesListView' );
+    $routes->post('CarStates_loaddata', 'MasterController::CarStates_loaddata' );
+    $routes->post('CarStates_Save', 'MasterController::CarStates_Save' );
+    $routes->post('CarStatesEdit', 'MasterController::CarStatesEdit' );
+    $routes->post('CarStatesDelete', 'MasterController::CarStatesDelete' );
+
+    //Cities
+    $routes->get('CarCitiesList', 'MasterController::CarCitiesListView' );
+    $routes->post('CarCities_loaddata', 'MasterController::CarCities_loaddata' );
+    $routes->post('CarCities_Save', 'MasterController::CarCities_Save' );
+    $routes->post('CarCitiesEdit', 'MasterController::CarCitiesEdit' );
+    $routes->post('CarCitiesDelete', 'MasterController::CarCitiesDelete' );
+    $routes->post('GetStates', 'MasterController::GetStates' );    
+});
+
+$routes->group('admin', ['namespace' => 'App\Controllers\admin'], function($routes)
+{
+    //Car Bodies
+    $routes->get('CarAddForm', 'CarController::CarAddForm' );
+    $routes->post('FindCarModal', 'CarController::FindCarModal' );
+    $routes->post('FindCarSubModal', 'CarController::FindCarSubModal' );
+    $routes->post('CarAdd', 'CarController::CarAdd' );
     
     
-    
-    
+      
 });
 
 // $routes->group("admin", function($routes){

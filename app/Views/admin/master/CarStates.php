@@ -18,16 +18,18 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Car Specifications</h3>
-                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Specifications</button>
+								<h3 class="card-title">States</h3>
+                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> States</button>
 							</div>
 							<div class="card-body">
                             <table class="table table-bordered table-hover" id="tbl-students-data">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Country Name</th>
                                         <th>Name</th>
                                         <th>Slug</th>
+                                        <th>Code</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -60,13 +62,29 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Car Specifications</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> States</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form class="CarBodies">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Country Name<span style="color:red;">*</span></label>
+                <select name="country_id" id="" class="form-control">
+                    <option value="">--Select One--</option>
+
+                    <?php
+                        if(isset($countary)){
+                            foreach($countary as $val){
+                        ?>
+                            <option value="<?php echo $val['id'];?>"><?php echo $val['name'];?></option>
+                    <?php
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Name<span style="color:red;">*</span></label>
                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
@@ -75,6 +93,10 @@
             <div class="form-group">
                 <label for="exampleInputPassword1">Slug<span style="color:red;">*</span></label>
                 <input type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Enter Slug">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">State Code<span style="color:red;">*</span></label>
+                <input type="text" class="form-control" name="code" id="exampleInputPassword1" placeholder="Enter Code">
             </div>
         </form>
       </div>
@@ -95,12 +117,13 @@
   
   $(document).ready( function () {
    
+
     var CarTable = $('#tbl-students-data').DataTable({
         lengthMenu: [[ 10, 20,50,100], [ 10, 20, 50, 100]], // page length options
         bProcessing: true,
         serverSide: true,
         ajax: {
-            url: "<?php echo base_url('public/admin/CarSpecifications_loaddata');?>", // json datasource
+            url: "<?php echo base_url('public/admin/CarStates_loaddata');?>", // json datasource
             type: "post",
             data: {
             // key1: value1 - in case if we want send data with request
@@ -113,19 +136,23 @@
         });
 
         $(document).on('click','.CarBodiesSave',function(){
+            var country_id = $('select[name=country_id]').val();
             var name = $('input[name=name]').val();
             var slug = $('input[name=slug]').val();
+            var code = $('input[name=code]').val();
             var id = $('.id').val();
             if(name != '' || slug != ''){
                 $.ajax({
-                    url: '<?php echo base_url('public/admin/CarSpecifications_Save');?>',
+                    url: '<?php echo base_url('public/admin/CarStates_Save');?>',
                     type: 'post',
-                    data: {name: name, slug: slug, id: id},
+                    data: {country_id : country_id, name: name, slug: slug, code:code ,id: id},
                     dataType: 'json',
                     success: function(res){
                         if(res){
                             $('input[name=name]').val('');
                             $('input[name=slug]').val('');
+                            $('input[name=code]').val('');
+                            $('select[name=country_id]').val('');
                             $('.id').val('');
                             $('#CarModal').modal('hide');
                             $('.CarBodiesSave').text('Save');
@@ -159,7 +186,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.post(
-                            '<?php echo base_url('public/admin/CarSpecificationsDelete');?>',
+                            '<?php echo base_url('public/admin/CarStatesDelete');?>',
                             {id: id}, 
                             function(result) {
                                 CarTable.draw();
@@ -178,12 +205,14 @@
 			var id = $(this).attr('data-id');
             if(this.name == "edit") {
                 $.post(
-                    '<?php echo base_url('public/admin/CarSpecificationsEdit');?>',
+                    '<?php echo base_url('public/admin/CarStatesEdit');?>',
                     {id: id}, 
                     function(result) {
                         var res = JSON.parse(result);
+                        $('select[name=country_id]').val(res.country_id);
                         $('input[name=name]').val(res.name);
                         $('input[name=slug]').val(res.slug);
+                        $('input[name=code]').val(res.code);
                         $('.id').val(res.id);
                         $('#CarModal').modal('show');
                         $('.CarBodiesSave').text('Update');

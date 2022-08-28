@@ -18,16 +18,18 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Car Specifications</h3>
-                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Specifications</button>
+								<h3 class="card-title">Cities</h3>
+                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Cities</button>
 							</div>
 							<div class="card-body">
                             <table class="table table-bordered table-hover" id="tbl-students-data">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
+                                        <th>Country Name</th>
+                                        <th>State Name</th>
+                                        <th>City</th>
+                                        <th>Slug</th>                                       
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -60,13 +62,35 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Car Specifications</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> Cities</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form class="CarBodies">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Country Name<span style="color:red;">*</span></label>
+                <select name="country_id" id="" class="form-control" >
+                    <option value="">--Select One--</option>
+
+                    <?php
+                        if(isset($countary)){
+                            foreach($countary as $val){
+                        ?>
+                            <option value="<?php echo $val['id'];?>"><?php echo $val['name'];?></option>
+                    <?php
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">State Name<span style="color:red;">*</span></label>
+                <select name="state_id" id="" class="form-control statename">
+                    <option value="">--Select One--</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Name<span style="color:red;">*</span></label>
                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
@@ -94,13 +118,13 @@
 <script type="text/javascript">
   
   $(document).ready( function () {
-   
+
     var CarTable = $('#tbl-students-data').DataTable({
         lengthMenu: [[ 10, 20,50,100], [ 10, 20, 50, 100]], // page length options
         bProcessing: true,
         serverSide: true,
         ajax: {
-            url: "<?php echo base_url('public/admin/CarSpecifications_loaddata');?>", // json datasource
+            url: "<?php echo base_url('public/admin/CarCities_loaddata');?>", // json datasource
             type: "post",
             data: {
             // key1: value1 - in case if we want send data with request
@@ -113,19 +137,23 @@
         });
 
         $(document).on('click','.CarBodiesSave',function(){
+            var country_id = $('select[name=country_id]').val();
             var name = $('input[name=name]').val();
             var slug = $('input[name=slug]').val();
+            var state_id = $('select[name=state_id]').val();
             var id = $('.id').val();
             if(name != '' || slug != ''){
                 $.ajax({
-                    url: '<?php echo base_url('public/admin/CarSpecifications_Save');?>',
+                    url: '<?php echo base_url('public/admin/CarCities_Save');?>',
                     type: 'post',
-                    data: {name: name, slug: slug, id: id},
+                    data: {country_id : country_id, name: name, slug: slug, state_id:state_id ,id: id},
                     dataType: 'json',
                     success: function(res){
                         if(res){
                             $('input[name=name]').val('');
                             $('input[name=slug]').val('');
+                            $('select[name=state_id]').val('');
+                            $('select[name=country_id]').val('');
                             $('.id').val('');
                             $('#CarModal').modal('hide');
                             $('.CarBodiesSave').text('Save');
@@ -159,7 +187,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.post(
-                            '<?php echo base_url('public/admin/CarSpecificationsDelete');?>',
+                            '<?php echo base_url('public/admin/CarCitiesDelete');?>',
                             {id: id}, 
                             function(result) {
                                 CarTable.draw();
@@ -178,21 +206,38 @@
 			var id = $(this).attr('data-id');
             if(this.name == "edit") {
                 $.post(
-                    '<?php echo base_url('public/admin/CarSpecificationsEdit');?>',
+                    '<?php echo base_url('public/admin/CarCitiesEdit');?>',
                     {id: id}, 
                     function(result) {
                         var res = JSON.parse(result);
+                        $('select[name=country_id]').val(res.country_id);
+                        $('select[name=state_id]').val(res.state_id);
                         $('input[name=name]').val(res.name);
                         $('input[name=slug]').val(res.slug);
                         $('.id').val(res.id);
                         $('#CarModal').modal('show');
                         $('.CarBodiesSave').text('Update');
+                        $('select[name=country_id]').trigger("change");
+                        
                     }
                 );
 			}
 		});
+
+        $(document).on('change','select[name=country_id]',function(){
+            var id = this.value;
+            $.post(
+                    '<?php echo base_url('public/admin/GetStates');?>',
+                    {id: id}, 
+                    function(result) {
+                        $('.statename').html(result);
+                    }
+                );
+            
+        });
         
     });
     
     
+   
     </script>

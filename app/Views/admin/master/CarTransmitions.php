@@ -18,8 +18,8 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Car Specifications</h3>
-                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Specifications</button>
+								<h3 class="card-title">Car Transmitions</h3>
+                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Transmitions</button>
 							</div>
 							<div class="card-body">
                             <table class="table table-bordered table-hover" id="tbl-students-data">
@@ -60,7 +60,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Car Specifications</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Car Transmitions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -100,7 +100,7 @@
         bProcessing: true,
         serverSide: true,
         ajax: {
-            url: "<?php echo base_url('public/admin/CarSpecifications_loaddata');?>", // json datasource
+            url: "<?php echo base_url('public/admin/CarTransmitions_loaddata');?>", // json datasource
             type: "post",
             data: {
             // key1: value1 - in case if we want send data with request
@@ -118,7 +118,7 @@
             var id = $('.id').val();
             if(name != '' || slug != ''){
                 $.ajax({
-                    url: '<?php echo base_url('public/admin/CarSpecifications_Save');?>',
+                    url: '<?php echo base_url('public/admin/CarTransmitions_Save');?>',
                     type: 'post',
                     data: {name: name, slug: slug, id: id},
                     dataType: 'json',
@@ -159,7 +159,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.post(
-                            '<?php echo base_url('public/admin/CarSpecificationsDelete');?>',
+                            '<?php echo base_url('public/admin/CarTransmitionsDelete');?>',
                             {id: id}, 
                             function(result) {
                                 CarTable.draw();
@@ -178,7 +178,7 @@
 			var id = $(this).attr('data-id');
             if(this.name == "edit") {
                 $.post(
-                    '<?php echo base_url('public/admin/CarSpecificationsEdit');?>',
+                    '<?php echo base_url('public/admin/CarTransmitionsEdit');?>',
                     {id: id}, 
                     function(result) {
                         var res = JSON.parse(result);

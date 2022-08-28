@@ -21,4 +21,26 @@ class MasterOwners extends Model
     ];
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
+    
+
+    function total_count($search_value){
+        if(!empty($search_value)){
+            $total_countQuery = $this->db->query("SELECT * from master_owners WHERE id like '%".$search_value."%' OR name like '%".$search_value."%' OR slug like '%".$search_value."%'"); 
+            return $total_countQuery->getResult();
+        }else{
+            $total_countQuery = $this->db->query("SELECT * from master_owners"); 
+            return $total_countQuery->getResult();
+        }
+        
+    }
+
+    function data($search_value,$start, $length){
+        if(!empty($search_value)){
+            $total_countQuery = $this->db->query("SELECT * from master_owners WHERE id like '%".$search_value."%' OR name like '%".$search_value."%' OR slug like '%".$search_value."%' limit $start, $length"); 
+            return $total_countQuery->getResult();
+        }else{
+            $total_countQuery = $this->db->query("SELECT * from master_owners limit $start, $length"); 
+            return $total_countQuery->getResult();
+        }
+    }
 }

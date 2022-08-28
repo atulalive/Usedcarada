@@ -18,16 +18,16 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Car Specifications</h3>
-                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Specifications</button>
+								<h3 class="card-title">Car Years</h3>
+                                <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#CarModal"><i class="fa fa-plus" aria-hidden="true"></i> Car Years</button>
 							</div>
 							<div class="card-body">
                             <table class="table table-bordered table-hover" id="tbl-students-data">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
+                                        <th>Minimum</th>
+                                        <th>Maximum</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -60,7 +60,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Car Specifications</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Car Years</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -68,13 +68,13 @@
       <div class="modal-body">
         <form class="CarBodies">
             <div class="form-group">
-                <label for="exampleInputEmail1">Name<span style="color:red;">*</span></label>
-                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                <label for="exampleInputEmail1">Minimum<span style="color:red;">*</span></label>
+                <input type="text" class="form-control" name="Minimum" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
                 <input type="hidden" name="id" class="id">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Slug<span style="color:red;">*</span></label>
-                <input type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Enter Slug">
+                <label for="exampleInputPassword1">Maximum<span style="color:red;">*</span></label>
+                <input type="text" class="form-control" name="Maximum" id="exampleInputPassword1" placeholder="Enter Slug">
             </div>
         </form>
       </div>
@@ -100,7 +100,7 @@
         bProcessing: true,
         serverSide: true,
         ajax: {
-            url: "<?php echo base_url('public/admin/CarSpecifications_loaddata');?>", // json datasource
+            url: "<?php echo base_url('public/admin/CarYears_loaddata');?>", // json datasource
             type: "post",
             data: {
             // key1: value1 - in case if we want send data with request
@@ -113,19 +113,19 @@
         });
 
         $(document).on('click','.CarBodiesSave',function(){
-            var name = $('input[name=name]').val();
-            var slug = $('input[name=slug]').val();
+            var name = $('input[name=Minimum]').val();
+            var slug = $('input[name=Maximum]').val();
             var id = $('.id').val();
             if(name != '' || slug != ''){
                 $.ajax({
-                    url: '<?php echo base_url('public/admin/CarSpecifications_Save');?>',
+                    url: '<?php echo base_url('public/admin/CarYears_Save');?>',
                     type: 'post',
-                    data: {name: name, slug: slug, id: id},
+                    data: {Minimum: name, Maximum: slug, id: id},
                     dataType: 'json',
                     success: function(res){
                         if(res){
-                            $('input[name=name]').val('');
-                            $('input[name=slug]').val('');
+                            $('input[name=Minimum]').val('');
+                            $('input[name=Maximum]').val('');
                             $('.id').val('');
                             $('#CarModal').modal('hide');
                             $('.CarBodiesSave').text('Save');
@@ -159,7 +159,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.post(
-                            '<?php echo base_url('public/admin/CarSpecificationsDelete');?>',
+                            '<?php echo base_url('public/admin/CarYearsDelete');?>',
                             {id: id}, 
                             function(result) {
                                 CarTable.draw();
@@ -178,12 +178,12 @@
 			var id = $(this).attr('data-id');
             if(this.name == "edit") {
                 $.post(
-                    '<?php echo base_url('public/admin/CarSpecificationsEdit');?>',
+                    '<?php echo base_url('public/admin/CarYearsEdit');?>',
                     {id: id}, 
                     function(result) {
                         var res = JSON.parse(result);
-                        $('input[name=name]').val(res.name);
-                        $('input[name=slug]').val(res.slug);
+                        $('input[name=Minimum]').val(res.min);
+                        $('input[name=Maximum]').val(res.max);
                         $('.id').val(res.id);
                         $('#CarModal').modal('show');
                         $('.CarBodiesSave').text('Update');

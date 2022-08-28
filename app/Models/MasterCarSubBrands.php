@@ -23,4 +23,25 @@ class MasterCarSubBrands extends Model
     ];
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
+
+    function total_count($search_value){
+        if(!empty($search_value)){
+            $total_countQuery = $this->db->query("SELECT  bs.*,b.name as bName from master_car_sub_brands as bs join master_car_brands as b  on bs.brand_id = b.id WHERE bs.id like '%".$search_value."%' OR bs.name like '%".$search_value."%' OR bs.slug like '%".$search_value."%' OR b.name like '%".$search_value."%'"); 
+            return $total_countQuery->getResult();
+        }else{
+            $total_countQuery = $this->db->query("SELECT   bs.*,b.name as bName from master_car_sub_brands as bs join master_car_brands as b  on bs.brand_id = b.id"); 
+            return $total_countQuery->getResult();
+        }
+        
+    }
+
+    function data($search_value,$start, $length){
+        if(!empty($search_value)){
+            $total_countQuery = $this->db->query("SELECT  bs.*,b.name as bName from master_car_sub_brands as bs join master_car_brands as b  on bs.brand_id = b.id WHERE bs.id like '%".$search_value."%' OR bs.name like '%".$search_value."%' OR bs.slug like '%".$search_value."%' OR b.name like '%".$search_value."%' limit $start, $length"); 
+            return $total_countQuery->getResult();
+        }else{
+            $total_countQuery = $this->db->query("SELECT   bs.*,b.name as bName from master_car_sub_brands as bs join master_car_brands as b  on bs.brand_id = b.id limit $start, $length"); 
+            return $total_countQuery->getResult();
+        } 
+    }
 }

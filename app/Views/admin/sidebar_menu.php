@@ -43,6 +43,10 @@
             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-car"></i><span class="side-menu__label">Car</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li>
+                    <a href="<?php echo base_url("public/admin/CarAddForm")?>" class="slide-item">New Car<a>
+                    <!-- <a href="<?php echo base_url("public/master/CarAddForm")?>" class="slide-item">List</a> -->
+                </li>
+                <li>
                     <a href="#" class="slide-item">Features<a>
                     <!-- <a href="<?php echo base_url(session()->get('user_type_name')."/carlist")?>" class="slide-item">List</a> -->
                 </li>
@@ -155,6 +159,8 @@
 
             </ul>
         </li> 
+
+        <!-- master -->
         <li class="slide">
             <a class="side-menu__item active" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-eye "></i><span class="side-menu__label">Master</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
@@ -178,56 +184,52 @@
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Car Sub Brands </a>
+                <a href="<?php echo base_url('public/admin/CarSubBrandsList');?>" class="slide-item">Car Sub Brands </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Car Sub Brand Model </a>
+                <a href="<?php echo base_url('public/admin/CarSubNextBrandsList');?>" class="slide-item">Car Sub Brand Model </a>
                 </li>  
                 
                 <li>
-                <a href="#" class="slide-item">Car Types </a>
+                <a href="<?php echo base_url('public/admin/CarTypeList');?>" class="slide-item">Car Types </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item"> Car Sub Brand Model </a>
+                <a href="<?php echo base_url('public/admin/CarCitiesList');?>" class="slide-item"> Cities </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item"> Cities </a>
+                <a href="<?php echo base_url('public/admin/CarCountriesList');?>" class="slide-item">Countries </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Countries </a>
+                <a href="<?php echo base_url('public/admin/CarFuleList');?>" class="slide-item">Fuels </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Fuels </a>
+                <a href="<?php echo base_url('public/admin/CarKiloMetersList');?>" class="slide-item">Kilometers  </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Kilometers  </a>
+                <a href="<?php echo base_url('public/admin/CarOwnersList');?>" class="slide-item">Owners</a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Owners</a>
+                <a href="<?php echo base_url('public/admin/CarPricesList');?>" class="slide-item">Prices </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">Prices </a>
+                <a href="<?php echo base_url('public/admin/CarStatesList');?>" class="slide-item">States </a>
                 </li>
 
                 <li>
-                <a href="#" class="slide-item">States </a>
-                </li>
-
-                <li>
-                <a href="#" class="slide-item">Transmitions </a>
+                <a href="<?php echo base_url('public/admin/CarTransmitionsList');?>" class="slide-item">Transmitions </a>
                 </li>
 
                 
                 <li>
-                <a href="#" class="slide-item">Years</a>
+                <a href="<?php echo base_url('public/admin/CarYearsList');?>" class="slide-item">Years</a>
                 </li>
 
             </ul>
